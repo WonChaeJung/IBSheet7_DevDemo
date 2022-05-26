@@ -662,7 +662,8 @@ function IBS_InitSheet(sheet, info) {
     sheet.InitColumns(cInfo.Cols, dataRows);
     
 
-    if(sheet.SearchMethod == ''){
+    // sourceview 에서 sheet Reset하면 SearchMethod가 날아감
+    if(sheet.SearchMethod == '' || sheet.SearchMethod == undefined){
         sheet.SearchMethod == 'GET';
     }
       
