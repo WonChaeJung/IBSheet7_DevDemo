@@ -1,0 +1,200 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/sort.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<div class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>이벤트 > 기능별 > <b>정렬</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+<pre>
+<code class="language-javascript">// 정렬과 관련된 이벤트는 다음과 같습니다.
+/*
+	- OnBeforeSort, OnColumnSort, OnSort
+*/
+</code>
+</pre>
+						</div>
+						<header class="area-subtitle"> 
+							<div class="btn" style="float:left">
+								<button class="btn-strong" id="lftBtn1" onclick="columnSort();">두번째컬럼 정렬</button>
+							</div>
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" id="OnBeforeSort" onclick="btnCheck(this)">OnBeforeSort</button>
+								<button class="btn-strong" id="OnColumnSort" onclick="btnCheck(this)">OnColumnSort</button>
+								<button class="btn-strong" id="OnSort" onclick="btnCheck(this)">OnSort</button>
+								<button id="test123" class="btn-strong">로그지우기</button>
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<div style="height:430px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+							<textarea id="eventLog" style="width:100%; height:430px; border: 2px solid #5d8cc9"></textarea>
+						</div>
+						
+						<div class="entry-content">
+							<h2> 세부설명 </h2>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnBeforeSort"><b>1. OnBeforeSort</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.13.75 이후 버전에서 사용가능 합니다.<br/>
+									</div>
+								</div>
+							</blockquote>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnColumnSort"><b>2. OnColumnSort</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.13.106 이후 버전에서 사용가능 합니다.<br/>
+									</div>
+								</div>
+							</blockquote>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnSort"><b>3. OnSort</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.0.0 에서 추가됨<br/>
+										- 7.0.6.0 : 단위데이터행 구조에 대한 지원.<br/>
+									</div>
+								</div>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+	
+	<div class="modal fade" id="modalOnBeforeSort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnBeforeSort</h4>
+				</div>
+				<div class="modal-body">
+					<p>Sort 이벤트가 발생되기 전에 발생하는 이벤트
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnBeforeSort(col) { }
+	▶ Parameter
+		- Col(number) : 선택한 컬럼 인덱스
+	▶ Remark
+		- 헤더 클릭시 정렬 이벤트가 발생하기 전에 호출 된다.<br/>
+		- 정렬 수행전 대기이미지 호출등에 활용된다.
+*/
+function mySheet_OnBeforeSort(col) {
+	console.log(“SortColumn : “ + col);
+}
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalOnColumnSort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnColumnSort</h4>
+				</div>
+				<div class="modal-body">
+					<p>ColumnSort 함수를 실행했을 때 콜백 함수로서 호출된다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnColumnSort(Col, Order) { }
+	▶ Parameter
+		- Col(Number/String) : 정렬 처리된 컬럼 인덱스
+		- Order(String) : 정렬 방향 문자열(ASC, DESC)
+*/
+function mySheet_OnColumnSort(Col, Order) {
+	//ColumnSort 함수를 실행되었을 때 콜백 함수로 호출되어 실행.
+	if(order =="ASC")
+		alert(col + "번째 컬럼이 오름차순으로 정렬되었습니다.");
+	else
+		alert(col + "번째 컬럼이 내림차순으로 정렬되었습니다.");
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalOnSort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnSort</h4>
+				</div>
+				<div class="modal-body">
+					<p>헤더를 마우스로 눌러 데이터가 소트 완료 되었을 때 이벤트가 발생한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnSort(Col, SortOrder) { }
+	▶ Parameter
+		- Col(Number/String) : 정렬 처리된 컬럼 인덱스
+		- Order(String) : 정렬 방향 문자열(ASC, DESC)
+*/
+function mySheet_OnSort(col, order) {
+	if(order =="ASC")
+		alert(col + "번째 컬럼이 오름차순으로 정렬되었습니다.");
+	else
+		alert(col + "번째 컬럼이 내림차순으로 정렬되었습니다.");
+}
+ 
+
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

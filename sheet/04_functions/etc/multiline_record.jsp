@@ -1,0 +1,54 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/multiline_record.js"></script>
+		<title>IBSheet7-Product</title>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<div class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>기능별 > 주요기능 > <b>MultilineRecord</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+							<blockquote> 하나의 레코드 데이터를 ibsheet 안에서 두개 이상의 행으로 표현하는 기능 입니다. </blockquote>
+							<!-- <h2>ActionMenu(ContextMenu)</h2> -->
+							<!-- 
+							<p><b>1. ActionMenu가 무엇인가요?</b><br/>
+							그리드 내부영역에서 마우스 우클릭시 메뉴를 생성하는 기능을 사용자정의메뉴(ContextMenu)라고 부르며 ibsheet에서는 ActionMenu라는 명칭으로 제공됩니다.</p><br/>
+							<p><b>2. 설정 방법</b><br/>
+							SetActionMenu함수를 통해서 메뉴를 생성해 볼 수 있습니다.<br/>세 가지 방식으로 메뉴를 생성할 수 있는데 자세한 내용은 아래 코드를 참고해주세요</p>
+							 -->
+						<header class="area-subtitle"> 
+							<div class="fl">
+								<h5 class="title-a">조회결과</h5>
+							</div>
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" onclick="doAction('reload')">초기화</button>
+								<button class="btn-strong" onclick="doAction('search')">조회</button>
+							</div>
+						</header>
+						</div><br/>
+						<div class="area-panel" style="height: calc(100% - 225px);">
+							<div class="panel-ch">
+								<div style="height:100%;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer_dataview.jsp" %>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,173 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/frozen.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<dizzzv class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>영역별 > 데이터영역 > <b>틀 고정하기</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+							<!-- <blockquote>그리드에서 값을 추출했던것과 마찬가지로 값을 설정하는것 또한 다양한 함수 및 방법을 제공하고 있습니다.</blockquote> -->
+							<h2> 틀 고정 사용 방법 </h2>
+							<p>우리가 편히 알고 있는 엑셀에서의 틀 고정 기능은 자주 사용되어지는 기능중에 하나로써 시트에서도 옵션 및 함수호출을 통해 간단히 사용해볼 수 있습니다.
+							일반적으로는 시트생성시 SetConfig영역에 틀 고정 속성을 적용해서 사용하지만 동적으로 틀 고정 값을 변경하고자 할 경우에는 함수를 호출하여 조정합니다.<br/>
+							사용 방법은 아래 코드를 참고해주시기 바랍니다.<br/>
+							</p>
+							<p><b>[SetConfig 속성 적용]</b></p>
+							<p>
+<pre>
+<code class="language-javascript">
+var initSheet = {
+	Cfg : {
+		"SearchMode" :smLazyLoad,
+		"FrozenCol" : 2,		// 좌측 2번째 컬럼기준 틀 고정
+		"FrozenColRight" : 2		// 우측 2번째 컬럼 기준 틀 고정
+	},
+	Cols : [
+		{Header:"열1",Type:"Text",Width:65, SaveName:"param1",Align:"Center" },
+		{Header:"열2",Type:"Text",Width:65, SaveName:"param2",Align:"Center" },
+		{Header:"열3",Type:"Text",Width:40, SaveName:"param3",Align:"Center" },
+		{Header:"열4",Type:"Text",Width:40, SaveName:"param3",Align:"Center" },
+		{Header:"열5",Type:"Text",Width:40, SaveName:"param3",Align:"Center" },
+		{Header:"열6",Type:"Text",Width:40, SaveName:"param3",Align:"Center" }
+	]
+};
+</code>
+</pre>
+							</p>
+							<p><b>[함수 사용]</b></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalFrozenRows"><b>1. FrozenRows</b></a><br/>
+							그리드 상단 위치에 행 단위로 틀을 고정 시킵니다.</p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalFrozenCol"><b>2. FrozenCol</b></a><br/>
+							그리드 좌측위치에 컬럼을 기준으로 틀을 고정 시킵니다.
+							</p>
+							<!-- 
+							<h2> 푸터행 설정 </h2>
+							<p>Footer행 설명.<br/></p>
+							 -->
+						</div><br/>
+						<header class="area-subtitle"> 
+							<div class="fl">
+								<h5 class="title-a">조회결과</h5>
+							</div>
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" onclick="doAction('reload')">초기화</button>
+								<button class="btn-strong" onclick="doAction('frozenRow')">3행 고정</button>
+								<button class="btn-strong" onclick="doAction('frozenCol')">3열 고정</button>
+								<!-- <button class="btn-strong" onclick="doAction('footerRow')">푸터행 설정</button> -->
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<!-- class="sheetSec"  -->
+								<div style="height:300px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer_dataview.jsp" %>
+			</div>
+		</div>
+		
+	<!-- myModalLabel -->
+	<div class="modal fade" id="modalFrozenRows" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">FrozenRows</h4>
+				</div>
+				<div class="modal-body">
+					<p>고정행 출력 여부 및 출력 옵션을 설정한다..
+					상단에 설정한 개수의 행을 고정행으로 출력한다.<br/>
+					데이터 조회 완료 후 설정된 개수만큼의 데이터를 고정행으로 출력한다.<br/>
+					고정행에 합계행, 필터행은 포함되지 않으며 고정행 생성 시 합계행, 필터행이 있는 경우 합계행, 필터행의 아래에 생성된다.<br/>
+					고정행은 마우스를 이용한 행 선택 및 마우스 드래그를 통한 행 이동을 지원하지 않는다.<br/>
+					단위데이터행, 데이터머지, 트리 시트 및 소계를 사용하는 경우 해당 기능을 지원하지 않는다.<br/>
+					<font color="red">메인 섹션의 행을 모두 고정행으로 설정하는 경우 및 시트에서 보여지는 영역내에서 설정한 고정행을 모두 표현할 수 없는 경우 시트가 정상적으로 동작하지 않을 수 있다. (주의)</font>
+<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- ObjId.SetFrozenRows(Rows)
+	▶ Return
+		- None
+	▶ Parameter
+		- *Rows(Integer) : 설정할 고정행 개수 (Default=0)
+*/
+
+// 3개의 고정행을 설정한다. 
+mySheet.SetFrozenRows(3);
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- myModalLabel -->
+	<div class="modal fade" id="modalFrozenCol" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">FrozenCol</h4>
+				</div>
+				<div class="modal-body">
+					<p>좌측 고정컬럼을 동적으로 설정한다.
+설정한 개수의 열을 고정열로 출력한다.
+기존에 설정된 고정컬럼 수 보다 많은 수를 설정하는 경우 추가로 고정컬럼을 설정 처리하고, 적은 수를 설정한 경우 초과되는 컬럼수만큼 고정컬럼을 해제 처리한다.
+<font color="red">메인 섹션의 컬럼을 모두 고정으로 설정하는 경우 및 시트에서 보여지는 영역내에서 설정한 고정컬럼을 모두 표현할 수 없는 경우 시트가 정상적으로 동작하지 않을 수 있다. (주의)</font>
+<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- ObjId.SetFrozenCol(Rows)
+	▶ Return
+		- None
+	▶ Parameter
+		- *Rows(Integer) : 해당 열의 Col Index
+*/
+
+// 3개의 고정컬럼을 설정한다. 
+mySheet.SetFrozenCol(3);
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/deferred_scroll.js"></script>
+		<title>IBSheet7-Product</title>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<div class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>영역별 > 스크롤영역 > <b>지연스크롤 설정</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+							<blockquote>조회 방식이 lazyload인 경우에는 사용자가 스크롤동작시 순간 깜빡거리는 백화(빈 화면 노출) 현상을 발생시킵니다.<br/>
+							 아이비시트에서는 이 부분을 대응하기 위해 지연스크롤(deferred scroll)이라는 기능을 제공하고 있으며 사용 방법은 아래와 같습니다.
+							</blockquote>
+<pre>
+<code class="language-javascript">var initSheet = {
+	Cfg : {
+		DeferredHScroll  : 1, // 가로 스크롤에 대한 지연 처리 모드 허용 여부,
+		DeferredVScroll  : 1, // 세로 스크롤에 대한 지연 처리 모드 허용 여부,
+	},
+	HeaderMode : {
+		Sort : 1 // or true
+	}
+}
+</code>
+</pre>
+							<div style="width:100%; border:solid 0px blue;">
+								<div style="width:49%; border:solid 0px red; float:left;">
+									<header class="area-subtitle"> 
+										<h2>* 일반 그리드</h2>
+									</header>
+									<div class="area-panel">
+										<div class="panel-ch">
+											<!-- class="sheetSec"  -->
+											<div style="height:250px;">
+												<div id="ibsheetArea"></div>
+											</div>
+										</div>
+									</div><br/>
+								</div>
+								<div style=" width:50%; margin : 0 0 0 1px; border:solid 0px red; float: left;">
+									<header class="area-subtitle"> 
+										<h2>* 지연 스크롤이 적용된 그리드</h2>
+									</header>
+									<div class="area-panel">
+										<div class="panel-ch">
+											<!-- class="sheetSec"  -->
+											<div style="height:250px;">
+												<div id="ibsheetArea2"></div>
+											</div>
+										</div>
+									</div><br/>
+								</div>
+							</div>
+							<div style="width:100%; border:solid 0px blue; float:left;">
+								<header class="area-subtitle"> 
+									<h2>* 지연 스크롤에 포멧이 적용된 형태(응용)</h2>
+								</header>
+								<div class="area-panel">
+									<div class="panel-ch">
+										<!-- class="sheetSec"  -->
+										<div style="height:550px;">
+											<div id="ibsheetArea3"></div>
+										</div>
+									</div>
+								</div><br/>
+							</div>
+						</div><br/>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,157 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/down2excel.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<dizzzv class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>기능별 > 엑셀 > <b>단일 출력</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+							<h2> 엑셀 다운로드를 사용하기 위한 준비 </h2>
+							<p>IBSheet7에서는 그리드의 내용을 엑셀 문서로 만들어 주기 위해서 Down2Excel 이라는 함수를 제공하고 있습니다. <br/>
+							하지만 엑셀 다운로드를 위한 설정이 제대로 되지 않은 상태에서 Down2Excel함수를 호출할 경우 404(Not Found) 또는 500(Internal Server Error) 등이 발생 합니다.<br/>
+							정상적으로 엑셀 기능을 사용하기 위해서는 다음과 같은 설정이 필요 합니다.</p>
+							<p><b>Step1 : 서버모듈 설치 </b></p>
+							<p>엑셀 다운을 하기 위해서는 서버에 poi라이브러리 및 추가 종속 라이브러리가 올라가 있어야 합니다.<br/>
+							아래 라이브러리를 WAS에 올려 주세요. (각 라이브러리는 제품이 배포되는 시점에 포함되서 제공됩니다.)
+								<blockquote id="ib-quote" style="background-color : #fff;">
+									<img src="./img/exceldown_libs.gif" alt="" />
+								</blockquote>
+							</p>
+							<p><b>Step2 : 엑셀 다운 설정 파일 복사</b></p>
+							<p>제품이 배포되는 시점에 서버모듈과 마찬가지로 각 종 기능(엑셀다운,업로드)들을 설정할 수 있도록 여러 파일들은 제공하고 있는데,
+							아래 파일을 사용자가 지정한 특정 경로에 복사 합니다.
+								<blockquote id="ib-quote" style="background-color : #fff;">
+									<img src="./img/excel_files.gif" alt="" />
+								</blockquote>
+							</p>
+							<p><b>Step3 : ibsheet.cfg 경로 설정</b></p>
+							<p>각 기능을 처리하는 jsp파일의 경로를 아래와 같이 지정하게 되면 비로소 Down2Excel과 같은 함수를 사용할 수 있습니다.<br/>
+							</p>
+	<pre>
+<code class="language-javascript">
+{
+	"Cfg" : {
+		"Down2Excel_Url" : "../jsp/Down2Excel.jsp", // << 엑셀 다운
+		"Down2Hml_Url" : "../jsp/Down2Hml.jsp",
+		"LoadExcel_Url"  : "../jsp/LoadExcel.jsp",
+		"DirectLoadExcel_Url" : "../jsp/DirectLoadExcel.jsp",
+		"Down2Text_Url" : "../jsp/Down2Text.jsp",
+		"LoadText_Url" : "../jsp/LoadText.jsp",
+		"Down2Pdf_Url" : "../jsp/Down2Pdf.jsp"
+	}
+}
+</code>
+	</pre>
+						</div>
+						<!-- Area : 조회조건 (S) -->
+						<div class="area-search">
+							<div class="ib_function2 border_sheet">
+								<table class="ib_column2">
+									<tr>
+										
+										<th class="tit">파일명</th>
+										<td class="r20"><input type="text" id="filename" value="myFile.xls" size="10" class="inputbox"/></td>
+										<th class="tit">Worksheet</th>
+										<td class="r20"><input type="text" id="worksheetname" value="MYWORKSHEET" size="15" class="inputbox"/></td>
+										<td>머지반영</td>
+										<td class="r20"><input class="checkbox" type="checkbox" checked="checked" id="merge" /></td>
+										<td>디자인반영</td>
+										<td class="r20"><input class="checkbox" type="checkbox" checked="checked" id="design"/></td>
+										<td class="r20"><a href="javascript:doAction('down2excel');" class="f2_btn_white btn_sheet" style="width:80px">엑셀다운</a></td>
+									 </tr>
+<!-- 											<tr>
+												
+												<th class="tit">매칭방식</th>
+												<td class="r20" colspan="7">
+													<select id="match" class="selectbox">
+														<option value="HeaderMatch" selected>해더 타이틀 비교</option>
+														<option value="NoHeader">좌측부터 순서대로</option>
+														<option value="HeaderSkip">첫번째행 무시</option>
+													</select>
+												</td>
+												<td class="r20"><a href="javascript:doAction('loadexcel');" class="f2_btn_white btn_sheet"  style="width:110px">엑셀업로드</a></td>
+											</tr> -->
+								</table>
+							</div>
+						</div>
+						<header class="area-subtitle"> 
+							<div class="fl">
+								<h5 class="title-a">조회결과</h5>
+							</div>
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" onclick="doAction('reload')">초기화</button>
+								<button class="btn-strong" onclick="doAction('search')">조회</button>
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<!-- class="sheetSec"  -->
+								<div style="height:300px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+		
+	<!-- myModalLabel -->
+	<div class="modal fade" id="modalGetSaveJson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">GetCellValue</h4>
+				</div>
+				<div class="modal-body">
+					<p>셀에 값을 설정하거나 확인한다.<br/>
+					이때 셀의 값은 Format이 적용안된 실제로 서버에 저장되는 값을 의미 한다. 
+						<div class="form-group">
+<!-- 							<label class="label-control">Datetime Picker</label>
+							<input type="text" class="form-control datetimepicker" value="10/05/2016"> -->
+							<!-- <span class="material-input"></span> -->
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- ObjId.GetCellValue(Row, Col)
+	▶ Return
+		- String, 셀에 설정된 값 (Get Method 인 경우)
+	▶ Parameter
+		- *Row(Long) : 해당 셀의 Row Index
+		- *Col(Long /String) : 해당 셀의 Column Index 또는 SaveName
+*/
+
+//첫번째행, 네번째열 셀의 값 확인
+mySheet.GetCellValue(1, 4); 
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</body>
+</html>

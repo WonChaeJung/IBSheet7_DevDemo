@@ -1,0 +1,443 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/data.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<dizzzv class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>이벤트 > 영역별 > <b>데이터영역</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+<pre>
+<code class="language-javascript">// 데이터 영역에서 발생시킬 수 있는 이벤트는 다음과 같습니다.
+/*
+	체크박스 선택
+	   - OnBeforeCheck
+	행 삭제
+	   - OnRowDelete
+	셀 편집 이전
+	   - OnBeforeEdit
+	셀 편집 이후
+	   - OnAfterEdit
+	값 변경된 경우
+	   - OnChange
+	편집 완료 시점에 유효성
+	   - OnEditValidation
+	셀 선택 시작
+	   - OnSelectCell
+	셀 선택 종료
+	   - OnSelectEnd
+*/
+</code>
+</pre>
+						</div>
+						<header class="area-subtitle"> 
+							<div class="btn" style="float:left">
+							<!-- <button class="btn-strong" id="lftBtn1" onclick="columnSort();">-</button> -->
+							</div>
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" id="OnBeforeCheck" onclick="btnCheck(this)">OnBeforeCheck</button>
+								<button class="btn-strong" id="OnRowDelete" onclick="btnCheck(this)">OnRowDelete</button>
+								<button class="btn-strong" id="OnBeforeEdit" onclick="btnCheck(this)">OnBeforeEdit</button>
+								<button class="btn-strong" id="OnAfterEdit" onclick="btnCheck(this)">OnAfterEdit</button>
+								<button class="btn-strong" id="OnChange" onclick="btnCheck(this)">OnChange</button>
+								<button class="btn-strong" id="OnEditValidation" onclick="OnEditValidation(this)">OnEditValidation</button>
+								<button class="btn-strong" id="OnSelectCell" onclick="btnCheck(this)">OnSelectCell</button>
+								<button class="btn-strong" id="OnSelectEnd" onclick="btnCheck(this)">OnSelectEnd</button>
+								<button id="test123" class="btn-strong">로그지우기</button>
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<div style="height:430px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+							<textarea id="eventLog" style="width:100%; height:430px; border: 2px solid #5d8cc9"></textarea>
+						</div>
+						
+						<div class="entry-content">
+							<h2> 세부설명 </h2>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnBeforeCheck"><b>1. OnBeforeCheck</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnRowDelete"><b>2. OnRowDelete</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.13.58 이후 버전에서 사용가능 합니다.<br/>
+									</div>
+								</div>
+							</blockquote>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnBeforeEdit"><b>3. OnBeforeEdit</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnAfterEdit"><b>4. OnAfterEdit</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnChange"><b>5. OnChange</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnEditValidation"><b>6. OnEditValidation</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnSelectCell"><b>7. OnSelectCell</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnSelectEnd"><b>8. OnSelectEnd</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.13.26 이후 버전에서 사용가능 합니다.<br/>
+									</div>
+								</div>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+		
+	<!-- #1 #modalOnBeforeCheck -->
+	<div class="modal fade" id="modalOnBeforeCheck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnBeforeCheck</h4>
+				</div>
+				<div class="modal-body">
+					<p>사용자가 체크박스의 값 변경시 편집하기 직전에 이벤트가 발생한다.<br/>
+					체크박스의 값 변경을 하기 직전에 이벤트가 발생하므로 체크시점에 조건에 의한 처리가 가능하다.<br/>
+					지원되는 데이터타입은 아래와 같다.<br/>
+						- DelCheck<br/>
+						- CheckBox<br/>
+						- Radio<br/>
+						- DummyCheck<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnBeforeCheck(Row, Col) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index 
+		- Col(Long) : 해당 셀의 Column Index
+*/
+// 체크 되기 직전 이벤트가 발생한다.
+// 체크하려는 행이 입력행이면 경고창 띄우기.
+
+function mySheet_OnBeforeCheck(Row, Col) {
+	if(mySheet.GetCellValue(Row,"sStatus") == "I") {
+		alert("상태가 ‘입력'인 행은 선택이 불가능 합니다.");
+		mySheet.SetAllowCheck(0); //체크를 막는다.
+	}else{
+		mySheet.SetAllowCheck(1); //반드시 else인 경우에는 1로 설정
+	}
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- #2 #modalOnRowDelete -->
+	<div class="modal fade" id="modalOnRowDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnRowDelete</h4>
+				</div>
+				<div class="modal-body">
+					<p>RowDelete 또는 신규행의 DelCheck 타입 클릭 후 발생되는 행 삭제 시점에 발생한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnRowDelete(Row, Api) { }
+	▶ Parameter
+		- Row(Int) : 대상 행 Index
+		- Api(Boolean) : 메소드(RowDelete) 호출에 의한 삭제 여부
+*/
+
+function mySheet_OnRowDelete(Row, Api) {
+	//행 삭제 시 대상 행 및 메소드호출 여부
+	console.log("DeleteRow : " + row + "CallApi : " +api);
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- #3 modalOnBeforeEdit -->
+	<div class="modal fade" id="modalOnBeforeEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnBeforeEdit</h4>
+				</div>
+				<div class="modal-body">
+					<p>셀의 값을 편집하기 직전에 이벤트가 발생한다
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnBeforeEdit(Row, Col) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index 
+		- Col(Long) : 해당 셀의 Column Index
+
+*/
+
+//컬럼이 이동된 후 이벤트가 발생한다.
+function mySheet_OnBeforeEdit(Row, Col) {
+	alert("입력을 시작합니다.");
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- #4 OnAfterEdit -->
+	<div class="modal fade" id="modalOnAfterEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnAfterEdit</h4>
+				</div>
+				<div class="modal-body">
+					<p>셀의 값을 편집한 직후에 이벤트가 발생한다. 
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnAfterEdit(Row, Col) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index 
+		- Col(Long) : 해당 셀의 Column Index 
+*/
+//값을 편집한 직후 이벤트가 발생한다.
+
+function mySheet_OnAfterEdit(Row, Col) {
+	alert("입력을 마칩니다.");
+}
+ 
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- #5 #modalOnChange -->
+	<div class="modal fade" id="modalOnChange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnChange</h4>
+				</div>
+				<div class="modal-body">
+					<p>셀의 값을 편집 완료하고, 기존 값이 변경되었을 때 이벤트가 발생한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnChange(Row, Col, Value, OldValue, RaiseFlag) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index
+		- Col(Long) : 해당 셀의 Column Index
+		- Value(String) : 변경된 값, Format이 적용되지 않은 저장 시 사용되는 값
+		- OldValue(String) : 변경 이전의 값
+		- RaiseFlag(Int) : 이벤트 발생 옵션
+		  (0:사용자 편집, 1:메소드, 2:Paste(ctrl+v 붙여넣기))
+*/
+	function mySheet_OnChange(Row, Col, Value, OldValue, RaiseFlag) {
+		if(Col == 3 && mySheet.GetCellValue(Row, 2) == ‘원화' && Value == ‘9') {
+			alert("원화 일 때 코드는 10을 선택하여야 합니다.");
+		}
+	}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- #6 modalOnSort -->
+	<div class="modal fade" id="modalOnSort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnSort</h4>
+				</div>
+				<div class="modal-body">
+					<p>헤더를 마우스로 눌러 데이터가 소트 완료 되었을 때 이벤트가 발생한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnSort(Col, SortOrder) { }
+	▶ Parameter
+		- Col(Number/String) : 정렬 처리된 컬럼 인덱스
+		- Order(String) : 정렬 방향 문자열(ASC, DESC)
+*/
+function mySheet_OnSort(col, order) {
+	if(order =="ASC")
+		alert(col + "번째 컬럼이 오름차순으로 정렬되었습니다.");
+	else
+		alert(col + "번째 컬럼이 내림차순으로 정렬되었습니다.");
+}
+ 
+
+
+</code>
+</pre>김경록
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- #7 #modalOnSelectCell -->
+	<div class="modal fade" id="modalOnSelectCell" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnSelectCell</h4>
+				</div>
+				<div class="modal-body">
+					<p>특정 셀이 선택되었을 때 이벤트가 발생한다.<br/>
+					기존에 선택되었던 셀 정보와 새로 선택된 셀 정보를 모두 반환하므로 선택된 셀에 대한 처리 로직을 기재할 수 있다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnSelectCell(OldRow, OldCol, NewRow, NewCol,isDelete) { }
+	▶ Parameter
+		- OldRow(Long) : 이전 선택 셀의 Row Index
+		- OldCol(Long) : 이전 선택 셀의 Column Index
+		- NewRow(Long) : 현재 선택 셀의 Row Index
+		- NewCol(Long) : 현재 선택 셀의 Column Index
+		- isDelete(Boolean) : 추가된 행을 DelCheck를 통해 삭제하는 경우,
+							같은 위치를 기준으로 OnSelectCell 이벤트가 발생하는데,
+							이때 행삭제됨을 구분해 주기 위한 값
+*/
+function mySheet_OnSelectCell(OldRow, OldCol, NewRow, NewCol,isDelete) {
+	alert("셀("+ OldRow + "," + OldCol + ")을 선택하였다가 셀(" + NewRow + "," + NewCol +")을 선택하였습니다.");
+}
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- #8 modalOnSelectEnd -->
+	<div class="modal fade" id="modalOnSelectEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnSelectEnd</h4>
+				</div>
+				<div class="modal-body">
+					<p>마우스 드래그 또는 키 입력으로 셀 영역 선택 완료 시점에 이벤트가 발생 한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnSelectEnd(Rows, Cols) { }
+	▶ Parameter
+		- Rows(String) : 선택된 행의 Index를 구분자 '|'로 연결한 문자열
+		- Cols(String) : 선택된 컬럼의 Index를 구분자 '|'로 연결한 문자열
+*/
+function mySheet_OnSelectEnd(Rows, Cols) {
+	console.log("SelectedRows:", Rows, "SelectedCols", Cols);
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</body>
+</html>

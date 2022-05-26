@@ -1,0 +1,25 @@
+var resultData = {
+	data:[
+		{"Text":"홍길동","CheckBox":0,"Popup":"20121115","PopupEdit":"20081217115521","Pass":"abcde"}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19980525","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"허균","CheckBox":0,"Popup":"19760930","PopupEdit":"","Pass":""}
+		,{"Text":"이순신","CheckBox":1,"Popup":"19741010","PopupEdit":"","Pass":"12345"}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19800707","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19980525","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"허균","CheckBox":0,"Popup":"19760930","PopupEdit":"","Pass":""}
+		,{"Text":"이순신","CheckBox":1,"Popup":"19741010","PopupEdit":"","Pass":"12345"}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19800707","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19980525","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"허균","CheckBox":0,"Popup":"19760930","PopupEdit":"","Pass":""}
+		,{"Text":"이순신","CheckBox":1,"Popup":"19741010","PopupEdit":"","Pass":"12345"}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19800707","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19980525","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"허균","CheckBox":0,"Popup":"19760930","PopupEdit":"","Pass":""}
+		,{"Text":"이순신","CheckBox":1,"Popup":"19741010","PopupEdit":"","Pass":"12345"}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19800707","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19980525","PopupEdit":"20120525164500","Pass":""}
+		,{"Text":"허균","CheckBox":0,"Popup":"19760930","PopupEdit":"","Pass":""}
+		,{"Text":"이순신","CheckBox":1,"Popup":"19741010","PopupEdit":"","Pass":"12345"}
+		,{"Text":"김한국","CheckBox":1,"Popup":"19800707","PopupEdit":"20120525164500","Pass":""}
+	]
+}

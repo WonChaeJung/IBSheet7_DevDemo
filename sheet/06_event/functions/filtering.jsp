@@ -1,0 +1,136 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/filtering.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<dizzzv class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>이벤트 > 기능별 > <b>필터링</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+<pre>
+<code class="language-javascript">//필터링과 관련된 이벤트는 다음과 같습니다.
+/*
+	- 필터링 조건이 변경시 발생
+	   : OnChangeFilter
+	- 필터링 완료 후 발생
+	   : OnFilterEnd
+*/
+</code>
+</pre>
+						</div>
+						<header class="area-subtitle"> 
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" id="OnChangeFilter" onclick="btnCheck(this)">OnChangeFilter</button>
+								<button class="btn-strong" id="OnFilterEnd" onclick="btnCheck(this)">OnFilterEnd</button>
+								<button id="test123" class="btn-strong">로그지우기</button>
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<div style="height:430px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+							<textarea id="eventLog" style="width:100%; height:430px; border: 2px solid #5d8cc9"></textarea>
+						</div>
+						
+						<div class="entry-content">
+							<h2> 세부설명 </h2>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnChangeFilter"><b>1. OnChangeFilter</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnFilterEnd"><b>2. OnFilterEnd</b></a><br/></p>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+	<div class="modal fade" id="modalOnChangeFilter" tabindex="-1" role="dialog" aria-labelledby="OnChangeFilter" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnChangeFilter</h4>
+				</div>
+				<div class="modal-body">
+					<p>필터행의 셀의 값을 바꾸거나 옵션이 변경되었을 때 이벤트가 발생한다.<br/> 
+사용자의 값 변경외에도, SetFilterOption 함수를 이용했을때도 이벤트가 발생하게 된다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnChangeFilter() { }
+	▶ Parameter
+		- None
+*/
+//SearchMode:3 일때 필터링 조건이 바뀌게 되면 조회
+function mySheet_OnChangeFilter() {
+	// 필터행 QueryString 변환
+	var fp = mySheet.GetFilterParam(0,1);
+	var info = {PageParam: "page", Param: "id=ibleaders&seq=1&" + fp};
+	mySheet.DoSearchPaging("list.jsp",info);
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="modalOnFilterEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnFilterEnd</h4>
+				</div>
+				<div class="modal-body">
+					<p>필터링이 완료된 후에 이벤트가 발생한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_ OnFilterEnd(RowCnt, FirstRow) { }
+	▶ Parameter
+		- RowCnt(Long) : 필터링된 이후 행의 개수
+		- FirstRow(Long) : 필터링된 이후 첫번째 행의 Index
+*/
+function mySheet_ OnFilterEnd(RowCnt, FirstRow) {
+
+}
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</body>
+</html>

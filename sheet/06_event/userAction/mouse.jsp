@@ -1,0 +1,562 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/mouse.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<dizzzv class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>이벤트 > 사용자 동작별 > <b>마우스 관련 이벤트</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+							<!-- <blockquote>마우스 조작과 관련된 이벤트애 대하여 알아보겠습니다.</blockquote> -->
+							<h2> 마우스 조작과 관련된 이벤트 입니다. </h2>
+						</div>
+						<header class="area-subtitle"> 
+							<div class="btn" style="float:left">
+								<button class="btn-strong" id="BtnDragMode" onclick="btnCheck(this)">DragMode</button>
+								<button class="btn-strong" id="BtnDragCell" onclick="btnCheck(this)">DragCell</button>
+								<button class="btn-strong" onclick="LoadPage()">재생성</button>
+							</div>
+							<div class="btn" style="float:left;">
+								<button class="btn-strong" id="OnDragStart" onclick="btnCheck(this)">OnDragStart</button>
+								<button class="btn-strong" id="OnDropEnd" onclick="btnCheck(this)">OnDropEnd</button>
+								<button class="btn-strong" id="OnCellDropEnd" onclick="btnCheck(this)">OnCellDropEnd</button>
+								<button class="btn-strong" id="OnSelectEnd" onclick="btnCheck(this)">OnSelectEnd</button>
+								<button class="btn-strong" id="OnClick" onclick="btnCheck(this)">OnClick</button>
+								<button class="btn-strong" id="OnButtonClick" onclick="btnCheck(this)">OnButtonClick</button>
+								<button class="btn-strong" id="OnDblClick" onclick="btnCheck(this)">OnDblClick</button>
+								<button class="btn-strong" id="OnMouseDown" onclick="btnCheck(this)">OnMouseDown</button>
+								<button class="btn-strong" id="OnMouseUp" onclick="btnCheck(this)">OnMouseUp</button>
+								<button class="btn-strong" id="OnMouseMove" onclick="btnCheck(this)">OnMouseMove</button>
+								<button id="test123" class="btn-strong">로그지우기</button>
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<!-- class="sheetSec"  -->
+								<div style="height:600px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+							<textarea id="eventLog" style="width:100%; height:600px; border: 2px solid #5d8cc9"></textarea>
+						</div>
+						
+						<div class="entry-content">
+							<h2> 세부설명 </h2>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnDragStart"><b>1. OnDragStart</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnDropEnd"><b>2. OnDropEnd</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnCellDropEnd"><b>3. OnCellDropEnd</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnSelectEnd"><b>4. OnSelectEnd</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.13.26 이후 버전에서 사용가능 합니다.<br/>
+									</div>
+								</div>
+							</blockquote>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnClick"><b>5. OnClick</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnButtonClick"><b>6. OnButtonClick</b></a><br/></p>
+							<blockquote id="ib-quote">
+								<div class="ib-indent">
+									<div class="ib-paragraph">
+										- 7.0.13.9 이후 버전에서 사용가능 합니다.<br/>
+									</div>
+								</div>
+							</blockquote>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnDblClick"><b>7. OnDblClick</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnMouseDown"><b>8. OnMouseDown</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnMouseUp"><b>9. OnMouseUp</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnMouseDown"><b>10. OnMouseDown</b></a><br/></p>
+							</p>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+		
+	<!-- #1 modalOnDragStart -->
+	<div class="modal fade" id="modalOnDragStart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnDragStart</h4>
+				</div>
+				<div class="modal-body">
+					<p>행 또는 셀 단위 Drag를 시작할 때 이벤트가 발생 한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnDragStart(Row, Col) { }
+	▶ Parameter
+		- Row(Long) : Drag 위치의 Row Index
+		- Col(Long) : Drag 위치의 Column Index
+*/
+
+//첫번째행, 네번째열 셀의 값 확인
+var dragValue = "";
+function mySheet_OnDragStart(Row, Col) {
+	// Drag 시작위치의 CellValue를 저장
+	dragValue = mySheet.GetCellValue(Row, Col);
+}
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- #2 #modalOnDropEnd -->
+	<div class="modal fade" id="modalOnDropEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnDropEnd</h4>
+				</div>
+				<div class="modal-body">
+					<p>행 단위 Drag를 시작 후 Drop 시점에 이벤트가 발생한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnDropEnd(FromSheet, FromRow, ToSheet, ToRow, X, Y, Type) { }
+	▶ Parameter
+		- FromSheet(Object) : Drag 위치 Sheet 객체
+		- Row(Long) : Drag 위치 Sheet 객체의 Row Index
+		- ToSheet(Object) : Drop 위치 Sheet 객체
+		- ToRow(Long) : Drop 위치 Sheet 객체의 Row Index
+		- X(Integer) : Drop 위치의 X 좌표
+		- Y(Integer) : Drop 위치의 Y 좌표
+		- Type(Integer) : 트리 구조인 경우 Drop 위치의 타입
+*/
+// 드래그 행을 드랍위치에 추가하고 드래그 시트에서 삭제한다.
+function mySheet_OnDropEnd(FromSheet, FromRow, ToSheet, ToRow, X, Y, Type) {
+	var NewRow = ToObj.DataInsert(ToRow);
+	for (var c = 0; c <= Obj.LastCol(); c++) {
+		ToObj.SetCellValue(NewRow, c, Obj.GetCellValue(Row, c));
+	}
+	Obj.RowDelete(Row);
+}
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 3 #modalOnCellDropEnd -->
+	<div class="modal fade" id="modalOnCellDropEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnCellDropEnd</h4>
+				</div>
+				<div class="modal-body">
+					<p>셀 단위 Drag를 시작 후 Drop 시점에 이벤트가 발생한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnCellDropEnd(FromSheet, FromRow, FromCol, ToSheet, ToRow, ToCol, X, Y) { }
+	▶ Parameter
+		- FromSheet(Object) : Drag 위치 Sheet 객체
+		- FromRow(Long) : Drag 위치 Sheet 객체의 Row Index
+		- FromCol(Long) : Drag 위치 Sheet 객체의 Column Index
+		- ToSheet(Object) : Drop 위치 Sheet 객체
+		- ToRow(Long) : Drop 위치 Sheet 객체의 Row Index
+		- ToCol(Long) : Drop 위치 Sheet 객체의 Column Index
+		- X(Long) : Drop 위치의 X 좌표
+		- Y(Long) : Drop 위치의 Y 좌표
+
+*/
+// 드래그 셀의 Value를 드랍위치 셀에 설정한다
+function mySheet_OnCellDropEnd(FromSheet, FromRow, FromCol, ToSheet, ToRow, ToCol) {
+	var bValue = ToObj.GetCellValue(ToRow, ToCol);
+	var aValue = Obj.GetCellValue(Row, Col);
+	if (ToRow < 0) {
+		ToRow = ToObj.DataInsert(ToRow);
+		ToCol = ToObj.MouseCol();
+	}
+	if (ToObj && ToRow > 0 && ToCol >= 0) {
+		ToObj.SetCellValue(ToRow, ToCol, aValue);
+		if (bValue) {
+			Obj.SetCellValue(Row, Col, bValue);
+		} else {
+			Obj.SetCellValue(Row, Col, "");
+		}
+	}
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 4 OnSelectEnd -->
+	<div class="modal fade" id="modalOnSelectEnd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnSelectEnd</h4>
+				</div>
+				<div class="modal-body">
+					<p>마우스 드래그 또는 키 입력으로 셀 영역 선택 완료 시점에 이벤트가 발생 한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnSelectEnd(Rows, Cols) { }
+	▶ Parameter
+		- Rows(Long) : 선택된 행의 Index를 구분자 '|'로 연결한 문자열
+		- Cols(Long) : 선택된 컬럼의 Index를 구분자 '|'로 연결한 문자열
+*/
+
+function mySheet_OnSelectEnd(Rows, Cols) {
+	console.log("SelectedRows:", Rows, "SelectedCols", Cols);
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 5 modalOnClick -->
+	<div class="modal fade" id="modalOnClick" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnClick</h4>
+				</div>
+				<div class="modal-body">
+					<p>데이터 영역의 셀을 마우스로 클릭했을 때 이벤트가 발생한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnClick(Row, Col, Value, CellX, CellY, CellW, CellH, rowType) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index
+		- Col(Long) : 해당 셀의 Column Index
+		- Value(String) : 이벤트가 발생한 셀의 값
+		- CellX(Long) : 해당셀의 X좌표
+		- CellY(Long)  해당셀의 Y좌표
+		- CellW(Long) : 해당셀의 가로 넓이값
+		- CellH(Long) : 해당셀의 세로 높이값
+		- rowType(String) : 해당 Row의 타입(HeaderRow, SubSumRow, SumRow, DataRow, CumulateRow)
+*/
+
+function mySheet_OnClick(Row, Col, Value, CellX, CellY, CellW, CellH) {
+
+//특정 열을 클릭했을 때 다른 페이지로 이동하도록 처리
+if( mySheet.ColSaveName(Col) == "LINK_BUFF"){
+		location.href = "link.jsp?key=" + mySheet.GetCellValue(Row,"KFELD");
+	}
+}
+ 
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- 6 #modalOnButtonClick -->
+	<div class="modal fade" id="modalOnButtonClick" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnButtonClick</h4>
+				</div>
+				<div class="modal-body">
+					<p>"Button" 컬럼타입의 버튼 클릭시 발생하는 이벤트<br/>
+					해당 셀의 Editable이 false인 경우에는 이벤트가 발생하지 않는다 
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnButtonClick(Row, Col) { }
+	▶ Parameter
+		- *Row(Long) : 대상 행의 Index
+		- *Col(Longg) : 대상 열의ㅊ Index
+*/
+function mySheet_OnButtonClick(Row, Col) {
+	console.log("[" + Row + "," + Col + "] 셀의 버튼 클릭");
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 7 #modalOnDblClick -->
+	<div class="modal fade" id="modalOnDblClick" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnDblClick</h4>
+				</div>
+				<div class="modal-body">
+					<p>데이터 영역의 셀을 마우스로 더블 클릭했을 때 이벤트가 발생한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnDblClick(Row, Col, Value, CellX, CellY, CellW, CellH) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index
+		- Col(Long) : 해당 셀의 Column Index
+		- Value(String) : 이벤트가 발생한 셀의 값
+		- CellX(Long) : 해당셀의 X좌표
+		- CellY(Long)  해당셀의 Y좌표
+		- CellW(Long) : 해당셀의 가로 넓이값
+		- CellH(Long) : 해당셀의 세로 높이값
+*/
+
+function mySheet_OnDblClick(Row, Col, Value, CellX, CellY, CellW, CellH) {    
+	//더블 클릭했을 때, 선택행의 값을 전달 어미 창으로 전달.
+	var selectRowJson = mySheet.GetRowData(Row);
+	parent.GetData(selectRowJson);
+	self.close();
+	return false; //창을 닫는 경우에는 false를 리턴해 줘야 함.
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- 8 #OnMouseDown -->
+	<div class="modal fade" id="modalOnMouseDown" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnMouseDown</h4>
+				</div>
+				<div class="modal-body">
+					<p>마우스가 눌려졌을 때 이벤트가 발생한다.<br/>
+					마우스가 눌린 셀의 위치를 알고자 한다면 MouseRow 와 MouseCol 함수를 이용한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnMouseDown(Button, Shift, X, Y) { }
+	▶ Parameter
+		- Button(Integer) : 0 : 왼쪽
+							2 : 오른쪽 (마우스버튼 방향)
+		- Shift(Integer) :  1: Shift키가 눌린 경우
+							2: Ctrl키가 눌린 경우
+							3: 그외
+		- X(Long) : X좌표
+		- Y(Long) : Y좌표
+*/
+
+function mySheet_OnMouseDown(Button, Shift, X, Y) {
+	//눌린 컬럼 확인
+	alert(mySheet.MouseRow() + "행 " + mySheet.MouseCol() + "컬럼이 눌림");
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 9 #modalOnMouseUp -->
+	<div class="modal fade" id="modalOnMouseUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnMouseUp</h4>
+				</div>
+				<div class="modal-body">
+					<p>눌려진 마우스 버튼이 올라올 때 이벤트가 발생한다.<br/>
+					버튼이 올라온 셀의 위치를 알고자 한다면 MouseRow와 MouseCol 함수를이용한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnMouseDown(Button, Shift, X, Y) { }
+	▶ Parameter
+		- Button(Integer) : 0 : 왼쪽
+							2 : 오른쪽 (마우스버튼 방향)
+		- Shift(Integer) :  1: Shift키가 눌린 경우
+							2: Ctrl키가 눌린 경우
+							3: 그외
+		- X(Long) : X좌표
+		- Y(Long) : Y좌표
+*/
+
+function mySheet_OnMouseUp(Button, Shift, X, Y) {
+	//마우스 버튼이 올라온 컬럼 확인
+	alert(mySheet.MouseRow() + "행 " + mySheet.MouseCol() + "컬럼이 눌림");
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 10 #OnMosueMove -->
+	<div class="modal fade" id="OnMosueMove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnMouseMove</h4>
+				</div>
+				<div class="modal-body">
+					<p>마우스가 Sheet 위에서 이동되었을 때 이벤트가 발생한다.<br/>
+					마우스가 이동하고있는 셀의 위치를 알고자 한다면 MouseRow와 MouseCol 함수를 이용한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnMouseDown(Button, Shift, X, Y) { }
+	▶ Parameter
+		- Button(Integer) : 0 : 왼쪽
+							2 : 오른쪽 (마우스버튼 방향)
+		- Shift(Integer) :  1: Shift키가 눌린 경우
+							2: Ctrl키가 눌린 경우
+							3: 그외
+		- X(Long) : X좌표
+		- Y(Long) : Y좌표
+*/
+function mySheet_OnMouseMove(Button, Shift, X, Y) {
+	//마우스 위치를 행과 컬럼과 값 가져오기
+	var Row = mySheet.MouseRow();
+	var Col = mySheet.MouseCol();
+	var sText = mySheet.GetCellText(Row, Col);
+	
+	//2컬럼이고 내용이 2011-07-14일때만 div popup을 보여줌
+	if(Col == 2 && sText == "2011-07-14") {
+		$("#div_pop_summary").show();
+	}else{
+		$("#div_pop_summary").hide();
+	}
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-simple">Nice Button</button> -->
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</body>
+</html>

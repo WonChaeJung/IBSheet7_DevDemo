@@ -1,0 +1,423 @@
+ /*
+  ==================================================================================
+  							crm 테마 수정중
+  ==================================================================================
+  */
+  
+  
+/* -----------------------------------------------------------------------------
+
+TABS COMPONENT
+
+----------------------------------------------------------------------------- */
+/**
+* Tab
+*/
+/* 탭타이틀 전체영역 배경 수정 */
+.ib-tab-tabs.ib-ibcrm {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  height: auto;
+  width: 100%;
+  visibility: visible;
+  /* 수정 */
+  background-color: #333333;
+  border-bottom: darkslateblue 0px solid; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item {
+    margin: 0;
+    padding: 0; }
+    .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important; }
+    .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item::-webkit-scrollbar-thumb {
+      background: rgba(33, 33, 33, 0.8); }
+      /* 일반 탭 타이틀 색상 수정 */
+    .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding: 6px 6px 6px 6px;
+      /* 수정 */
+      border: #333333 1px solid;
+      border-right:1px;
+      border-top:0px;
+      color: black;
+      
+      /* 수정  */
+      /* border: darkslateblue 0px solid; */
+     /*  border-bottom: darkslateblue 3px solid; */
+     /*  background-color: darkslateblue; */
+     background: linear-gradient(to top, #505050, #7c7c7c );
+      text-align: center;
+      /* -webkit-transition: z-index 0.3s, opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+      -moz-transition: z-index 0.3s, opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+      -o-transition: z-index 0.3s, opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+      transition: z-index 0.3s, opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s; */
+      border-radius: 0px 0px 0px 0px;
+      cursor: pointer;
+      z-index: 0; }
+      /* hover 색상변경 */
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link:hover {
+        color: white;
+        /* border-bottom-color: #7a6ec0;
+        background-color: #7a6ec0; */
+        background: linear-gradient(to top, #0b6eb8, #2ba9d7 );
+        font-weight:bold;
+        z-index: 1; }
+        /* 선택한 탭 타이틀 색상 수정  // 배경색 수정 */
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link.is-active {
+        /* 수정 */
+        color: #fff;
+        font-weight:bold;
+        /* border-bottom-color: #7a6ec0; */
+        /* background-color: darkslateblue; */
+        background: linear-gradient(to top, #0b6eb8, #2ba9d7 );
+        z-index: 1; }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link.is-disable {
+        color: #b3b3b3 !important;
+        background-color: #231e44 !important;
+        border-bottom-color: #231e44 !important;
+        pointer-events: none !important;
+        cursor: default !important; }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link.is-hidden {
+        display: none; }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link.is-over {
+        opacity: 0;
+        visibility: hidden; }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link.is-flow {
+        opacity: 1;
+        visibility: visible; }
+    .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-shadow {
+      position: absolute;
+      visibility: hidden;
+      top: 0px;
+      bottom: 0px;
+      width: 10px;
+      height: auto;
+      z-index: 0;
+      opacity: 0;
+      /* -webkit-transition: opacity 0.3s ease-in-out, z-index 0.5s, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+      -moz-transition: opacity 0.3s ease-in-out, z-index 0.5s, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+      -o-transition: opacity 0.3s ease-in-out, z-index 0.5s, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+      transition: opacity 0.3s ease-in-out, z-index 0.5s, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s; */ }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-shadow.left {
+        left: 0px;
+        background: -moz-linear-gradient(left, #333333 0%, #333333 98%, #333333 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(left top, right top, color-stop(0%, #333333), color-stop(98%, #333333), color-stop(100%, #333333));
+        /* Chrome, Safari4+ */
+        background: -webkit-linear-gradient(left, #333333 0%, #333333 98%, #333333 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left, #333333 0%, #333333 98%, #333333 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(left, #333333 0%, #333333 98%, #333333 100%);
+        /* IE 10+ */
+        background: linear-gradient(to right, #333333 0%, #333333 98%, #333333 100%);
+        /* W3C */ }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-shadow.right {
+        left: 0px;
+        background: -moz-linear-gradient(left, #333333 0%, #333333 2%, #333333 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(left top, right top, color-stop(0%, #333333), color-stop(2%, #333333), color-stop(100%, #333333));
+        /* Chrome, Safari4+ */
+        background: -webkit-linear-gradient(left, #333333 0%, #333333 2%, #333333 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left, #333333 0%, #333333 2%, #333333 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(left, #333333 0%, #333333 2%, #333333 100%);
+        /* IE 10+ */
+        background: linear-gradient(to right, #333333 0%, #333333 2%, #333333 100%);
+        /* W3C */ }
+      .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-shadow.is-active {
+        visibility: visible;
+        z-index: 5;
+        opacity: 1; }
+
+/**
+* Contents
+*/
+.ib-tab-contents.ib-ibcrm {
+  position: relative;
+  top: 0px;
+  background-color: #fff;
+  /* -webkit-transition: color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s, width 0.4s, height 0.4s;
+  -moz-transition: color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s, width 0.4s, height 0.4s;
+  -o-transition: color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s, width 0.4s, height 0.4s;
+  transition: color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s, width 0.4s, height 0.4s; */
+  border: darkslateblue 0px solid;
+  visibility: visible; }
+  .ib-tab-contents.ib-ibcrm .ib-tab-contents__item {
+    padding: 0;
+    border: 0; }
+    .ib-tab-contents.ib-ibcrm .ib-tab-contents__item.is-active {
+      top: 0px; }
+
+/**
+ * customZone
+ */
+.ib-tab-tabs.ib-ibcrm .ib-tab-cus {
+  padding: 6px 0px 6px 0px;
+  width: 200px;
+  color: white; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-cus.to-big {
+    min-width: 10px; }
+
+/**
+* Context Menu
+*/
+.ib-context-menu.ib-ibcrm {
+  z-index: 10;
+  padding: 3px 0;
+  width: 165px;
+  background-color: #fff;
+  border: solid 1px #333333;
+  -webkit-box-shadow: 1px 1px 2px #b3b3b3;
+  -moz-box-shadow: 1px 1px 2px #b3b3b3;
+  box-shadow: 1px 1px 2px #b3b3b3; }
+
+.ib-context-menu.ib-ibcrm .ib-context-menu__items {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .ib-context-menu.ib-ibcrm .ib-context-menu__items .ib-context-menu__item {
+    margin-bottom: 2px; }
+    .ib-context-menu.ib-ibcrm .ib-context-menu__items .ib-context-menu__item:last-child {
+      margin-bottom: 0; }
+    .ib-context-menu.ib-ibcrm .ib-context-menu__items .ib-context-menu__item .ib-context-menu__link {
+      padding: 0px 4px;
+      color: black;
+      text-decoration: none; }
+      .ib-context-menu.ib-ibcrm .ib-context-menu__items .ib-context-menu__item .ib-context-menu__link:hover {
+        color: black;
+        background-color: #249cd0; }
+
+/**
+* DropDown Menu
+*/
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-arrow {
+  opacity: 0;
+  margin-left: 2px;
+  padding: 5px 1.5px 5px 1.5px;
+  color: #e7e7e7;
+  border-bottom: #333333 solid 0px;
+  background-color: #249cd0;
+  pointer-events: none;
+  cursor: default;
+  text-align: center;
+  font-size: 16px;
+  /* -webkit-transition: opacity 0.4s ease-in-out, color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s;
+  -moz-transition: opacity 0.4s ease-in-out, color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s;
+  -o-transition: opacity 0.4s ease-in-out, color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s;
+  transition: opacity 0.4s ease-in-out, color 0.4s, border-color 0.4s, background-color 0.4s, border-radius 0.2s;
+  z-index: 2; */ }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-arrow.is-active {
+    opacity: 1;
+    color: #e7e7e7;
+    background-color: #333333;
+    pointer-events: auto;
+    cursor: pointer; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-arrow.is-active:hover {
+    color: white;
+    background-color: #249cd0; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-arrow.left {
+    border-radius: 0px 0px 0px 0px; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-arrow.right {
+    border-radius: 0px 0px 0px 0px;
+    margin-left: 0px; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-dropbtn {
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 6px 6px 6px 6px;
+  color: #f1f1f1;
+  border-bottom: darkslateblue solid 0px;
+  background-color: #333333;
+  text-align: center;
+  /* -webkit-transition: opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.3s;
+  -moz-transition: opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.3s;
+  -o-transition: opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.3s;
+  transition: opacity 0.3s ease-in-out, color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.3s; */
+  border-radius: 0px;
+  font-size: 16px;
+  cursor: pointer; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-dropbtn.is-active {
+    color: #f1f1f1;
+    background-color: #2aa8d6; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-wrapBtn .ib-tab-tabs-dropbtn:hover {
+    color: white;
+    background-color: #2aa8d6; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-contents {
+  color: #f1f1f1;
+  overflow: auto;
+  background-color: darkslateblue;
+  border: solid 1px darkslateblue;
+  -webkit-box-shadow: 1px 1px 2px #b3b3b3;
+  -moz-box-shadow: 1px 1px 2px #b3b3b3;
+  box-shadow: 1px 1px 2px #b3b3b3;
+  z-index: 10; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-contents:last-child {
+    margin-bottom: 0; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-contents .ib-tab-tabs-item__link {
+    text-align: center;
+    /* -webkit-transition: color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+    -moz-transition: color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+    -o-transition: color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s, border-radius 0.2s; */
+    border-radius: 5px 5px 0px 0px;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px 6px 0px 6px;
+    color: black;
+    background-color: #fff;
+    border-radius: 0; }
+    .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-contents .ib-tab-tabs-item__link:hover {
+      color: #fff;
+      background-color: #2aa8d6; }
+    .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-dropdown-contents .ib-tab-tabs-item__link.is-active {
+      color: #fff;
+      background-color: #2aa8d6; }
+
+/* -----------------------------------------------------------------------------
+
+  Theme1
+
+----------------------------------------------------------------------------- */
+/* -----------------------------------------------------------------------------
+
+  ROOT ELEMENTS
+
+----------------------------------------------------------------------------- */
+.ib-tab-tabs.ib-ibcrm,
+.ib-tab-contents.ib-ibcrm,
+.ib-context-menu.ib-ibcrm {
+  color: #6d6d6d;
+  font-family: "나눔고딕", NanumGothic, MalgunGothic, "맑은 고딕", "Malgun Gothic", "Lucida Grande", "Lucida Sans Unicode", Helvetica, "애플고딕", AppleGothic, sans-serif;
+  font-size: 12px;
+  line-height: 1.8; }
+
+/* -----------------------------------------------------------------------------
+
+  HEADING ELEMENTS
+
+----------------------------------------------------------------------------- */
+.ib-tab-contents.ib-ibcrm h1,
+.ib-tab-contents.ib-ibcrm h2,
+.ib-tab-contents.ib-ibcrm h3,
+.ib-tab-contents.ib-ibcrm h4,
+.ib-tab-contents.ib-ibcrm h5,
+.ib-tab-contents.ib-ibcrm h6 {
+  color: #f1f1f1; }
+
+/* -----------------------------------------------------------------------------
+
+  TEXT ELEMENTS
+
+----------------------------------------------------------------------------- */
+.ib-tab-tabs.ib-ibcrm a,
+.ib-context-menu.ib-ibcrm a {
+  color: #7a6ec0;
+  text-decoration: none; }
+
+.ib-tab-tabs.ib-ibcrm a:hover,
+.ib-context-menu.ib-ibcrm a:hover {
+  color: darkslateblue; }
+
+.ib-tab-tabs.ib-ibcrm b,
+.ib-tab-tabs.ib-ibcrm strong,
+.ib-context-menu.ib-ibcrm b,
+.ib-context-menu.ib-ibcrm strong {
+  font-weight: 700; }
+
+.ib-tab-tabs.ib-ibcrm em,
+.ib-context-menu.ib-ibcrm em {
+  font-style: italic; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link i,
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link span {
+  margin: 0;
+  padding: 5px 2px 5px 2px;
+  line-height: 1.2; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link i {
+  font-size: 14px; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link i.fa-close {
+  font-size: 16px; 
+  color: #df3535;
+  }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link span.ib-tab-tabs-item__title {
+  /* 수정 */
+  font-size: 12px;
+   }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-item__link i,
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-item__link span {
+  margin-left: 2px;
+  margin-right: 2px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-item__link i.fa-close {
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: 14px; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-item__link i.fa-lock {
+  display: none; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-item__link.is-hold i.fa-lock {
+  display: block !important; }
+
+@media all and (min-width: 720px) {
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link i {
+    margin-left: 2px;
+    margin-right: 2px;
+    /* 수정 */
+    font-size: 15px; }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link i.fa-close {
+    font-size: 16px;
+    color: #df3535;
+     }
+  .ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link span.ib-tab-tabs-item__title {
+    margin-left: 2px;
+    margin-right: 2px; } }
+
+/* -----------------------------------------------------------------------------
+
+  MEDIA ELEMENTS
+
+  ----------------------------------------------------------------------------- */
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-item .ib-tab-tabs-item__link img {
+  width: auto;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-tabs-dropdown .ib-tab-tabs-item__link img {
+  width: auto;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2; }
+
+.ib-tab-tabs.ib-ibcrm .ib-tab-cus img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.ib-tab-contents.ib-ibcrm .ib-tab-contents__item.iframes {
+  padding: 0rem;
+  border: 0 !important; }
+
+.ib-tab-contents.ib-ibcrm .ib-tab-contents__item iframe {
+  border: none;
+  padding: 0rem; }
+  
+  

@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="../sheet/ibsheetinfo.js"></script>
+		<script type="text/javascript" src="../sheet/ibsheet.js"></script>
+		<title>IBSheet7-Product</title>
+		<script type="text/javascript">
+			//시트 높이 계산용
+			var pageheightoffset = 250;
+			
+			$(document).ready(function(){
+				// createIBSheet2("ibsheetArea", "mySheet", "100%", "100%");
+				createIBSheet2("ibsheetArea", "mySheet", "100%", "100%");
+				LoadPage();
+			})
+			
+			/*Sheet 기본 설정 */
+			function LoadPage() {
+				
+				var sort = document.all.sort.checked?1:0,
+					size = document.all.size.checked?1:0,
+					move = document.all.move.checked?1:0,
+					check = document.all.check.checked?1:0;
+				
+				//시트 초기화
+				mySheet.Reset();
+				
+				var initSheet = {
+					Cfg : {
+						SearchMode:smLazyLoad,
+						Page:50,
+						SelectionSummary : "EmptyCell|DelRow",
+						MergeSheet:msHeaderOnly
+					},
+					HeaderMode : {
+						Sort:sort,
+						ColMove:move,
+						ColResize:size,
+						FitSizeColMode : 0,
+						HeaderCheck:check
+					},
+					Cols : [
+						{Edit : 1, Header:"종목코드",Type:"Text",Width:65, SaveName:"param1",Align:"Center"   },
+						{Edit : 1, Header:"종목명",	Type:"Text",Width:65, SaveName:"param2",Align:"Center"  },
+						{Edit : 1, Header:"구분",	Type:"Combo",Width:55, SaveName:"param3" ,ComboText:"00|01",ComboCode:"00|01"},
+						{Edit : 1, Header:"체결일",Type:"Combo",Width:55, SaveName:"param4" ,ComboText:"당일|익일|특정일|특정일까지",ComboCode:"00|01|02|03"},
+						{Edit : 1, Header:"체결\n조건",Type:"Text",Width:55, SaveName:"param5" },
+						{Edit : 1, Header:"수량",Type:"AutoSum",Width:80, SaveName:"param6" ,Format:"Integer"},
+						{Edit : 1, Header:"가격",Type:"Text",Width:55, SaveName:"param7" },
+						{Edit : 1, Header:"협상대상",Type:"Combo",Width:70, SaveName:"param8" ,ComboText:"수량|가격|가격,수량",ComboCode:"00|01|02"},
+						{Edit : 1, Header:"협상여부",Type:"Combo",Width:70, SaveName:"param9" ,ComboText:"미협상|협상중|협상완료",ComboCode:"00|01|02"},
+						{Edit : 1, Header:"최대\n참여",Type:"Text",Width:40, SaveName:"param10" },
+						{Edit : 1, Header:"현재참여",Type:"CheckBox",Width:80, SaveName:"param11",Align:"Center" },
+						{Edit : 1, Header:"협상\n참여",Type:"Text",Width:40, SaveName:"param12",Align:"Center"}
+					]
+				};
+					
+				IBS_InitSheet(mySheet, initSheet);
+				
+				mySheet.FitColWidth();
+				
+				doAction('search');
+			}
+		
+			function doAction(sAction) {
+				switch(sAction) {
+					case "search":
+						mySheet.DoSearch("./data/headerTest.xml");
+						break;
+					case "reload":
+						mySheet.RemoveAll();
+						break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="page_title">
+			<span><a class="closeDepth" href="#">closeDepth</a></span>
+			<span class="title">헤더(Header)기능 > <b>헤더일반기능</b></span>
+		</div>
+		<div class="main_content">
+			<div class="exp_product">
+				 헤더가 갖는 기본기능을 설정/확인한다. 
+			</div>
+			<div class="ib_function float_right">
+				<a href="javascript:doAction('reload')" class="f1_btn_gray lightgray">초기화</a>
+				<a href="javascript:doAction('search')" class="f1_btn_white gray">조회</a>
+			</div>
+			<div class="clear hidden"></div>
+			<div class="ib_function2 border_sheet">
+				<table class="ib_column2">
+					<tr>
+						<td><input class="checkbox" type="checkbox" checked id="sort"/></td>
+						<td class="r20">소팅가능</td>
+						<td><input class="checkbox" type="checkbox" checked id="move"/></td>
+						<td class="r20">컬럼이동</td>
+						<td><input class="checkbox" type="checkbox" checked id="size"/></td>
+						<td class="r20">컬럼사이즈</td>
+						<td><input class="checkbox" type="checkbox" checked id="check"/></td>
+						<td class="r20">헤더체크</td>
+						<td><a href="javascript:LoadPage();" class="f2_btn_white btn_sheet">적용</a></td>
+					</tr>
+				</table>
+			</div>
+			<p class="subtit_sheet">조회리스트</p>
+			<div class="ib_product">
+				<div id="ibsheetArea"></div>
+			</div>
+		</div>
+	</body>
+</html>

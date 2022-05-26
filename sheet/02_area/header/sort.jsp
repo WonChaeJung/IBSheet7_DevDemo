@@ -1,0 +1,137 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/sort.js"></script>
+		<title>IBSheet7-Product</title>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<div class="container">
+				<!-- Wrap : 메인 헤더 (S) -->
+				<header class="wrap-mainheader">
+					<h4>영역별 > 헤더영역 > <b>정렬(다중정렬)</b></h4>
+				</header>
+				<!-- Wrap : 메인 헤더 (E) -->
+				<div class="wrap-maincontents">
+				
+					<div id="page" class="hfeed site">
+						<div>
+							<main id="main" class="site-main" role="main">
+								<article id="post-3612" class="post-3612 post type-post status-publish format-standard hentry category-dev-log category-react-js category-tech-log tag-react tag-react-anyone">
+								
+									<div class="content-annina">
+										<div class="entry-content">
+											<h2>정렬 및 다중정렬 동작 방식</h2>
+											<p><b>1. 정렬 설정 </b></p>
+											<p>시트 생성시 HeaderMode > Sort 속성값을 1(true)로 설정하게 되면 컬럼의 헤더 영역 클릭시 해당 컬럼의 데이터를 정렬 시킬 수 있습니다.</p>
+<pre>
+<code class="language-javascript">var initSheet = {
+	Cfg : {
+		SearchMode : smLazyLoad,
+	},
+	HeaderMode : {
+		Sort : 1 // or true
+	}
+}
+</code>
+</pre>
+											<p><b>2. 기본 동작 방식</b></p>
+											<p>클릭시 동작하게 되는 정렬에 대한 순서는 오름차순 > 내림차순 순서입니다.<br/>
+											정렬이 이루어진 상태에서 다른 컬럼의 헤더영역을 선택하면 기존에 정렬된 데이터를 기준으로 데이터를 다시 정렬(다중정렬)시킵니다.<br/>
+											이 떄 다중 정렬에 대한 기준은 아이콘의 색상으로 구분되어 지는데 
+											<img alt="sort_dep1" src="/resource/common/IBSheet7/sheet/js/Main/sort1.gif"> &gt;
+											<img alt="sort_dep1" src="/resource/common/IBSheet7/sheet/js/Main/sort2.gif"> &gt;
+											<img alt="sort_dep1" src="/resource/common/IBSheet7/sheet/js/Main/sort3.gif"> &gt; 순서 입니다.
+											</p>
+											<p>※ 정렬된 정보를 초기화 할 때에는 <font color="red">shift + 마우스클릭</font>, 단일 정렬만 보고싶은 경우 <font color="red">ctrl + 마우스클릭</font>을 사용해주시면 됩니다.</p>
+										</div>
+										<p class="subtit_sheet">조회리스트</p>
+										<div class="area-panel">
+											<div class="panel-ch">
+												<!-- class="sheetSec"  -->
+												<div style="height:210px;">
+													<div id="ibsheetArea"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br/>
+									<div class="content-annina">
+										<div class="entry-content">
+											<h2>그 외 정렬과 관련된 정보</h2>
+											<p><b>1. 다중 정렬시 컬럼 개수를 지정하고 싶은 경우</b></p>
+											<p>시트 객체 생성시 ibsheet.cfg 또는 SetConfig에 MaxSort 속성 값을 지정해서 멀티 소팅 가능한 최대 컬럼 개수를 설정할 수 있습니다.</p><br/>
+											<p><b>2. 컬럼 타입이 Text(문자열)이면서 데이터 값이 숫자인 경우 정수값을 기준으로 정렬을 하고 싶을때</b></p>
+											<p>컬럼 타입이 Text나 Popup이라면 값(데이터)이 숫자일 경우라도 문자형 정렬 방식으로 동작 합니다. 만약 정수값을 기준으로 정렬을 하고자 하는 경우에는 정보 설정 구간에서 아래와 같이 NumberSort 속성 값을 1로 지정 해주시기 바랍니다.</p><br/>
+				<pre>
+				<code class="language-javascript">var initSheet = {
+				/*Sheet 기본 설정 */
+				function LoadPage() {
+					var initSheet = {
+						Cfg : {
+							SearchMode:smLazyLoad,
+							MergeSheet:msHeaderOnly
+						},
+						Cols : [
+							{Header:"종목",  Type:"Text", Width:65, SaveName:"param1", NumberSort : 1},
+							{Header:"종목명",	Type:"Text", Width:65, SaveName:"param2" },
+							{Header:"참여",Type:"Text", Width:40, SaveName:"param3",Align:"Center"}
+						]
+					};
+					IBS_InitSheet(mySheet, initSheet);
+					doAction('search');
+				}
+				</code>
+				</pre><br/><br/>
+											<p><b>3. 서버 페이징시 보여지는 영역에서만 정렬을 처리하는 방법 </b></p>
+											<p>서버페이징방식은 레이지로드방식과 달리 헤더 영역을 클릭했을때 조회된 결과 데이터를 정렬시키지 않고 orderby를 통해 재조회된 데이터를 가져오기 위한 서버요청을 발생시킵니다. 하지만 간혹 페이징된 데이터내에서 데이터를 정렬이 필요한 경우가 발생할 수 있는데요.
+											이런 경우 OnePageSort라는 속성을 적용함으로써 정렬의 동작 방식을 변경할 수 있습니다.
+											</p><br/>
+				<pre>
+				<code class="language-javascript">var initSheet = {
+					Cfg : {
+						SearchMode : smServerPaging2,
+						OnePageSort : 1
+					}
+				};
+				</code>
+				</pre>
+											<blockquote id="ib-quote">
+												<div class="ib-indent">
+													<div class="ib-paragraph">조회방식이 smServerPaging2(searchmode : 4)인 경우에서만 동작하며 7.0.13.127(20181008) 이후 버전에서만 동작 합니다.</div>
+												</div>
+											</blockquote><br/>
+											<p><b>4. 헤더 클릭시 동작 변경</b></p>
+											<p>기본적으로 시트는 헤더영역을클릭했을때 다중정렬이 동작되고 ctrl + click시 단일정렬이 동작 됩니다. 하지만 이런 방식이 일반적이지 않다고 문의 오는 경우가 간혹 있었습니다.
+											그래서 클릭시에는 단일정렬로 동작하고 ctrl + click시 다중 컬럼으로 동작되도록 속성(<font color="red">HeaderSortActionMode</font>)이 추가되었는데 다음과 같이 설정하시면 됩니다.
+											</p><br/>
+				<pre>
+				<code class="language-javascript">var initSheet = {
+					Cfg : {
+						SearchMode : smServerPaging2,
+						HeaderSortActionMode : 1,
+						UseHeaderSortCancel : 1
+					}
+				};
+				</code>
+				</pre>
+											<p>더불어 shift + key를 통해 정렬취소를 하던 부분도 사용자들이 불편하다는 요청이 있어 오름차순, 내림차순 이후에 정렬취소가 동작되도록 속성을 제공하고 있습니다.
+											위 코드와 같이 <font color="red">UseHeaderSortCancel</font> 를 적용해주시면 됩니다.
+											</p><br/>
+										</div>
+										<div class="clear hidden"></div>
+									</div>
+								</article>
+							</main>
+						</div>
+					</div>
+				<%@ include file="/sheet/common/layout/footer_dataview.jsp" %>
+			</div>
+		</div>
+	</body>
+</html>

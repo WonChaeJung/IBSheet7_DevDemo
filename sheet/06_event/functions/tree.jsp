@@ -1,0 +1,171 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/tree.js"></script>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<div class="container">
+				<header class="wrap-mainheader">
+					<h4>이벤트 > 기능별 > <b>트리(Tree)</b></h4>
+				</header>
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+<pre>
+<code class="language-javascript">// 트리와 관련된 이벤트는 다음과 같습니다.
+/*
+	1 : OnAfterExpand
+	2 : OnBeforeExpand
+	3 : OnTreeCheckChange
+	4 : OnTreeChild
+*/
+</code>
+</pre>
+						</div>
+						<header class="area-subtitle"> 
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" id="OnAfterExpand" onclick="btnCheck(this)">OnAfterExpand</button>
+								<button class="btn-strong" id="OnBeforeExpand" onclick="btnCheck(this)">OnBeforeExpand</button>
+								<button class="btn-strong" id="OnTreeCheckChange" onclick="btnCheck(this)">OnTreeCheckChange</button>
+								<button id="test123" class="btn-strong">로그지우기</button>
+							</div>
+						</header>
+						<div class="area-panel">
+							<div class="panel-ch">
+								<div style="height:430px;">
+									<div id="ibsheetArea"></div>
+								</div>
+							</div>
+							<textarea id="eventLog" style="width:100%; height:430px; border: 2px solid #5d8cc9"></textarea>
+						</div>
+						
+						<div class="entry-content">
+							<h2> 세부설명 </h2>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnAfterExpand"><b>1. OnAfterExpand</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnBeforeExpand"><b>2. OnBeforeExpand</b></a><br/></p>
+							<p><a class="ib-link-desc" data-toggle="modal" data-target="#modalOnTreeCheckChange"><b>3. OnTreeCheckChange</b></a><br/></p>
+						</div>
+					</div>
+				</div>
+				<%@ include file="/sheet/common/layout/footer.jsp" %>
+			</div>
+		</div>
+	<div class="modal fade" id="modalOnAfterExpand" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnAfterExpand</h4>
+				</div>
+				<div class="modal-body">
+					<p>트리 형태 시트를 사용할 때 + 기호나 – 기호를 클릭하여 트리를 접거나 펼친후에 이 이벤트가 발생한다.<br/>
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnAfterExpand(Row, Expand) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index 
+		- Expand(Long) : 7 : 펼치는 경우, 2 : 접는경우
+*/
+function mySheet_OnAfterExpand(Row, Expand) {
+	alert( Row + "행, "+ Expand +"의 상태");
+}
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalOnBeforeExpand" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnBeforeExpand</h4>
+				</div>
+				<div class="modal-body">
+					<p>트리 형태일 때 클릭시 트리가 펼쳐지기 전 또는 접히기 전에 이벤트가 발생한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnBeforeExpand(Row, Expand) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index 
+		- Expand(Long) : 0 : 펼치는 경우, 2 : 접는경우
+*/
+function mySheet_OnBeforeExpand(Row, Expand) {
+	if(Row == 1 && Expand == 2) {
+		mySheet.SetAllowExpand(0);
+		alert("1 행에서는 펼칠 수 있지만 접을 수 없습니다."); 
+	}
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalOnTreeCheckChange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						<i class="material-icons">clear</i>
+					</button>
+					<h4 class="modal-title">OnTreeCheckChange</h4>
+				</div>
+				<div class="modal-body">
+					<p>트리 형태일 때 클릭시 트리가 펼쳐지기 전 또는 접히기 전에 이벤트가 발생한다.
+						<div class="form-group">
+<pre>
+<code class="language-javascript">/**
+	▶ Syntax
+		- function 오브젝트ID_OnBeforeExpand(Row, Expand) { }
+	▶ Parameter
+		- Row(Long) : 해당 셀의 Row Index 
+		- Expand(Long) : 0 : 펼치는 경우, 2 : 접는경우
+
+*/
+function mySheet_OnBeforeExpand(Row, Expand) {
+	if(Row == 1 && Expand == 2) {
+		mySheet.SetAllowExpand(0);
+		alert("1 행에서는 펼칠 수 있지만 접을 수 없습니다."); 
+	}
+}
+
+</code>
+</pre>
+						</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<title>IBSheet7-Product</title>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="../sheet/ibsheetinfo.js"></script>
+		<script type="text/javascript" src="../sheet/ibsheet.js"></script>
+		<script type="text/javascript">
+			//시트 높이 계산용	
+			var pageheightoffset = 270;
+		
+			/*Sheet 기본 설정 */
+			function LoadPage() {
+				//아이비시트 초기화
+				var initdata = {};
+				initdata.Cfg = {SearchMode:smLazyLoad,Page:50};
+				initdata.Cols = [
+					{Header:"상태","Type":"Status","Width":60,Align:"Center"},
+					{Header:"삭제","Type":"DelCheck","Width":60},
+					{Header:"인덱스ID","Type":"Combo","Width":60,"SaveName":"A","ComboCode":"01|02","ComboText":"휴가|공휴일"},
+					{Header:"코드","Type":"Text","Width":60,"SaveName":"B","Align":"Center"},
+					{Header:"코드명","Type":"Text","Width":155,"SaveName":"C"},
+					{Header:"정렬","Type":"Int","Width":45,"SaveName":"D","Format":"Integer"},
+					{Header:"생성일","Type":"Date","Width":95,"Format":"Ymd"},
+					{Header:"폐기일","Type":"Date","Width":95,"Format":"Ymd"},
+					{Header:"결재일자","Type":"Date","Width":95,"Format":"Ymd"}
+				];
+				IBS_InitSheet(mySheet, initdata);
+		
+				mySheet.FitColWidth();
+				doAction('search');
+			}
+		
+			/*Sheet 각종 처리*/
+			function doAction(sAction) {
+				switch(sAction) {
+					case "search": //조회
+						mySheet.DoSearch("./data/edit_data.xml");
+						break;
+					case "reload": //조회데이터 제거
+						mySheet.RemoveAll();
+						break;
+				}
+			}
+		
+			function editFunc(val) {
+				var r = mySheet.GetSelectRow();  //포커스 행 index
+				var c = mySheet.GetSelectCol();  //포커스 열 index
+		
+				if (document.getElementById("row").checked) {
+					//선택 행에 대한 editable 속성 변경
+					mySheet.SetRowEditable(r,val);
+				} else if (document.getElementById("col").checked) {
+					//선택 열에 대한 editable 속성 변경
+					mySheet.SetColEditable(c,val);
+				} else if (document.getElementById("cell").checked) {
+					//선택 셀에 대한 editable 속성 변경
+					mySheet.SetCellEditable(r,c,val);
+				}
+			}
+
+		</script>
+	</head>
+	<body onload="LoadPage()">
+		<div class="page_title">
+			<span><a class="closeDepth" href="#">closeDepth</a></span>
+			<span class="title">행열기능 > <b>편집기능</b></span>
+		</div>
+		<div class="main_content">
+			<div class="exp_product">동적으로 행,열,셀 의 편집 가능여부를 변경하여 본다.</div>
+			<div class="ib_function float_right">
+				<a href="javascript:doAction('reload')" class="f1_btn_gray lightgray">초기화</a>
+				<a href="javascript:doAction('search')" class="f1_btn_white gray">조회</a>
+			</div>
+			<div class="clear hidden"></div>
+			<div class="ib_function2 border_sheet">
+				<p class="ib_basic">변경 하고자 하는 행(Row), 열(Column), 셀(Cell)을 선택 후 해당 버튼을 클릭하면 편집 가능 여부가 변경됩니다.</p>
+				<table class="ib_basic">
+					<tr>
+						<td><input type="radio" id="row" name="opt" checked="checked" class="radio" /></td>
+						<td>행(Row)</td>
+						<td><input type="radio" id="col" name="opt" class="radio" /></td>
+						<td>열(Column)</td>
+						<td><input type="radio" id="cell" name="opt" class="radio" /></td>
+						<td>셀(Cell)</td>
+						<td><a href="javascript:editFunc(1)" class="f2_btn_white btn_sheet">가능</a></td>
+						<td><a href="javascript:editFunc(0)" class="f2_btn_gray btn_gray">불가능</a></td>
+					</tr>
+				</table>
+			</div>
+			<p class="subtit_sheet">조회리스트</p>
+			<div class="ib_product">
+				<script type="text/javascript"> createIBSheet("mySheet", "100%", "100%"); </script>
+			</div>
+		</div>
+	</body>
+</html>

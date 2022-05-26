@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SHEET>
+	<DATA TOTAL="16">
+	<TR>
+		<TD>A17670</TD>
+		<TD>인디에프</TD>
+		<TD>01</TD>
+		<TD>00</TD>
+		<TD>시가</TD>
+		<TD>87654321</TD>
+		<TD>종가    </TD>
+		<TD>00</TD>
+		<TD>00</TD>
+		<TD>06</TD>
+		<TD>0</TD>
+		<TD>가능</TD>
+		<TD>0850</TD>
+		<TD>수정</TD>
+		<TD>삭제</TD>
+	</TR>
+    <TR>
+      <TD>A05930      </TD>
+      <TD>주연테크</TD>
+      <TD>01</TD>
+      <TD>00</TD>
+      <TD>시가</TD>
+      <TD>00500000</TD>
+      <TD>종가    </TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>04</TD>
+      <TD>02</TD>
+      <TD>가능</TD>
+      <TD>1820</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00120      </TD>
+      <TD>동부건설우</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>0</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00010      </TD>
+      <TD>현대엘리베이</TD>
+      <TD>00</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>04</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A17670      </TD>
+      <TD>KGP</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>87654321</TD>
+      <TD>종가    </TD>
+      <TD>00</TD>
+      <TD>00</TD>
+      <TD>06</TD>
+      <TD>00</TD>
+      <TD>가능</TD>
+      <TD>0850</TD>
+      <TD>수정</TD>
+      <TD>삭제</TD>
+    </TR>
+    <TR>
+      <TD>A05930      </TD>
+      <TD>에넥스</TD>
+      <TD>00</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>00500000</TD>
+      <TD>종가    </TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>04</TD>
+      <TD>02</TD>
+      <TD>가능</TD>
+      <TD>1820</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00120      </TD>
+      <TD>메디아나</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>0</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00010      </TD>
+      <TD>삼성전기</TD>
+      <TD>01</TD>
+      <TD>00</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>04</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A17670      </TD>
+      <TD>NI스틸</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>87654321</TD>
+      <TD>종가    </TD>
+      <TD>00</TD>
+      <TD>00</TD>
+      <TD>06</TD>
+      <TD>00</TD>
+      <TD>가능</TD>
+      <TD>0850</TD>
+      <TD>수정</TD>
+      <TD>삭제</TD>
+    </TR>
+    <TR>
+      <TD>A05930      </TD>
+      <TD>이스타코</TD>
+      <TD>00</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>00500000</TD>
+      <TD>종가    </TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>04</TD>
+      <TD>02</TD>
+      <TD>가능</TD>
+      <TD>1820</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00120      </TD>
+      <TD>웅진에너지</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>03</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00010      </TD>
+      <TD>한화케미칼</TD>
+      <TD>00</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>0</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A17670      </TD>
+      <TD>삼화콘덴서</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>87654321</TD>
+      <TD>종가    </TD>
+      <TD>00</TD>
+      <TD>00</TD>
+      <TD>06</TD>
+      <TD>00</TD>
+      <TD>가능</TD>
+      <TD>0850</TD>
+      <TD>수정</TD>
+      <TD>삭제</TD>
+    </TR>
+    <TR>
+      <TD>A05930      </TD>
+      <TD>동아원</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>00500000</TD>
+      <TD>종가    </TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>04</TD>
+      <TD>02</TD>
+      <TD>가능</TD>
+      <TD>1820</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00120      </TD>
+      <TD>천일고속</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>03</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00010      </TD>
+      <TD>하나투어</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>04</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+
+
+
+
+
+
+
+
+
+ <TR>
+      <TD>A00140      </TD>
+      <TD>신풍제지</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>0</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00041      </TD>
+      <TD>KC그린홀딩스</TD>
+      <TD>01</TD>
+      <TD>00</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>04</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A17642      </TD>
+      <TD>일진머티리얼즈</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>87654321</TD>
+      <TD>종가    </TD>
+      <TD>00</TD>
+      <TD>00</TD>
+      <TD>06</TD>
+      <TD>00</TD>
+      <TD>가능</TD>
+      <TD>0850</TD>
+      <TD>수정</TD>
+      <TD>삭제</TD>
+    </TR>
+    <TR>
+      <TD>A05930      </TD>
+      <TD>STX</TD>
+      <TD>00</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>00500000</TD>
+      <TD>종가    </TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>04</TD>
+      <TD>02</TD>
+      <TD>가능</TD>
+      <TD>1820</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00120      </TD>
+      <TD>제일기획</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>03</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00010      </TD>
+      <TD>대원강업</TD>
+      <TD>00</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>0</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A17670      </TD>
+      <TD>제일기획</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>87654321</TD>
+      <TD>종가    </TD>
+      <TD>00</TD>
+      <TD>00</TD>
+      <TD>06</TD>
+      <TD>00</TD>
+      <TD>가능</TD>
+      <TD>0850</TD>
+      <TD>수정</TD>
+      <TD>삭제</TD>
+    </TR>
+    <TR>
+      <TD>A05930      </TD>
+      <TD>근화제약</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>시가</TD>
+      <TD>00500000</TD>
+      <TD>종가    </TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>04</TD>
+      <TD>02</TD>
+      <TD>가능</TD>
+      <TD>1820</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00120      </TD>
+      <TD>일양약품</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>00400000</TD>
+      <TD>34567891</TD>
+      <TD>02</TD>
+      <TD>01</TD>
+      <TD>05</TD>
+      <TD>03</TD>
+      <TD>가능</TD>
+      <TD>1430</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+    <TR>
+      <TD>A00010      </TD>
+      <TD>일신방직</TD>
+      <TD>01</TD>
+      <TD>01</TD>
+      <TD>종가</TD>
+      <TD>12345678</TD>
+      <TD>종가+5% </TD>
+      <TD>01</TD>
+      <TD>02</TD>
+      <TD>04</TD>
+      <TD>04</TD>
+      <TD>불가</TD>
+      <TD>2200</TD>
+      <TD>협상참여</TD>
+      <TD>협상참여</TD>
+    </TR>
+  </DATA>
+</SHEET>

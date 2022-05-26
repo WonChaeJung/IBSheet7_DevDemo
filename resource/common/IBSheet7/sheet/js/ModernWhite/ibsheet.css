@@ -1,0 +1,943 @@
+/* -----------------------------------------------------------------------*/
+/* ----------------- "Main" IBSheet style definition ---------------------*/
+/* -----------------------------------------------------------------------*/
+
+/* Base tags */
+.WHMImage {padding-bottom:256px;}
+.WHMNone {display:none;}
+.WHMSection,.WHMSectionFF3, .WHMChildPart {table-layout:fixed; width:0;}
+.WHMSectionFF3 {border-collapse:collapse; }
+
+/* Sections */
+.WHMMainTable {border:1px solid #c7c7c7; border-collapse:separate; text-align:left; background:#ffffff; font:12px NanumGothic,Helvetica,AppleGothic,Sans-serif;}
+.WHMFootLeft,.WHMFootMid,.WHMFootRight {border-top:1px solid #ff981e;}
+.WHMHeadLeft,.WHMBodyLeft,.WHMFootLeft,.WHMHScrollLeft {border-right:1px solid #c7c7c7;}    
+.WHMHeadRight,.WHMBodyRight,.WHMFootRight,.WHMHScrollRight {border-left:1px solid #c7c7c7;} 
+.WHMVScroll {padding-top:1px; padding-bottom:1px;}
+.WHMHScrollLeft,.WHMHScrollMid,.WHMHScrollLeftResizeTouch,.WHMHScrollRightResizeTouch {padding-left:1px; padding-right:1px; cursor:default;}
+.WHMHScrollLeftResizeTouch {border-right:2px solid #000000; padding-right:18px; background:#F4F4F4;}
+.WHMHScrollRightResizeTouch {border-left:2px solid #000000; padding-left:18px; background:#F4F4F4;}
+.WHMHScrollMidLeftResizeTouch {border-left:1px solid #000000; padding-left:19px; background:#F4F4F4;}
+.WHMHScrollMidRightResizeTouch {border-right:1px solid #000000; padding-right:19px; background:#F4F4F4;}
+.WHMHScrollWide {padding-right:1px;}
+.WHMHScrollHidden {/* overflow:visible !important;  */background:#F4F4F4; cursor:default; }
+.WHMXScroll {background:#F4F4F4;}
+.WHMPage {border-top:0px solid #E0E0E0;}
+
+/* Rows */
+.WHMSpaceRowHeight{height:21px; }
+.WHMRowHeight     {height:18px; }
+.WHMRowHeightTouch{height:22px; }
+.WHMSpaceMargin   {margin:0; }
+.WHMSpaceMarginTouch{margin:0; }
+.WHMSpaceRow {background:#ffffff; white-space:nowrap; overflow:hidden; padding-top:2px; padding-bottom:2px; border-bottom:1px solid #e0e0ff;}
+.WHMGroupRow,.WHMSearchRow,.WHMPagerRow 
+{background-color:#0171bc; white-space:nowrap; padding-top:1px; padding-bottom:1px; overflow:hidden; border-bottom:1px solid #99BCE8;} 
+.WHMGroupRow,.WHMPagerRow {background-position:0 -1801px; padding-top: 4px; padding-bottom: 4px}
+.WHMFillRow {background:#ffffff; }
+.WHMRowAbove,.WHMRowBelow {border-left:1px solid #9cb6c8; border-right:1px solid #9cb6c8;}
+.WHMRowAbove { margin-top:3px; overflow:hidden;}
+.WHMRowBelow {margin-bottom:3px; overflow:hidden;}
+.WHMCountRowTop {background-color:#fdfdfd; white-space:nowrap;padding-top:1px; padding-bottom:1px; overflow:hidden; border-bottom:1px solid #c7c7c7;}
+.WHMCountRowBottom {background-color:#fdfdfd; white-space:nowrap; padding-top:1px; padding-bottom:1px; overflow:hidden; border-top:1px solid #c7c7c7;}
+.WHMCountFont { font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif; text-shadow: 0 0 1px rgba(0,0,0,0.2); color:#666666; }
+.WHMNoDataRow {padding-top:0px; padding-bottom:0px; background-color:#ffffff; color:#000000;}
+
+/* Cell */
+.WHMCell,.WHMCellPanel,.WHMCellFilter,.WHMHeaderDrag,.WHMHeaderGroup 
+ {border-bottom:1px solid #D6D6D6; border-right:1px solid #D6D6D6; border-left:0; border-top:0;vertical-align:top; overflow:hidden; height:auto; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+
+.WHMCellHeader,.WHMCellHeaderEmpty{
+ 	vertical-align:middle; overflow:hidden;height:auto;
+	/* background-color:#fdfdfd; */
+	background-color:#d42f48;
+	padding-top:1px; border-right:1px solid #D6D6D6; border-bottom:1px solid #D6D6D6;}
+  
+
+.WHMHeaderGroup, .WHMHeaderGroupCustom { vertical-align: middle; height:20px; text-align: center; }
+
+.WHMCellBorderFF3 {border-left:0;border-top:0;} 
+.WHMCellSpace {vertical-align:middle;}
+/*.WHMCellSpace {vertical-align:top; padding-top:5px !important; }*/
+.WHMCellSpacePanel,.WHMCellSpaceBool {vertical-align:top; }
+.WHMCellSpaceRadio { padding-top:3px !important;}
+.WHMCellSpaceEditButton { vertical-align:top; padding-top:4px !important; border:1px solid #000000 !important; background-color:#ffffff !important; }
+.WHMCellSpaceButtonButton { vertical-align:top; }
+.WHMCellSpaceButton { vertical-align:top; padding-top:5px !important; white-space:nowrap; }
+.WHMCellSpaceAbove { border-top:1px solid #9cb6c8; }
+.WHMCellSpaceBelow { border-bottom:1px solid #9cb6c8; }
+.WHMCellPanel,.WHMCellHeaderPanel{ white-space:nowrap; } 
+.WHMCellHidden { background:transparent!important; border-top:none!important; border-bottom:none!important; }
+.WHMHeaderButton { padding:0; }
+.WHMHeaderGroup {background: #FDFDFD; color:#505050; font-weight: bold; border-radius: 5px; margin:0 2px 0 2px; line-height:20px;}
+.WHMHeaderGroupFocus {background-color: #C0C0A0; }
+.WHMHeaderGroupDelete {background-color: #F0F0E0; color: #F0F0E0; }
+.WHMHeaderGroupCustom {color:#fff; padding-left:5px; cursor:default; white-space:nowrap; }
+.WHMHeaderDrag {background: #9FB9E9; cursor:default; overflow:hidden; }
+.WHMHeaderFocus {background: #9FB9E9;}
+.WHMPanel {padding-left:80px;}
+.WHMNoTreeLines1 {text-align:right;}
+.WHMNoTreeLines2 {text-align:right; vertical-align:middle; padding-top:0;}
+.WHMTree {padding-top:0; white-space:nowrap;}
+.WHMSpannedTree {vertical-align:top;}
+.WHMCellClassInner {padding-top:0; padding-bottom:0;}
+
+/* Inside cell */
+.WHMStatus,.WHMSeq,.WHMPopup,.WHMPopupEdit,.WHMHtml,.WHMText,.WHMLines,.WHMPass,.WHMInt,.WHMFloat,.WHMDate,.WHMNumber,
+.WHMLink,.WHMImg,.WHMRadio,.WHMRadioText,.WHMList,.WHMEnum,.WHMAbs,.WHMPagerEdit,.WHMUser,.WHMResult,.WHMBtn 
+ {white-space:nowrap;vertical-align: middle;padding:5px 6px;}  /*IH*/
+.WHMInt,.WHMFloat { text-align:right; }
+.WHMLines,.WHMRadio,.WHMHtml,.WHMList { white-space:normal; }   
+.WHMImg,.WHMHtml {padding:0; } 
+.WHMRadio,.WHMRadioText { padding:0; font-weight:normal !important; }
+.WHMBool { text-align:center; }
+.WHMIcon { background-repeat:no-repeat; }
+.WHMHiddenSpace { display:none; }
+
+
+.WHMHeaderText {/* color: #666666;  */ color: #fff;vertical-align:middle; font-size:/*IBFS*/12px; text-shadow: 0 0 1px rgba(0,0,0,0.2); font-weight:600; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+.WHMAbs { padding:0; }
+.WHMUser { padding:0; }
+.WHMPagerEdit { text-align:right; padding-top:5px; padding:0 !important;}
+.WHMPagerTotal { text-align:left; padding-top:0px; }
+.WHMEditPager { /*background-color:#ffffff; border:1px solid gray;*/font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+.WHMMergedCellH {padding:0 0 5px 0}
+.WHMMergedCellV {padding:0 0 1px 0}
+
+.WHMWrap0 { white-space:nowrap; }
+.WHMWrap1 { white-space:normal; }
+.WHMEllipsis { white-space:nowrap; text-overflow:ellipsis;}
+
+.WHMAlignLeft { text-align:left; }
+.WHMAlignCenter { text-align:center; }
+.WHMAlignJustify { text-align:center; }
+.WHMAlignRight { text-align:right;}
+
+.WHMValignTop { vertical-align:top; }
+.WHMValignMiddle { vertical-align:middle; }
+.WHMValignBottom { vertical-align:bottom;}
+
+.WHMCellButtonBase {
+    color: #fff;
+    display: inline-block;
+    padding: 2px 10px 3px;
+    text-decoration: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    line-height: 1;
+    border:0;
+    font-family: "Dotum";
+    font-weight: bold;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    height: 20px;
+}
+.WHMCellButton {
+    cursor: pointer;
+    background-color: #5689b9;
+}
+.WHMCellButton0 {
+    cursor:default;
+    background-color: #c8c8c8;
+}
+.WHMCellButton:hover { background-color: #3a6ea0; }
+.WHMCellButton0:hover {}
+
+/* Tree Img with lines */
+.WHM000,.WHM010,.WHM001,.WHM011,.WHM100,.WHM110,.WHM101,.WHM111, 
+.WHM000T,.WHM010T,.WHM001T,.WHM011T,.WHM100T,.WHM110T,.WHM101T,.WHM111T,
+.WHM00,.WHM01,.WHM10,.WHM11,.WHM00T,.WHM01T,.WHM10T,.WHM11T,
+.WHM0T,.WHM1T,.WHM0TL,.WHM1TL,.WHM0C,.WHM1C,.WHM0CL,.WHM1CL,.WHM0E,.WHM1E,.WHM0EL,.WHM1EL,
+.WHM0,.WHM1,.WHMT,.WHMTL,.WHMC,.WHMCL,.WHME,.WHMEL,.WHMD0,.WHMD1,.WHMD2,.WHMD3,.WHMD4,.WHMD0L,.WHMD1L,.WHMD2L,.WHMD3L,.WHMD4L 
+{background-image:url(Tree.gif); vertical-align:top; background-size: 2000px;}
+
+u.WHM000,u.WHM010,u.WHM001,u.WHM011,u.WHM100,u.WHM110,u.WHM101,u.WHM111 { padding-left:39px; }
+u.WHM000T,u.WHM010T,u.WHM001T,u.WHM011T,u.WHM100T,u.WHM110T,u.WHM101T,u.WHM111T { padding-left:60px; }
+u.WHM00,u.WHM01,u.WHM10,u.WHM11 { padding-left:26px; }   
+u.WHM00T,u.WHM01T,u.WHM10T,u.WHM11T { padding-left:47px; }   
+u.WHM0T,u.WHM1T,u.WHM0TL,u.WHM1TL,u.WHM0C,u.WHM1C,u.WHM0CL,u.WHM1CL,u.WHM0E,u.WHM1E,u.WHM0EL,u.WHM1EL { padding-left:34px; }   
+u.WHM0,u.WHM1 { padding-left:13px; }
+u.WHMT,u.WHMTL,u.WHMC,u.WHMCL,u.WHME,u.WHMEL,u.WHMD0,u.WHMD1,u.WHMD2,u.WHMD3,u.WHMD4,u.WHMD0L,u.WHMD1L,u.WHMD2L,u.WHMD3L,u.WHMD4L { padding-left:21px; }   
+
+.WHM000,.WHM000T{ background-position:-24px 0px; }
+.WHM010,.WHM010T{ background-position:-136px 0; }
+.WHM001,.WHM001T{ background-position:-272px 0; }
+.WHM011,.WHM011T{ background-position:-392px 0; }
+.WHM100,.WHM100T{ background-position:-512px 0; }
+.WHM110,.WHM110T{ background-position:-640px 0; }
+.WHM101,.WHM101T{ background-position:-768px 0; }
+.WHM111,.WHM111T{ background-position:-896px 0; }
+.WHM00,.WHM00T  { background-position:-37px 0;  }
+.WHM10,.WHM10T  { background-position:-149px 0; }
+.WHM01,.WHM01T  { background-position:-285px 0; }
+.WHM11,.WHM11T  { background-position:-405px 0; }
+.WHM0,.WHM0T    { background-position:-50px 0;  }
+.WHM1,.WHM1T    { background-position:-298px 0; }
+.WHMT          { background-position:-63px 0;  }
+.WHM0TL        { background-position:-1032px 0; }
+.WHM1TL        { background-position:-1088px 0; }
+.WHM0C         { background-position:-1160px 0; }
+.WHM1C         { background-position:-1216px 0; }
+.WHM0CL        { background-position:-1288px 0; }
+.WHM1CL        { background-position:-1344px 0; }
+.WHM0E         { background-position:-1416px 0; }
+.WHM1E         { background-position:-1472px 0; }
+.WHM0EL        { background-position:-1544px 0; }
+.WHM1EL        { background-position:-1600px 0; }
+.WHMTL         { background-position:-1045px 0; }
+.WHMC          { background-position:-1173px 0; }
+.WHMCL         { background-position:-1301px 0; }
+.WHME          { background-position:-1429px 0; }
+.WHMEL         { background-position:-1557px 0; }
+.WHMD0         { background-position:-1664px 0; }
+.WHMD1         { background-position:-1696px 0; }
+.WHMD2         { background-position:-1728px 0; }
+.WHMD3         { background-position:-1760px 0; }
+.WHMD0L        { background-position:-1792px 0; }
+.WHMD1L        { background-position:-1824px 0; }
+.WHMD2L        { background-position:-1856px 0; }
+.WHMD3L        { background-position:-1888px 0; }
+.WHMD4         { background-position:-1920px 0; }
+.WHMD4L        { background-position:-1952px 0; }
+
+/* Tree Img without lines  */
+.WHMND0,.WHMND1,.WHMND2,.WHMND3,.WHMND4,.WHMNC,.WHMNE,.WHMNCR,.WHMNER {background-image:url(TreeN.png); background-repeat:no-repeat; vertical-align:top; }
+u.WHMND0,u.WHMND1,u.WHMND2,u.WHMND3,u.WHMND4,u.WHMNC,u.WHMNE,u.WHMNCR,u.WHMNER { padding-left:20px; }
+.WHMND0 { background-position: -6px 0; }
+.WHMND1 { background-position: -56px 0; }
+.WHMND2 { background-position: -106px 0; }
+.WHMND3 { background-position: -156px 0; }
+.WHMND4 { background-position: -206px 0; }
+.WHMNC { background-position:right -50px;}
+.WHMNE { background-position:right -2000px;}
+.WHMNCR { background-position:-255px -50px;}
+.WHMNER { background-position:-255px -2000px;}
+u.WHMNL { padding-left:21px; }
+
+/* Tree Node Image */
+.WHMTreeNodeIcon0, .WHMTreeNodeIcon1, .WHMTreeNodeIcon2 { background-position:2px 4px; background-repeat:no-repeat; background-size:16px; }
+.WHMTreeNodeIcon0 { background-image:url(treenode0.png); }
+.WHMTreeNodeIcon1 { background-image:url(treenode1.png); }
+.WHMTreeNodeIcon2 { background-image:url(treenode2.png); }
+
+/* Cell images */
+.WHMIconLink { text-decoration:none; width:1000px; display:inline-block; }
+.WHMIconLeft,.WHMIconRight,.WHMIconCenter {  background-repeat:no-repeat; }
+.WHMIconLeft { background-position:left 0; padding-left:20px !important; }
+.WHMIconRight { background-position:right 0; padding-right:20px !important; }
+.WHMIconCenter { background-position:center 0; }
+.WHMPopupRight { background:url(popup.png) no-repeat 0px center; background-size:14px; }
+.WHMExpandLeft,.WHMCollapseLeft,.WHMExpandHeaderLeft,.WHMCollapseHeaderLeft { padding-left:20px!important; }
+.WHMDateRight{ padding-right:20px!important;}
+u.WHMDateRight,u.WHMPopupRight { padding-right:0!important; padding-left:17px; }
+.WHMDateRight {background:url(calendar.png) no-repeat 0px center; background-size:14px;}
+.WHMEnumRight { background:url(combo.png) no-repeat 0px center; background-size:16px;}
+u.WHMEnumRight {padding-right:0; padding-left:17px}
+.WHMExpandLeft { background:url(ic_plus.png) no-repeat 3px center; background-size: 12px; padding:2px 0 0  18px; _padding:0 0 0 18px }
+.WHMCollapseLeft { background:url(ic_minus.png) no-repeat 3px center; background-size: 12px; padding:2px 0 0  18px; _padding:0 0 0 18px }
+
+.WHMRadio0Left,.WHMRadio1Left,.WHMRadio2Left,.WHMRadio3Left,.WHMRadioRO0Left,.WHMRadioRO1Left,.WHMRadioRO2Left,.WHMRadioRO3Left { padding-left:17px; padding-right:10px; line-height:17px; background-repeat:no-repeat; background-position:3px 50%;}
+.WHMRadio0Right,.WHMRadio1Right,.WHMRadio2Right,.WHMRadio3Right,.WHMRadioRO0Right,.WHMRadioRO1Right,.WHMRadioRO2Right,.WHMRadioRO3Right {line-height:17px; padding-right:17px; padding-left:10px; background-repeat:no-repeat; background-position:3px 50%;}
+.WHMRadio0Left  { background-image:url(chk2.png); background-size:14px;} 
+.WHMRadioRO0Left  { background-image:url(chk2R.png); background-size:14px;} 
+.WHMRadio1Left  { background-image:url(chk3.png); background-size:14px;} 
+.WHMRadioRO1Left  { background-image:url(chk3R.png); background-size:14px;} 
+.WHMRadio2Left  { background-image:url(chk0.png); background-size:14px;}
+.WHMRadioRO2Left  { background-image:url(chk0R.png); background-size:14px;}
+.WHMRadio3Left  { background-image:url(chk1.png); background-size:14px;}
+.WHMRadioRO3Left  { background-image:url(chk1R.png); background-size:14px;}
+.WHMRadio0Right { background-image:url(chk2.png); background-size:14px;} 
+.WHMRadioRO0Right { background-image:url(chk2R.png); background-size:14px;} 
+.WHMRadio1Right { background-image:url(chk3.png); background-size:14px;} 
+.WHMRadioRO1Right { background-image:url(chk3R.png); background-size:14px;} 
+.WHMRadio2Right { background-image:url(chk0.png); background-size:14px;}
+.WHMRadioRO2Right { background-image:url(chk0R.png); background-size:14px;}
+.WHMRadio3Right { background-image:url(chk1.png); background-size:14px;}
+.WHMRadioRO3Right { background-image:url(chk1R.png); background-size:14px;}
+
+u.WHMFilter0,u.WHMFilter1 { padding-left:16px; }
+.WHMBool0,.WHMBool0RO,.WHMBool1,.WHMBool1RO,.WHMBool2,.WHMBool2RO,.WHMBool3,.WHMBool3RO {background-position:center center; background-repeat:no-repeat;}
+
+.WHMCheck0Left, .WHMCheck1Left, .WHMCheckRO0Left, .WHMCheckRO1Left { background-repeat:no-repeat; padding-left:20px!important; background-position:3px 50%;}
+.WHMCheck0Left   { background-image:url(chk0.png); background-size: 14px;}
+.WHMCheck1Left   { background-image:url(chk1.png); background-size: 14px;}
+.WHMCheckRO0Left { background-image:url(chk0R.png); background-size: 14px;}
+.WHMCheckRO1Left { background-image:url(chk1R.png); background-size: 14px;}
+
+.WHMBool0   { background-image:url(chk0.png); background-size: 14px; }
+.WHMBool0RO { background-image:url(chk0R.png); background-size: 14px; }
+
+.WHMBool1   { background-image:url(chk1.png); background-size: 14px; }
+.WHMBool1RO { background-image:url(chk1R.png); background-size: 14px; }
+
+.WHMBool2   { background-image:url(chk2.png); background-size: 14px; }
+.WHMBool2RO { background-image:url(chk2R.png); background-size: 14px; }
+
+.WHMBool3   { background-image:url(chk3.png); background-size: 14px; }
+.WHMBool3RO { background-image:url(chk3R.png); background-size: 14px; }
+
+/* Filter images  */
+.WHMFilter0Left,.WHMFilter1Left,.WHMFilter2Left,.WHMFilter3Left,.WHMFilter4Left,.WHMFilter5Left,.WHMFilter6Left,.WHMFilter7Left,
+.WHMFilter8Left,.WHMFilter9Left,.WHMFilter10Left,.WHMFilter11Left,.WHMFilter12Left {width:100%; height:18px; padding-left:18px;}
+
+.WHMFilter0Left,.WHMFilter0Menu   { background:url(filter0.png) no-repeat left center; background-size: 18px;}   
+.WHMFilter1Left,.WHMFilter1Menu   { background:url(filter1.png) no-repeat left center; background-size: 18px;}
+.WHMFilter2Left,.WHMFilter2Menu   { background:url(filter2.png) no-repeat left center; background-size: 18px;}
+.WHMFilter3Left,.WHMFilter3Menu   { background:url(filter3.png) no-repeat left center; background-size: 18px;}
+.WHMFilter4Left,.WHMFilter4Menu   { background:url(filter4.png) no-repeat left center; background-size: 18px;}
+.WHMFilter5Left,.WHMFilter5Menu   { background:url(filter5.png) no-repeat left center; background-size: 18px;}   
+.WHMFilter6Left,.WHMFilter6Menu   { background:url(filter6.png) no-repeat left center; background-size: 18px;}
+.WHMFilter7Left,.WHMFilter7Menu   { background:url(filter7.png) no-repeat left center; background-size: 18px;}
+.WHMFilter8Left,.WHMFilter8Menu   { background:url(filter8.png) no-repeat left center; background-size: 18px;}
+.WHMFilter9Left,.WHMFilter9Menu   { background:url(filter9.png) no-repeat left center; background-size: 18px;}
+.WHMFilter10Left,.WHMFilter10Menu { background:url(filter10.png) no-repeat left center; background-size: 18px;}
+.WHMFilter11Left,.WHMFilter11Menu { background:url(filter11.png) no-repeat left center; background-size: 18px;}
+.WHMFilter12Left,.WHMFilter12Menu { background:url(filter12.png) no-repeat left center; background-size: 18px;}
+
+.WHMFilter0Menu,.WHMFilter1Menu,.WHMFilter2Menu,.WHMFilter3Menu,.WHMFilter4Menu,.WHMFilter5Menu,.WHMFilter6Menu,.WHMFilter7Menu,.WHMFilter8Menu,.WHMFilter9Menu,
+.WHMFilter10Menu,.WHMFilter11Menu,.WHMFilter12Menu {width:18px; height:18px; overflow:hidden; margin: 4px 0 0 -1px;}
+.WHMFilterMenuHeader { padding-left:2px; border-bottom:0 !important; } 
+
+/*  Keyfield Image */
+.WHMKeyfield {background-image:url(keyfield.png); background-size: 7px; display:inline-block; vertical-align:middle; background-repeat: no-repeat; background-position:center 1px; padding: 0 2px 0 4px; line-height: 9px;}
+
+/* GMKeyfield : hack OP*/
+ @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) 
+ { .WHMKeyfield{  background-position: center 3px;padding: 0 2px 0 4px; line-height: 9px; }}
+
+/* CheckBox Header Image */
+.WHMCheckHeader0 {background-image:url(chk0.png); background-size: 14px; display:inline-block; vertical-align:middle; background-repeat:no-repeat; padding:2px 7px 0 6px; margin:0 2px 0 0;}
+
+/* GMCheckHeader0 : hack CR,SF*/
+@media screen and (-webkit-min-device-pixel-ratio:0) 
+{.WHMCheckHeader0{background-size: 14px; padding: 2px 6px 0 6px; }}
+
+/* GMCheckHeader0 : hack FF*/
+.WHMCheckHeader0, x:-moz-any-link, x:default { background-size: 14px; padding: 2px 6px 0 6px; }
+
+/* GMCheckHeader0 : hack OP*/
+ @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) 
+ { .WHMCheckHeader0{background-size: 14px; padding:1px  17px 0 0; }}
+
+.WHMCheckHeader1 {background-image:url(chk1.png); background-size: 14px; display:inline-block; vertical-align:middle; background-repeat:no-repeat; padding:2px 6px 0 6px; margin:0 2px 0 0}
+
+/* GMCheckHeader1 : hack CR,SF*/
+@media screen and (-webkit-min-device-pixel-ratio:0) 
+{.WHMCheckHeader1{background-size: 14px; padding: 2px 6px 0 6px; }}
+
+/* GMCheckHeader1 : hack FF*/
+.WHMCheckHeader1, x:-moz-any-link, x:default { background-size: 14px; padding: 2px 6px 0 6px; }
+
+/* GMCheckHeader1 : hack OP*/
+ @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) 
+ { .WHMCheckHeader1 { background-size: 14px; padding:1px  17px 0 0;  }}
+
+/* Sort images */
+.WHMSort {position:absolute; right:2px;}
+
+.WHMSort1 { background: url(sort1.png) no-repeat right center; background-size: 8px; width:10px; }
+.WHMSort2 { background: url(sort2.png) no-repeat right center; background-size: 8px; width:10px; }
+.WHMSort3 { background: url(sort3.png) no-repeat right center; background-size: 8px; width:10px; }
+.WHMSort4 { background: url(sort4.png) no-repeat right center; background-size: 8px; width:10px; }
+.WHMSort5 { background: url(sort5.png) no-repeat right center; background-size: 8px; width:10px; }
+.WHMSort6 { background: url(sort6.png) no-repeat right center; background-size: 8px; width:10px; }
+
+/* State classes */
+/* The colors must be set by numbers not by names */
+.WHMColorDefault  { background-color:#FFFFFF;}
+.WHMColorNoFocus  { background-color:#E8F4FF;}
+.WHMColorReadOnly { background-color:#F2F2F2;}
+.WHMColorPreview  { background-color:#FFFFFF;}
+.WHMColorAlternate{ background-color:#fdfdfd;}
+.WHMColorSelected { background-color:/*#FFFF80*/#aadbff; }
+
+.WHMColorFilter {background-color:#FFFFFF;}
+
+/*//.WHMClassSelected { }*/
+.WHMColorError   { background-color:#FF6969; }
+.WHMColorDeleted { background-color:#FFCDCD; }
+.WHMClassDeleted { font-style:italic; }
+.WHMColorAdded   { background-color:#CDFFCD; }
+.WHMClassAdded   { font-weight:bold; }
+.WHMColorMoved1  { background-color:#FFFFFF; }
+.WHMColorMoved2  { background-color:#D7EBEB; }
+.WHMColorChanged { background-color:#EBEBFF; }
+.WHMColorChangedCell { background-color:#E1E1FF; }
+.WHMClassChangedCell { font-weight:bold; }
+.WHMColorMaxChildren { background-color:#FFFFF0; }
+.WHMColorDetail { background-color:#FFF0FF; }
+.WHMColorDetailSelected { background-color:#FFF0E0; }
+.WHMColorDragged{ background-color:#E0E0C0; }
+.WHMColorFound1 { background-color:#FF87FF; }
+.WHMColorFound2 { background-color:#FFC387; }
+.WHMColorFound3 { background-color:#87FF87; }
+
+.WHMColorHovered             { background-color:#f4edfe; }
+.WHMColorHoveredCell         { background-color:#d7c6ee; }
+.WHMColorHoveredCellReadOnly { background-color:#d7c6ee; }
+.WHMColorHoveredCellSpace    { background-color:#FFFFFF; }
+.WHMColorHoveredCellSpaceEdit{ background-color:#C0C0FF; }
+.WHMColorHoveredCellSpaceBool{ background-color:#FFFFFF; }
+.WHMColorHoveredCellButton   { background-color:#d0dde7; }
+.WHMColorHoveredCellButton1  { background-color:#add4f5; }
+
+.WHMColorFocused             { background-color:#e9f5d0; }
+.WHMColorFocusedCell         { background-color:#FFFFFE; }
+.WHMColorFocusedCellSpace    { background-color:#E6E6E6; }
+.WHMColorFocusedCellButton   { background-color:#BCD; }
+.WHMColorFocusedCellHeader   { background-color:#FFFFFE; }
+.WHMColorFocusedCellPanel    { background-color:#FFFFFE; }
+.WHMColorEditedCell          { background-color:#FFFFFF; }
+.WHMColorViewedCell          { background-color:#FFFFFF; }
+.WHMolorMultiRowFocused     { background-color:#e9f5d0; }
+
+/* Hover, focus, edit cursors */
+.WHMHoverRowBackground 	{ opacity:0.2; filter:alpha(opacity=20); background:#8238f0; } /* �씪諛섎え�뱶�뿉�꽌�쓽 Hover Row�쓽 Background*/
+.WHMHoverRowBorder		{ z-index:0; border-top:1px solid #bda7dc; border-bottom:1px solid #bda7dc; } /* �씪諛섎え�뱶�뿉�꽌�쓽 Hover Row�쓽 Border*/
+.WHMHoverCellBorder 		{ z-index:0; border:1px solid #bda7dc; cursor:default; } /* �씪諛섎え�뱶�뿉�꽌�쓽 Hover Cell�쓽 Border*/
+.WHMFocusRowBackground   { opacity:0.1; filter:alpha(opacity=20); background:/*IBSB*/#0088CC; } /* <-- Sheet : Selected Row Background */
+.WHMFocusRowBorder       { z-index:0; border:1px solid /*IBSB*/#0088CC; } /* <-- Sheet : Selected Row Border */
+.WHMFocusCellBorder      { z-index:0; border:2px solid #0088CC;} /* <-- Sheet : Selected Cell Border */
+.WHMFocusCellSpaceBorder,.WHMEditCellSpaceBorder { z-index:4; }
+.WHMEditCellBorder       { z-index:0; border:2px solid #0088CC; outline: 0;
+							-webkit-box-shadow: inset 0 1px 1px #0088CC, 0 0 10px #0088CC;/*-webkit-focus-ring-color;*/
+							-moz-box-shadow: inset 0 1px 1px #0088CC, 0 0 10px #0088CC;
+							box-shadow: 0 0 10px rgba(0, 136, 204, 1);
+							-moz-outline-offset: 0;
+							text-rendering: optimizeLegibility;
+							-webkit-font-smoothing: antialiased;  }    /*<-- Sheet : CellEdit Border */
+.WHMEditCellInput        { position:relative; overflow:hidden; z-index:2; } 
+/* IH */
+.WHMCursorBackground, .WHMCursorBorderLeft ,.WHMCursorBorderRight,.WHMCursorBorderTop,.WHMCursorBorderBottom 
+ {position:relative;overflow:hidden;}
+
+.WHMCursorBackground  {border:none; padding:0;}
+.WHMCursorBorderLeft  {padding-right:0; padding-top:0; padding-bottom:0; border-right:none; border-top:none; border-bottom:none;  width:0; height:0; }
+.WHMCursorBorderRight {padding-left:0; padding-top:0; padding-bottom:0; border-left:none; border-top:none; border-bottom:none;  width:0; height:0;}
+.WHMCursorBorderTop   {padding-bottom:0; padding-left:0; padding-right:0; border-bottom:none; border-left:none; border-right:none;  width:0; height:0;}
+.WHMCursorBorderBottom{padding-top:0; padding-left:0; padding-right:0; border-top:none; border-left:none; border-right:none; width:0; height:0;}
+
+/* Cell edges */
+.WHMNoLeft { border-left:0; }
+.WHMNoRight { border-right:0; }
+
+/* Dragging */
+.WHMMouseObject { opacity:0.5; filter:alpha(opacity=50); z-index:300; overflow:hidden;}
+.WHMDragObject {z-index:300; margin-left:10px; margin-top:10px; padding-left:3px; padding-right:3px;background:#E4E5F0 ; border:1px solid #777;}
+.WHMDragColInsideTop,.WHMDragColInsideBottom,.WHMDragColOutsideTop,.WHMDragColOutsideBottom{position:absolute;width:10px; height:11px; overflow:hidden; z-index:258;}
+.WHMDragColInsideTop     {background:url(in_top.gif) no-repeat;}     
+.WHMDragColInsideBottom  {background:url(in_bottom.gif) no-repeat;}  
+.WHMDragColOutsideTop    {background:url(out_top.gif) no-repeat;}    
+.WHMDragColOutsideBottom {background:url(out_bottom.gif) no-repeat;}  
+
+/* Messages */
+.WHMDisabled{position:absolute; z-index:264; background:#ffffff; opacity:0.5; filter:alpha(opacity=50); } 
+.WHMProcess {position: absolute; left:0; top:0; background:#E2F0FF; border:1px solid #777; white-space:nowrap; text-align:center; visibility:hidden; z-index:266;}
+.WHMMessage {background:#E2F0FF; border:1px solid #000000; padding:10px; white-space:nowrap; text-align:center;
+             position: absolute; left:0; top:0; visibility:hidden; z-index:266;}
+.WHMMessageShadow 
+{display:none; position:absolute; margin-left:3px; margin-top:3px; z-index:265;background:#888; opacity:0.5; filter:alpha(opacity=50); left:0; top:0; visibility:hidden;}
+      
+/* Other */
+/* !!! No .WHM style prefix here !!! */
+.GridTmpTag { position:absolute; left:5px; top:5px; visibility:hidden; }
+
+/* Popup menus */
+.WHMMenuMain  {position:absolute;left:0;top:0; z-index:258;}
+.WHMMenuOuter {overflow:hidden; background:#fff; margin:2px; margin-left:-2px; margin-top:1px; border:1px solid #92999E;}
+.WHMMenuHeader{overflow:hidden; position:absolute; z-index:0;border:0px solid #b0b0c0; background:#fff; cursor:pointer; _cursor:hand;}
+.WHMMenuHead {color:#15498B; cursor:pointer; text-align:left; font-weight:bold; padding-top:5px; padding-bottom:4px;
+    background: #fdfdfd; /* Old browsers */
+    background: -moz-linear-gradient(top,  #fdfdfd 0%, #99bce8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#99bce8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #fdfdfd 0%,#99bce8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #fdfdfd 0%,#99bce8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #fdfdfd 0%,#99bce8 100%); /* IE10+ */
+    background: linear-gradient(top,  #fdfdfd 0%,#99bce8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#99bce8',GradientType=0 ); /* IE6-9 */
+}
+.WHMMenuClose {float:right!important; width:14px; cursor:pointer; _cursor:hand; display:none;}
+.WHMMenuBody {cursor:default; }
+.WHMMenuShadow {position:absolute;margin:3px 0 0 3px;z-index:0;display:none; background-color:#888; opacity:0.5; filter:alpha(opacity=50);}
+.WHMMenuCheckedIconRight {padding-right:17px; background:url(chk1.png) no-repeat 96% center; background-size: 16px;}
+.WHMMenuUncheckedIconRight { padding-right:17px;background:url(chk0.png) no-repeat 96% center ; background-size: 16px;}
+
+.WHMMenuCursorIcon {background-image:url(d_gray_right.gif); background-repeat:no-repeat; background-position: 3px center;_background-color:#fff}
+.WHMMenuHoverIcon {background-image:url(d-right.png); background-repeat:no-repeat; background-size: 5px; background-position: 3px center; _background-color:#ffeeaa }   
+
+.WHMMenuNextIcon { padding-right:10px; }
+.WHMMenuNextIconRtl { padding-left:10px; }
+
+.WHMMenuItemText,.WHMMenuItemIcon,.WHMMenuEnum,.WHMMenuEnumHeader,.WHMMenuEdit,.WHMFilterMenuItemText 
+{white-space:nowrap; overflow:hidden; vertical-align: middle; padding:2px 0 2px 0; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+.WHMMenuItemDisabled {opacity:0.50; filter:alpha(opacity=30); overflow:hidden; }
+.WHMMenuLevel {color:blue;text-align:center; }  
+.WHMMenuEnumParent,.WHMMenuEditParent {padding-left:5px; padding-right:2px}
+.WHMMenuItemIcon {background-repeat:no-repeat;}
+.WHMMenuEnum {border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666; padding-left:15px; overflow:hidden;}
+.WHMMenuEnumHeader  {padding:1px 0 2px 16px; cursor:default; } 
+.WHMMenuEdit{border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666; background:white; overflow:hidden;white-space:nowrap;
+  padding-left:2px; padding-right:2px;}
+.WHMMenuEditInput,.WHMMenuEditTextarea {margin:0;padding:0;border:0; background:#FDD;_margin:-1px; _padding-right:1px; _padding_left:1px; }   
+.WHMMenuEditTextarea { line-height:13px;  }   
+.WHMMenuEditInt,.WHMMenuEditFloat,.WHMMenuEditDate { text-align:right; } 
+.WHMMenuEditMulti { white-space:normal; }
+.WHMMenuItem {background-color:#ffffff;padding:2px;}  
+.WHMMenuItemHover {background-color:#ffeeaa; border:1px solid #aaaadd;margin:0 1px; padding:1px 0;}
+.WHMMenuFocusHover {margin:1px; background-color:#CAE1F3; border:1px solid #000000;}
+.WHMMenuFocus      {margin:1px; background-color:#CAE1F3; border:1px solid #aaaadd;}
+.WHMMenuSeparator {margin:1px 3px 0 3px; height:1px; border-top:1px solid #aaaadd; overflow:hidden;}
+.WHMMenuCaption {padding:2px; background:#ffffff; color:blue; text-align:center;}
+.WHMMenuVSeparator { border-right:1px solid #DDD; }
+.WHMMenuFoot { border-top:none; text-align:center; white-space:nowrap; }
+.WHMMenuButton {font-size:11px;background:#dcecf8; text-align:center; border:1px solid #8a8fb5;margin:5px 2px 4px 2px;padding:0;white-space:nowrap;width:48px;} 
+.WHMMenuButtonHover { background:#ffeeaa; border:1px solid #aaaadd; }
+
+.WHMEnumMenuItem {background-color:#ffffff;padding:2px;padding-top:0px;padding-bottom:0px;}  
+.WHMEnumMenuFocus      {margin:1px; background-color:rgba(0,136,204,0.2); border:1px solid #2d8cdb;}
+.WHMEnumMenuFocusHover {margin:1px; background-color:rgba(0,136,204,0.2); border:1px solid #2d8cdb;}
+.WHMEnumMenuItemHover {background-color:#f2f2f2; border:0px solid #aaaadd;margin:0 1px; padding:1px;padding-top:0px;padding-bottom:0px;}
+.WHMEnumMenuColBorderColor {border-color:#e0e0ff; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+
+.WHMSuggestMenuItem {background-color:#ffffff;padding:2px;padding-top:0px;padding-bottom:0px;}  
+.WHMSuggestMenuFocus       {margin:1px; background-color:#CAE1F3; border:1px solid #aaaadd;}
+.WHMSuggestMenuFocusHover {margin:1px; background-color:#CAE1F3; border:1px solid #000000;}
+.WHMSuggestMenuItemHover {background-color:#ffeeaa; border:0px solid #aaaadd;margin:0 1px; padding:1px;padding-top:0px;padding-bottom:0px;}
+.WHMSuggestMenuColBorderColor {border-color:#e0e0ff;}
+
+/* Grid configuration menus */
+.WHMCfgMenuOuter,.WHMColumnsMenuOuter { border:1px solid #000000; }
+.WHMCfgMenuHead,.WHMColumnsMenuHead { padding-left:3px; }
+.WHMCfgMenuBody,.WHMColumnsMenuBody { padding-left:4px; padding-right:4px;}
+.WHMCfgMenuFoot,.WHMColumnsMenuFoot { padding-right:3px; padding-left:3px;}
+.WHMCfgMenuButton { width:70px; } 
+.WHMCfgMenuItemText,.WHMColumnsMenuItemText { padding-left:3px; }
+.WHMColumnsMenuItemText { white-space:nowrap; }
+.WHMCfgMenuItem,.WHMColumnsMenuItem { padding-top:3px; padding-bottom:3px;}
+.WHMCfgMenuItemHover,.WHMCfgMenuFocus,.WHMCfgMenuFocusHover,
+.WHMColumnsMenuItemHover,.WHMColumnsMenuFocus,.WHMColumnsMenuFocusHover { padding-top:2px; padding-bottom:2px;}
+
+/* Popup grid dialog */
+.WHMPopupGridOuter { border:0; overflow:visible; }
+.WHMPopupGridHead { padding:0; }
+.WHMPopupGridBody { padding:0; }
+.WHMPopupGridFoot { padding:0; }
+.WHMPopupGridButton { width:50px;margin-top:-2px; margin-bottom:3px;} 
+
+/* Calendar */
+/* calendar small design */
+.WHMPickMain  {position:absolute; left:0; top:0; z-index:258; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+.WHMPickOuter {overflow:hidden; background:white; border:1px solid #E1E3E4; }
+.WHMPickHeader{overflow:hidden; position:absolute; z-index:258; border:1px solid black; background:#ffffff; cursor:pointer; _cursor:hand;}
+.WHMPickHeaderBottom{border-bottom:0; padding-bottom:1px;}
+.WHMPickHeaderTop{border-top:0; padding-bottom:1px; }
+.WHMPickHead {background:#5c8397; font:10px NanumGothic,Verdana,Arial; color:white; cursor:default; padding-left:5px; padding-top:1px; padding-bottom:1px;border-bottom:1px solid white;}
+.WHMPickClose{float:right; width:14px; cursor:pointer; _cursor:hand; display:none;}
+.WHMPickBody {cursor:default; padding:0; }
+.WHMPickShadow{position:absolute; background:#888; z-index:257; margin:3px 0 0 3px;opacity:0.5; filter:alpha(opacity=50);} 
+.WHMPickFooter,.WHMPick2Footer{text-align:center; padding:2px; cursor:default; background:#EFF0F1; border-top:1px solid #E3E4E6}
+ 
+.WHMPickMY{background-color:#383838;border-bottom:1px solid #99BCE8;color:#fff;text-shadow:0 0 1px rgba(0,0,0,0.2); cursor:default;text-align:center;padding:7px 0 7px 0;}
+   
+.WHMPickMYDown{padding-right:13px; background:url(d-down.png) no-repeat right; cursor:pointer; _cursor:hand; background-size: 10px; font-weight:600;}
+.WHMPickMYUp {padding-right:13px; background:url(d-up.png) no-repeat right center; cursor:pointer; _cursor:hand; background-size: 10px; font-weight:600;}
+
+.WHMPickMYRtl{padding-right:0; padding-left:13px; }
+.WHMPickBL,.WHMPickBR{padding-top:13px; cursor:pointer; _cursor:hand; width:16px; height:14px; overflow:hidden;}
+
+.WHMPickBL {float:left !important; background:url(d-left.png) no-repeat 50%; background-size: 7px}
+.WHMPickBR {float:right !important; background:url(d-right.png) no-repeat 50%; background-size: 7px}
+
+.WHMPickTable{width:234px !important;}
+.WHMPickRow  {background:#ffffff;}
+.WHMPickRowW {background:#EFEFEF;}
+.WHMPickCell {width:27px; height:24px; border:1px solid #EFEFEF; vertical-align: middle;}
+.WHMPickWDN {background:transparent; color:#333333;text-align:center; cursor:default; text-shadow:0 0 1px rgba(0,0,0,0.2); margin:3px 5.2px;padding:1px;}
+
+.WHMPickHover,.WHMPickSelHover,.WHMPickWD,.WHMPickSa,.WHMPickSu,.WHMPickHo,.WHMPickSel,.WHMPickNow,.WHMPickWDNE,.WHMPickSaNE,.WHMPickSuNE,
+.WHMPickSelNE,.WHMPickNowNE,.WHMPickOM,.WHMPickOMNE {text-align:center; border:1px solid #ffffff; cursor:pointer; _cursor:hand;}
+.WHMPickWN,.WHMPickWNE {text-align:center; cursor:pointer; _cursor:hand;padding:5px 4px; background:#EFEFEF; white-space:nowrap;}
+
+.WHMPickWDNE,.WHMPickSaNE,.WHMPickSuNE,.WHMPickSelNE,.WHMPickNowNE,.WHMPickWNE {cursor:default;}
+.WHMPickWD{background-color:#ffffff; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickSa{background-color:#ffffff; color:blue; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickSu{background-color:#ffffff; color:red; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickHo {background-color:#ffffff; color:orange; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickSel{background:radial-gradient(ellipse at center, #3873ff 0%, #376efe 44%, #294fe0 100%); border:0; color:#fff; padding:5px 6px; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);
+background: -moz-radial-gradient(center, ellipse cover, #3873ff 0%, #376efe 44%, #294fe0 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #3873ff), color-stop(44%, #376efe), color-stop(100%, #294fe0));
+background: -webkit-radial-gradient(center, ellipse cover, #3873ff 0%, #376efe 44%, #294fe0 100%);
+background: -o-radial-gradient(center, ellipse cover, #3873ff 0%, #376efe 44%, #294fe0 100%);
+background: -ms-radial-gradient(center, ellipse cover, #3873ff 0%, #376efe 44%, #294fe0 100%);
+}
+.WHMPickSelNE{background-color:#fbea54; border:1px solid #dad1d1; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickNow {background:radial-gradient(ellipse at center, #ff670f 0%, #FF843D 44%, #ff670f 100%); border:0; color:#fff; padding:5px 6px; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);
+background: -moz-radial-gradient(center, ellipse cover, #ff670f 0%, #FF843D 44%, #ff670f 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ff670f), color-stop(44%, #FF843D), color-stop(100%, #ff670f));
+background: -webkit-radial-gradient(center, ellipse cover, #ff670f 0%, #FF843D 44%, #ff670f 100%);
+background: -o-radial-gradient(center, ellipse cover, #ff670f 0%, #FF843D 44%, #ff670f 100%);
+background: -ms-radial-gradient(center, ellipse cover, #ff670f 0%, #FF843D 44%, #ff670f 100%);
+}
+.WHMPickNowNE{background-color:#c0f3ff; border:1px solid #dad1d1; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickHover{background:radial-gradient(ellipse at center, #585858 0%, #3b3b3b 44%, #313131 100%); color:#fff; border:0; padding:5px 6px; font-family:'Arial';
+background: -moz-radial-gradient(center, ellipse cover, #585858 0%, #3b3b3b 44%, #313131 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #585858), color-stop(44%, #3b3b3b), color-stop(100%, #313131));
+background: -webkit-radial-gradient(center, ellipse cover, #585858 0%, #3b3b3b 44%, #313131 100%);
+background: -o-radial-gradient(center, ellipse cover, #585858 0%, #3b3b3b 44%, #313131 100%);
+background: -ms-radial-gradient(center, ellipse cover, #585858 0%, #3b3b3b 44%, #313131 100%);
+}
+.WHMPickSelHover{background-color:#eeeeaa; border:0; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickOM{background-color:white; color:#aaaaaa; font-family:'Arial'; text-shadow:0 0 1px rgba(0,0,0,0.2);}
+.WHMPickOMNE{color:#aaaaaa;}
+
+.WHMPickEmpty{background:url(d_blank.png) no-repeat 50%; cursor:pointer; _cursor:hand;padding:3px 0; background-size: 14px}
+
+.WHMPickTimeCell 
+{text-align:right; padding-bottom:4px; padding-top:6px; padding-right:5px; border-top:1px solid #8CA9E1; background:#EFF0F1;}
+
+.WHMPickTime 
+{border:0px none; white-space:nowrap; text-align:right; background:#EFF0F1;}
+
+.WHMPickButton{background:#FDFDFD; text-align:center; border:1px solid #B5B0B0; cursor:pointer; text-shadow:0 0 1px rgba(0,0,0,0.2); width:45px; height:24px; font:inherit; margin:2px; border-radius: 4px;}
+    
+.WHMPickButtonHover{background:#FDFDFD; border:1px solid #373737; }
+.WHMPick2Table{width:234px !important; vertical-align:middle}
+.WHMPick2CellM{height:20px; width:55px; }
+.WHMPick2CellY{height:20px; width:55px; vertical-align:middle }
+.WHMPick2CellSep{height:20px; width:5px; }
+.WHMPick2Cell{vertical-align:middle}
+.WHMPick2M,.WHMPick2Y,.WHMPick2MSel,.WHMPick2YSel,.WHMPick2MHover,.WHMPick2YHover,.WHMPick2MSelHover,.WHMPick2YSelHover
+{cursor:pointer; _cursor:hand; text-align:center; margin-left:1px; margin-right:1px; padding-left:4px; padding-right:4px; overflow:hidden; }
+   
+.WHMPick2MSel,.WHMPick2YSel {background-color:rgba(0,136,204,0.2); border:1px solid #2d8cdb; margin-left:0; margin-right:0;}
+.WHMPick2MHover,.WHMPick2YHover {background:#DDD; border:1px solid #ffffff; margin-left:0; margin-right:0;}
+.WHMPick2MSelHover,.WHMPick2YSelHover {background-color:rgba(0,136,204,0.2); border:1px solid #2d8cdb; margin-left:0; margin-right:0;}   
+.WHMPick2SepH {width:1px; height:1px; overflow:hidden; }
+.WHMPick2Sep {width:1px; background:#E3E4E6; overflow:hidden; margin-left:2px; margin-right:2px; height:20px;}
+.WHMPick2BL,.WHMPick2BR {width:54px; cursor:pointer; _cursor:hand; }
+
+
+.WHMPick2BL {background:url(d_left_cal.png) no-repeat center center; background-size: 12px;}
+.WHMPick2BR {background:url(d_right_cal.png) no-repeat center center; background-size: 12px;}
+
+/* calendar large design */
+/*
+.WHMPickMain { position:absolute; left:0px; top:0px; z-index:258; font-size:12px; font-family:"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+.WHMPickOuter { overflow:hidden; border:1px solid black; background:white; }
+.WHMPickHeader { overflow:hidden; position:absolute; z-index:258; border:1px solid black; background:white; cursor:pointer; _cursor:hand; }
+.WHMPickHeaderBottom { border-bottom:0px none; padding-bottom:1px; }
+.WHMPickHeaderTop { border-top:0px none; padding-bottom:1px; }
+.WHMPickHead { background:white; font:bold 13px "Microsoft Sans Serif",Arial; cursor:default; padding-left:5px; padding-top:3px; padding-bottom:4px; }
+.WHMPickClose { float:right; width:14px; cursor:pointer; _cursor:hand; display:none; background:url(Menu.gif) no-repeat right -353px; }
+.WHMPickBody { cursor:default; border:none;}
+.WHMPickShadow { position:absolute; background:#888; z-index:257; margin-left:3px; margin-top:3px; opacity:0.5; filter:alpha(opacity=50); }   
+.WHMPickFooter,.WHMPick2Footer { border-top:1px solid #E3E4E6; background:#EFF0F1; color:blue; cursor:default; padding:2px; text-align:center; }
+
+.WHMPickMY{background-color:#0062b1; color:white; cursor:default; text-align:center; padding:4px 0 4px 0;}
+
+.WHMPickMYNone { font:15px "Microsoft Sans Serif",Arial; padding-right:13px; }
+.WHMPickMYDown { font:15px "Microsoft Sans Serif",Arial; padding-right:13px; background:url(d_l_down.gif) no-repeat right; cursor:pointer; _cursor:hand; }   
+.WHMPickMYUp { font:15px "Microsoft Sans Serif",Arial; padding-right:13px; background:url(d_l_up.gif) no-repeat right; cursor:pointer; _cursor:hand; }
+.WHMPickMYRtl { padding-right:0px; padding-left:13px; }
+
+.WHMPickBL,.WHMPickBR { padding-top:10px; cursor:pointer; _cursor:hand; width:16px; overflow:hidden; }
+.WHMPickBL { float:left !important; background:url(d_l_left.gif) no-repeat 50%;}
+.WHMPickBR { float:right !important; background:url(d_l_right.gif) no-repeat 50%;}
+
+.WHMPickTableParent { padding-left:3px; padding-right:5px; padding-bottom:5px; padding-top:3px; clear:both; }
+.WHMPickTable { width:240px !important; }
+.WHMPickRow { background:white; }
+.WHMPickRowW { background:#a8daff;}   
+.WHMPickCell { width:30px;}
+.WHMPickWDN {
+   text-align:center; padding:1px; color:#010101;
+   padding-left:3px; padding-right:3px; padding-top:2px; padding-bottom:2px;border-left:1px solid #fff;
+   font:15px "Microsoft Sans Serif",Arial; cursor:default;
+   }
+.WHMPickHover,.WHMPickSelHover,.WHMPickWD,.WHMPickSa,.WHMPickSu,.WHMPickHo,.WHMPickSel,.WHMPickNow,.WHMPickWDNE,.WHMPickSaNE,.WHMPickSuNE,.WHMPickSelNE,.WHMPickNowNE,.WHMPickOM,.WHMPickOMNE {
+   text-align:center; padding-top:4px; padding-bottom:4px; padding-left:3px; padding-right:3px;
+   font:15px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;border-bottom:1px solid #e4e4e4;border-right:1px solid #e4e4e4;
+   }
+.WHMPickWN,.WHMPickWNE { 
+   text-align:center; font:15px "Microsoft Sans Serif",Arial; cursor:pointer; _cursor:hand;
+   padding-left:4px; padding-right:4px; padding-top:4px; padding-bottom:4px;
+   background:#488; color:white;
+   }
+.WHMPickWDNE,.WHMPickSaNE,.WHMPickSuNE,.WHMPickSelNE,.WHMPickNowNE,.WHMPickWNE { cursor:default; background-color:#e4e4e4; color:#000; border-bottom:1px solid #d0d0d0; border-left:1px solid #d0d0d0;}
+.WHMPickWD { background-color:#fff; }
+.WHMPickSa { color:#0d3def; } 
+.WHMPickSu { color:#e40505; } 
+.WHMPickHo { color:orange; } 
+.WHMPickSel { color:#05467c;font-weight:bold;background-color:#e4e4e4; }
+.WHMPickSelNE { color:#05467c;font-weight:bold;background-color:#e4e4e4; }
+.WHMPickNow { background-color:#a8daff; }
+.WHMPickNowNE { background-color:#ffe0ff; }
+.WHMPickOM { background-color:inherit; color:#c1c1c1; }
+.WHMPickOMNE { color:#aaaaaa; }
+.WHMPickEmpty { background:url(d_blank.gif) no-repeat 50%; cursor:pointer; _cursor:hand; padding:6px 0 0 0;}
+.WHMPickHover { background-color:#DDD; }
+.WHMPickSelHover { background-color:#eeee77; }
+
+.WHMPickTimeCell { text-align:right; background-color:white; padding-bottom:4px; padding-top:6px; padding-right:5px; }
+.WHMPickTime { font:13px Verdana,Arial; border:0px none; white-space:nowrap; text-align:right; }
+.WHMPickButton {font:14px "Microsoft Sans Serif",Arial; background:#dcecf8; text-align:center; border:1px solid #8a8fb5; width:60px; height:20px; font:inherit;}
+    
+.WHMPickButtonHover{background:#9cd0fa; border:1px solid #aaaadd; }
+
+.WHMPick2TableParent { padding-left:3px; padding-right:3px; padding-bottom:1px; padding-top:2px; text-align:center; }
+.WHMPick2Table { vertical-align:middle; width:240px !important; }
+.WHMPick2Row { background:white;}
+.WHMPick2CellM { height:35px; width:76px; }
+.WHMPick2CellY { vertical-align:middle; height:27px; width:55px;text-align:center;}
+.WHMPick2CellSep { height:27px; width:10px; }
+.WHMPick2Cell { vertical-align:middle; height:27px; width:55px;}
+.WHMPick2M,.WHMPick2Y,.WHMPick2MSel,.WHMPick2YSel,.WHMPick2MHover,.WHMPick2YHover,.WHMPick2MSelHover,.WHMPick2YSelHover {
+   font:14px "Microsoft Sans Serif",Arial; overflow:hidden;
+   margin-left:1px; margin-right:1px;
+   padding-left:4px; padding-right:4px; overflow:hidden;
+   background-color:white; cursor:pointer; _cursor:hand; text-align:center;
+   }
+.WHMPick2MSel,.WHMPick2YSel { background-color:#d1ebff; border:1px solid #dad1d1; margin-left:0; margin-right:0;}
+.WHMPick2MHover,.WHMPick2YHover { background-color:#DDD; border:1px solid #ffffff; margin-left:0; margin-right:0;}
+.WHMPick2MSelHover,.WHMPick2YSelHover { background-color:#9cd0fa; border:1px solid #ffffff; margin-left:0; margin-right:0;}   
+.WHMPick2SepH { width:1px; height:1px; overflow:hidden; }
+.WHMPick2Sep { width:1px; background:#E3E4E6; overflow:hidden; margin-left:4px; margin-right:5px; height:27px; }    
+.WHMPick2BL,.WHMPick2BR {width:24px !important; cursor:pointer; _cursor:hand;padding:3px 0px;margin:0 auto;}
+.WHMPick2BL { background:url(d_l_left2.gif) no-repeat center center;}
+.WHMPick2BR { background:url(d_l_right2.gif) no-repeat center center;}
+*/
+
+/* Edit controls */
+.WHMEdit,.WHMEditInline {padding:2px 4px;border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666;background:#ffffff; white-space:nowrap; overflow:hidden;}
+  
+.WHMEditInline { display:inline-block; vertical-align:bottom; }
+.WHMEditInput,.WHMEditTextarea {border:0 solid transparent !important; margin:0; padding:0; padding-right:1px !important;vertical-align: middle; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;} 
+.WHMEditDate {z-index:-500 !important;}
+/*IH */
+
+.WHMEditTextarea { line-height:13px; }
+.WHMEditSpaceInput { vertical-align:middle; }
+.WHMEditNormalInput,.WHMEditNormalTextarea,.WHMEditSpaceTextarea { padding-left:5px; background-color:#FFFFFF; /*#FFDCFF;*/; } /* IH : Cell Textedit Padding */
+.WHMEditInt,.WHMEditFloat { text-align:right; }
+
+.WHMEditNormalTextarea {}
+
+.WHMEditMulti { white-space:normal; }
+.WHMEditReadOnly { background-color:#FFEEFF; }   
+.WHMEditParent { position:absolute; z-index:258; overflow:hidden; }
+
+.WHMEnumHeaderLeft,.WHMEnumHeaderRight,.WHMEnumHeaderNone 
+{background:white; cursor:pointer; _cursor:hand; vertical-align:middle; text-align:left; padding:2px 0 2px 2px; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;}
+
+.WHMEnumHeaderRight {background: url(combo.png) no-repeat right center;margin:3px 4px 0 6px;background-size:16px;}
+ @media screen and (-webkit-min-device-pixel-ratio:0) {.WHMEnumHeaderRight{margin:3px 4px 0 6px;}}/* hack:CR,SF */
+.WHMEnumHeaderRight, x:-moz-any-link, x:default {margin:3px 4px 0 6px;} /* hack:FF */
+ @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {.WHMEnumHeaderRight{ margin:1px 0 0 0;}}/* hack:OP */
+
+.WHMEnumMenuHeader { background:#ffffff; }
+
+.WHMEnumControl,.WHMEnumInline {
+   cursor:pointer; _cursor:hand; padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;
+   border:1px solid #DDD; border-top:1px solid #666; border-left:1px solid #666; overflow:hidden;}
+   
+.WHMEnumInline { display:inline-block; vertical-align:bottom; }
+.WHMEnumHeader { cursor:pointer; _cursor:hand;padding-left:15px; padding-right:4px; padding-top:2px; padding-bottom:2px;} 
+
+/*  Custom scrollbars  */
+.WHMCustScroll1RightHidden { background:url(VScroll.png) left -108px; height:18px; overflow:hidden; }
+.WHMCustScroll1Right { padding-right:18px; background:url(VScroll.png) right 0; }
+.WHMCustScroll1RightHover { padding-right:18px; background:url(VScroll.png) right -18px; }
+.WHMCustScroll1Left { padding-left:18px;  background:url(VScroll.png) left 0; }
+.WHMCustScroll1LeftHover { padding-left:18px;  background:url(VScroll.png) left -18px; }
+.WHMCustScroll1SliderRight { padding-right:3px; background:url(VScroll.png) right -36px; }
+.WHMCustScroll1SliderLeft { padding-left:3px; background:url(VScroll.png) left -36px; }
+.WHMCustScroll1SliderHIn { height:18px; overflow:hidden; background:url(VScroll.png) center -54px; }
+.WHMCustScroll1SliderRightHover { padding-right:3px; background:url(VScroll.png) right -72px; }
+.WHMCustScroll1SliderLeftHover { padding-left:3px; background:url(VScroll.png) left -72px; }
+.WHMCustScroll1SliderHInHover { height:18px; overflow:hidden; background:url(VScroll.png) center -90px; }
+
+.WHMCustScroll2RightHidden { background:url(VScroll.png) left -460px; height:10px; overflow:hidden; }
+.WHMCustScroll2Right { padding-right:10px; background:url(VScroll.png) right -400px; }
+.WHMCustScroll2RightHover { padding-right:10px; background:url(VScroll.png) right -410px; }
+.WHMCustScroll2Left { padding-left:10px;  background:url(VScroll.png) left -400px; }
+.WHMCustScroll2LeftHover { padding-left:10px;  background:url(VScroll.png) left -410px; }
+.WHMCustScroll2SliderRight { padding-right:6px; background:url(VScroll.png) right -420px; }
+.WHMCustScroll2SliderLeft { padding-left:6px; background:url(VScroll.png) left -420px; }
+.WHMCustScroll2SliderHIn { height:10px; overflow:hidden; background:url(VScroll.png) center -430px; }
+.WHMCustScroll2SliderRightHover { padding-right:6px; background:url(VScroll.png) right -440px; }
+.WHMCustScroll2SliderLeftHover { padding-left:6px; background:url(VScroll.png) left -440px; }
+.WHMCustScroll2SliderHInHover { height:10px; overflow:hidden; background:url(VScroll.png) center -450px; }
+
+.WHMCustScroll3Right,.WHMCustScroll3RightHidden { background:white; height:9px; overflow:hidden; }
+.WHMCustScroll3SliderRight,.WHMCustScroll3SliderRightHover { padding-right:3px; height:9px; background:url(VScroll.png) right -126px; }
+.WHMCustScroll3SliderLeft,.WHMCustScroll3SliderLeftHover { height:9px; background:url(VScroll.png) left -126px; }
+.WHMCustScroll3SliderRightHover { background-position:right -135px; }
+.WHMCustScroll3SliderLeftHover { background-position:left -135px; }
+
+.WHMCustScroll4Right,.WHMCustScroll4RightHidden,.WHMCustScroll4SliderRight,.WHMCustScroll4SliderRightHover { height:1px; overflow:hidden; }
+
+.WHMCustScroll1DownHidden { background:url(HScroll.png) -108px top; width:18px; overflow:hidden; }
+.WHMCustScroll1Down { padding-bottom:18px; background:url(HScroll.png) 0px bottom; cursor:default; width:18px; overflow:hidden; }
+.WHMCustScroll1DownHover { padding-bottom:18px; background:url(HScroll.png) -18px bottom; width:18px; overflow:hidden; }
+.WHMCustScroll1Up { padding-top:18px; background:url(HScroll.png) 0px top; width:18px; overflow:hidden; }
+.WHMCustScroll1UpHover { padding-top:18px;  background:url(HScroll.png) -18px top; width:18px; overflow:hidden; }
+.WHMCustScroll1SliderDown { padding-bottom:3px; background:url(HScroll.png) -36px bottom; width:18px; overflow:hidden; }
+.WHMCustScroll1SliderUp { padding-top:3px; background:url(HScroll.png) -36px top; width:18px; overflow:hidden; }
+.WHMCustScroll1SliderVIn { background:url(HScroll.png) -54px center; width:18px; overflow:hidden; }
+.WHMCustScroll1SliderDownHover { padding-bottom:3px; background:url(HScroll.png) -72px bottom; width:18px; overflow:hidden; }
+.WHMCustScroll1SliderUpHover { padding-top:3px; background:url(HScroll.png) -72px top; width:18px; overflow:hidden; }
+.WHMCustScroll1SliderVInHover { background:url(HScroll.png) -90px center; width:18px; overflow:hidden; }
+
+.WHMCustScroll2DownHidden { background:url(HScroll.png) -460px top; width:10px; overflow:hidden; }
+.WHMCustScroll2Down { padding-bottom:10px; background:url(HScroll.png) -400px bottom; cursor:default; width:10px; overflow:hidden; }
+.WHMCustScroll2DownHover { padding-bottom:10px; background:url(HScroll.png) -410px bottom; width:10px; overflow:hidden; }
+.WHMCustScroll2Up { padding-top:10px; background:url(HScroll.png) -400px top; width:10px; overflow:hidden; }
+.WHMCustScroll2UpHover { padding-top:10px;  background:url(HScroll.png) -410px top; width:10px; overflow:hidden; }
+.WHMCustScroll2SliderDown { padding-bottom:6px; background:url(HScroll.png) -420px bottom; width:10px; overflow:hidden; }
+.WHMCustScroll2SliderUp { padding-top:6px; background:url(HScroll.png) -420px top; width:10px; overflow:hidden; }
+.WHMCustScroll2SliderVIn { background:url(HScroll.png) -430px center; width:10px; overflow:hidden; }
+.WHMCustScroll2SliderDownHover { padding-bottom:6px; background:url(HScroll.png) -440px bottom; width:10px; overflow:hidden; }
+.WHMCustScroll2SliderUpHover { padding-top:6px; background:url(HScroll.png) -440px top; width:10px; overflow:hidden; }
+.WHMCustScroll2SliderVInHover { background:url(HScroll.png) -450px center; width:10px; overflow:hidden; }
+
+.WHMCustScroll3Down,.WHMCustScroll3DownHidden { background:white; width:9px; overflow:hidden; cursor:default; }
+.WHMCustScroll3SliderDown,.WHMCustScroll3SliderDownHover { padding-bottom:3px; width:9px; background:url(HScroll.png) -126px bottom; }
+.WHMCustScroll3SliderUp,.WHMCustScroll3SliderUpHover { width:9px; background:url(HScroll.png) -126px top; cursor:default; }
+.WHMCustScroll3SliderDownHover { background-position:-135px bottom; }
+.WHMCustScroll3SliderUpHover { background-position:-135px top; cursor:default; }
+
+.WHMCustScroll4Down,.WHMCustScroll4DownHidden,.WHMCustScroll4SliderDown,.WHMCustScroll4SliderDownHover { width:1px; overflow:hidden; }
+
+/* Other messages */
+.WHMHintMain {position:absolute; margin-left:-1px; margin-top:-1px; left:0px; top:0px; z-index:260; background:#ffffff; cursor:default; }
+.WHMHintOuter {overflow:hidden; border:1px solid #000000; background:#ffffff !important; color:black; text-align:left; }
+.WHMHintHeaderOuter {background-color:#39aefb !important; color:#ffffff; border: 1px solid #ffffff; }
+.WHMHintShadow {position:absolute; z-index:259;background:#888; opacity:0.3; filter:alpha(opacity=30);margin-left:2px; margin-top:2px;}
+.WHMTipMain {position:absolute; left:0px; top:0px; z-index:262; visibility:hidden; }
+.WHMTipOuter  {overflow:hidden; cursor:default; font:12px Arial;padding-left:3px; padding-right:3px; background:#E4E5F0; border:1px solid #777;}
+.WHMTipBody {background:#E4E5F0; white-space:nowrap; }
+.WHMTipShadow {position:absolute;z-index:261;background:#888; opacity:0.3; filter:alpha(opacity=30);visibility:hidden; margin-left:3px; margin-top:3px}
+.WHMMouseOrig { background:yellow !important; opacity:0.5; filter:alpha(opacity=50); }
+.WHMMouseDragObject { position:absolute; z-index:260; background:#888; opacity:0.5; filter:alpha(opacity=50); }
+.WHMFocus { border:1px solid #AAF; border-top:1px solid #00F; border-left:1px solid #00F; background-color:#EEE; } 
+.GridDisabled { position:absolute; z-index:256; background:white; opacity:0.5; filter:alpha(opacity=50); } 
+
+/* Do not change, marks the style loaded */
+.WHMLoaded { border:1px solid #000000 !important;}
+
+/*sum*/
+.WHMSumCell{background:#f0ede6; color:#FF6407; text-shadow:0 0 1px rgba(0,0,0,0.2);}/*//text-align: right;font-weight:bold;*/
+.WHMSubSumCell{background: #FFFFEF; border-bottom:1px solid #F5D9CD; color:#FF6600}
+.WHMCumulateCell{background: #FFFFEF; border-bottom:1px solid #F5D9CD; color:#AE4600}
+
+/* FindDialog && PivotDialog */
+.WHMH1Pop,.WHMPPop{margin:0; padding:0}
+.WHMPaddingl10{padding-left:10px}
+.WHMPaddingT10{padding-top:10px}
+.WHMPPop{ padding:0 0 10px 0; text-align:center }
+.WHMPop{width:410px; overflow:hidden; border:1px solid #426B8C; padding:0; font-size:12px;background:#EBF2F5; font-family:dotum, Arial, Helvetica, sans-serif}
+.WHMPopTitle{width:100%; border-bottom:1px solid #99BCE8; font-size:12px; font-weight:bold; display:block; line-height:28px; color:#15498B;
+background: #c9e1f5; /* Old browsers */
+background: -moz-linear-gradient(top,  #c9e1f5 0%, #99bce8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c9e1f5), color-stop(100%,#99bce8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #c9e1f5 0%,#99bce8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #c9e1f5 0%,#99bce8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #c9e1f5 0%,#99bce8 100%); /* IE10+ */
+background: linear-gradient(top,  #c9e1f5 0%,#99bce8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9e1f5', endColorstr='#99bce8',GradientType=0 ); /* IE6-9 */
+}
+.WHMPopSearch{margin:5px; overflow:hidden; }
+.WHMPopContent{border:1px solid #D0DBE8; background-color:#fff}
+.WHMPopUl,.WHMPopUl2{list-style:none; margin:0; padding:10px;}
+.WHMPopDiv{overflow:hidden; width:100%}
+.WHMPopDiv2{overflow:hidden; width:100%}
+.WHMPopLeft,.WHMPopLeft2, .WHMPopLeft3 {width:220px; float:left !important; }
+.WHMPopRight,.WHMPopRight2,.WHMPopRight3 {width:166px; float:right !important; }
+.WHMPopUl input {margin:-2px 2px 0px 0px;padding:0 ; width:13px; height:13px; vertical-align:middle;}
+.WHMPopUl li{ padding-top:4px; padding-bottom:3px; padding-left:5px}
+.WHMPopUl2 li{ padding-top:4px; padding-bottom:3px;}
+.WHMBtnArea {margin-top:10px; text-align:center }
+.WHMPopLeft, .WHMPopRight{ height:120px}
+.WHMPopLeft2, .WHMPopRight2{ height:120px}
+.WHMPopLabel{line-height:12px; margin:0 0 0 2px}
+.WHMPopSubtitle{font-weight:bold; color:#000; border-bottom:1px solid  #E0E0E0; background-color:#E7E7E7;padding-left:4px;}
+.WHMPopBtn {text-align: center;text-decoration: none;color:#fff;position: relative;border:1px solid #316290;
+          font-size:12px; width:50px !important; height:22px !important; cursor:pointer;}
+.WHMPopBtn2 {text-align: center;text-decoration: none;color:#fff;position: relative;border:1px solid #316290;
+          font-size:12px; height:22px !important; cursor:pointer;}
+.WHMPopBtn, .WHMPopBtn:hover {color:#fff;}
+.WHMPopBtnBlue {
+    background: #5689b9; /* Old browsers */
+    background: -moz-linear-gradient(top,  #5689b9 0%, #3a6ea0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5689b9), color-stop(100%,#3a6ea0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #5689b9 0%,#3a6ea0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #5689b9 0%,#3a6ea0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #5689b9 0%,#3a6ea0 100%); /* IE10+ */
+    background: linear-gradient(top,  #5689b9 0%,#3a6ea0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5689b9', endColorstr='#3a6ea0',GradientType=0 ); /* IE6-9 */
+}
+.WHMPopBtnBlue:hover {
+    background: #3a6ea0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #3a6ea0 0%, #5689b9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3a6ea0), color-stop(100%,#5689b9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #3a6ea0 0%,#5689b9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #3a6ea0 0%,#5689b9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #3a6ea0 0%,#5689b9 100%); /* IE10+ */
+    background: linear-gradient(top,  #3a6ea0 0%,#5689b9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a6ea0', endColorstr='#5689b9',GradientType=0 ); /* IE6-9 */
+}
+
+.WHMPopDisc {margin:0px 8px 8px 8px; background-color:#ebf2f5; border:1px solid #D0DBE8;}
+.WHMPopDisc ul {padding:0px; margin-left:0; margin-top:10px; margin-bottom:0;}
+.WHMPopDisc li {list-style:none; background:url(bullet.gif) no-repeat 5px 3px; margin-bottom:8px; padding-left:13px; color:#426b8c; word-break:break-all;}
+
+.WHMPopChkArea {margin:8px; height:25px;}
+.WHMPopChkArea ul {margin:0; padding:0; float:right!important; background-color:#ebf2f5; border:1px solid #D0DBE8;}
+.WHMPopChkArea li {float:left!important; padding:3px 5px 0px 5px; list-style:none; color:#426b8c; font-weight:bold;}
+
+.WHMPopFilter {width:250px;}
+.WHMPopHelp0, .WHMPopHelp1, .WHMPopClose {
+    cursor:pointer;
+    margin-top:4px;padding-right:3px;float:right!important;height:20px;
+    border: 0px none; background-repeat: no-repeat; padding-left: 12px; background-image: url(filter_btn.gif);
+}
+.WHMPopHelp0 { background-position:0px 0px; }
+.WHMPopHelp1 { background-position:-23px 0px; }
+.WHMPopClose { background-position:-46px 0px; }
+
+/* Paging Icon */
+.WHMEditPager {margin:0; padding:0; padding-right:1px !important;vertical-align: middle; font-size:/*IBFS*/12px; font-family:/*IBFN*/"NanumGothic", "Helvetica", "AppleGothic", sans-serif;} 
+
+.WHMToolPagerFirst, .WHMToolPagerFirst1, .WHMToolPagerPrev, .WHMToolPagerPrev1, .WHMToolPagerNext, .WHMToolPagerNext1, .WHMToolPagerLast, .WHMToolPagerLast1 {
+	border: 0px none; background-repeat: no-repeat; padding-left: 16px; padding-right: 3px; background-image: url(pager.png); background-size: 350px;
+}
+
+.WHMToolPagerFirst1 { background-position:0px 0px; }
+.WHMToolPagerFirst { background-position:-30px 0px; }
+.WHMToolPagerPrev1 { background-position:-120px 0px; }
+.WHMToolPagerPrev { background-position:-150px 0px; }
+.WHMToolPagerNext1 { background-position:-180px 0px; }
+.WHMToolPagerNext { background-position:-210px 0px; }
+.WHMToolPagerLast1 { background-position:-300px 0px; }
+.WHMToolPagerLast { background-position:-330px 0px; }
+
+.WHMToolExpand1, .WHMToolCollapse1 {
+	border: 0px none; background-repeat: no-repeat; padding-left: 16px; padding-right: 3px; background-image: url(group.png);
+}
+
+.WHMToolExpand1 { background-position:2px 2px; background-size: 42px }
+.WHMToolCollapse1 { background-position:-21px 2px; background-size: 42px }
+
+/* FocusedSheet */
+/*
+.WHMFocusedSheet{
+    z-index:0; border:1px solid #d7d7d7 !important; outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px #d7d7d7, 0 0 10px #d7d7d7;
+    -moz-box-shadow: inset 0 1px 1px #d7d7d7, 0 0 10px #d7d7d7;
+    box-shadow: 0 0 10px #d7d7d7;
+}
+*/

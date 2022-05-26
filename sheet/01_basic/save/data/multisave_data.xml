@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SHEET>
+
+  <ETC-DATA>
+    <ETC KEY="SawonNo">9910540</ETC> 
+    <ETC KEY="Name">박은배</ETC> 
+    <ETC KEY="EnterDate">20030714</ETC> 
+    <ETC KEY="Pay">2000000</ETC> 
+    <ETC KEY="Pay2">1000000</ETC> 
+    <ETC KEY="HoBong">1</ETC> 
+  </ETC-DATA>
+  
+  <DATA>
+    <TR>
+      <TD>R</TD>
+      <TD></TD>
+      <TD>1111112222222</TD>
+      <TD>03</TD>
+      <TD>탁재훈</TD>
+      <TD>19451127</TD>
+      <TD>교수</TD>
+      <TD>1</TD>
+    </TR> 
+    <TR>
+      <TD>R</TD>
+      <TD></TD>
+      <TD>1234561234567</TD>
+      <TD>04</TD>
+      <TD>이순심</TD>
+      <TD>19520106</TD>
+      <TD>주부</TD>
+      <TD>4</TD>
+    </TR> 
+    <TR>
+      <TD>R</TD>
+      <TD></TD>
+      <TD>1010100222022</TD>
+      <TD>05</TD>
+      <TD>김돌중</TD>
+      <TD>19681001</TD>
+      <TD>자영업</TD>
+      <TD>2</TD>
+    </TR> 
+    <TR>
+      <TD>R</TD>
+      <TD></TD>
+      <TD>9911201234567</TD>
+      <TD>07</TD>
+      <TD>김명아</TD>
+      <TD>19991120</TD>
+      <TD>없음</TD>
+      <TD>7</TD>
+    </TR> 
+    <TR>
+      <TD>R</TD>
+      <TD></TD>
+      <TD>0105051234567</TD>
+      <TD>07</TD>
+      <TD>김명숙</TD>
+      <TD>20010505</TD>
+      <TD>없음</TD>
+      <TD>7</TD>
+    </TR> 
+  </DATA>
+</SHEET>

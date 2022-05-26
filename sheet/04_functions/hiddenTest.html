@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="../sheet/ibsheetinfo.js"></script>
+		<script type="text/javascript" src="../sheet/ibsheet.js"></script>
+		<title>IBSheet7-Product</title>
+		<script type="text/javascript">
+			//시트 높이 계산용		
+			var pageheightoffset = 270;
+		
+			/*Sheet 기본 설정 */
+			function LoadPage() {
+				//아이비시트 초기화
+				var initdata = {};
+				initdata.Cfg = {SearchMode:smLazyLoad,Page:50};
+				initdata.Cols = [
+					{Header:"상태","Type":"Status","Width":60},
+					{Header:"삭제","Type":"DelCheck","Width":60},
+					{Header:"인덱스ID","Type":"Combo","Width":60,"SaveName":"A","ComboCode":"01|02|03|04","ComboText":"휴가|공휴일|반차|창립기념일","PopupText":"휴가|공휴일|반차|창립기념일"},
+					{Header:"코드","Type":"Text","Width":60,"SaveName":"B","Align":"Center"},
+					{Header:"코드명","Type":"Text","Width":155,"SaveName":"C"},
+					{Header:"정렬","Type":"Int","Width":45,"SaveName":"D","Format":"Integer"},
+					{Header:"생성일","Type":"Date","Width":95, "SaveName":"E","Format":"Ymd"},
+					{Header:"폐기일","Type":"Date","Width":95,"SaveName":"F","Format":"Ymd"},
+					{Header:"결재일자","Type":"Date","Width":95,"SaveName":"G","Format":"Ymd"}
+				];
+				
+				IBS_InitSheet(mySheet,initdata);
+				mySheet.FitColWidth();
+				doAction('search');
+			}
+		
+			/*Sheet 각종 처리*/
+			function doAction(sAction) {
+				switch(sAction) {
+					case "search": //데이터 조회
+						mySheet.DoSearch("./data/hidden_data.xml");
+						break;
+					case "reload": //조회 데이터 제거
+						mySheet.RemoveAll();
+						break;
+				}
+			}
+			
+			//특정 행/열    보이기/감추기
+			function hiddenFunc(str, val) {
+				
+				var row = document.getElementById("row").value;
+				var col = document.getElementById("hcol").value;
+		
+				switch(str){
+					case "row":
+						//지정한 행 보이기/감추기
+						mySheet.SetRowHidden(row,val);
+					break;
+					case "col":
+						//지정한 열 보이기/감추기
+						mySheet.SetColHidden(col,val);
+					break;
+						
+				}
+			}
+			//포커스 이동 이벤트
+			function mySheet_OnSelectCell(OldRow, OldCol, NewRow, NewColl) {
+				if (parseInt(NewRow) > 0) {
+					document.getElementById("row").value = NewRow;
+				}
+			}
+		</script>
+	</head>
+	<body onLoad="LoadPage()">
+		<div class="page_title">
+			<span><a class="closeDepth" href="#">closeDepth</a></span> <span
+				class="title">행열기능 > <b>숨김기능</b></span>
+		</div>
+	
+		<div class="main_content">
+			<div class="exp_product">동적으로 행이나 열을 보이거나 감춰본다.</div>
+	
+			<div class="ib_function float_right">
+				<a href="javascript:doAction('reload')" class="f1_btn_gray lightgray">초기화</a>
+				<a href="javascript:doAction('search')" class="f1_btn_white gray">조회</a>
+			</div>
+	
+			<div class="clear hidden"></div>
+	
+			<div class="ib_function2 border_sheet">
+				<table class="ib_basic">
+					<tr>
+						<th class="tit">행(Row)</th>
+						<td class="r20"><input type="text" id="row" value="1" style="width: 25px;" class="inputbox" /> 번째 행을</td>
+						<td><a href="javascript:hiddenFunc('row', 1)" class="f2_btn_white btn_sheet">감춤</a></td>
+						<td><a href="javascript:hiddenFunc('row', 0)" class="f2_btn_gray btn_gray">보임</a></td>
+					</tr>
+					<tr>
+						<th class="tit">열(Column)</th>
+						<td class="r20"><select id="hcol" class="selectbox">
+								<option value="0">상태</option>
+								<option value="1">삭제</option>
+								<option value="2">인덱스ID</option>
+								<option value="3">코드</option>
+								<option value="4">코드명</option>
+								<option value="5">정렬</option>
+								<option value="6">생성일</option>
+								<option value="7">폐기일</option>
+								<option value="8">결재일자</option>
+						</select> 열을</td>
+						<td><a href="javascript:hiddenFunc('col', 1)" class="f2_btn_white btn_sheet">감춤</a></td>
+						<td><a href="javascript:hiddenFunc('col', 0)" class="f2_btn_gray btn_gray">보임</a></td>
+					</tr>
+				</table>
+			</div>
+			<p class="subtit_sheet">조회리스트</p>
+			<div class="ib_product">
+				<script type="text/javascript"> createIBSheet("mySheet", "100%", "100%"); </script>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+<script type="text/javascript" src="../js/common.js"></script>
+<script language="javascript" src="../sheet/ibsheetinfo.js"></script>
+<script language="javascript" src="../sheet/ibsheet.js"></script>
+<title>IBSheet7-Product</title>
+</head>
+
+<script language="javascript">
+	var pageheightoffset = 200;
+
+	var combodata=[
+		{"01":"경북","ITEM":[
+			{"01":"울진군"},{"02":"김천시"},{"03":"영양군"},{"04":"청도군"},{"05":"포항시남구"},{"06":"안동시"},{"07":"청송군"},{"08":"포항시북구"},{"09":"영천시"},{"10":"의성군"},{"11":"영주시"},{"12":"예천군"},{"13":"경주시"},{"14":"칠곡군"},{"15":"영덕군"},{"16":"울릉군"},{"17":"문경시"}
+		]},
+		{"02":"대구","ITEM":[
+			{"01":"동구"},{"02":"달서구"},{"03":"북구"},{"04":"중구"},{"05":"수성구"},{"06":"서구"},{"07":"남구"},{"08":"달성군"}
+		]},
+		{"03":"경남","ITEM":[
+			{"01":"창원시진해구"},{"02":"거제시"},{"03":"창원시성산구"},{"04":"산청군"},{"05":"진주시"},{"06":"창원시마산합포구"},{"07":"창원시의창구"},{"08":"사천시"},{"09":"하동군"},{"10":"김해시"},{"11":"창녕군"},{"12":"창원시마산회원구"},{"13":"통영시"}
+		]},
+		{"04":"강원","ITEM":[
+			{"01":"삼척시"},{"02":"원주시"},{"03":"양구군"},{"04":"영월군"},{"05":"춘천시"},{"06":"고성군"},{"07":"양양군"},{"08":"정선군"},{"09":"태백시"},{"10":"강릉시"},{"11":"동해시"},{"12":"화천군"},{"13":"횡성군"},{"14":"철원군"},{"15":"홍천군"},{"16":"평창군"},{"17":"속초시"},{"18":"인제군"}
+		]},
+		{"05":"광주","ITEM":[
+			{"01":"광산구"},{"02":"동구"},{"03":"북구"},{"04":"서구"},{"05":"남구"}
+		]},
+		{"06":"대전","ITEM":[
+			{"01":"동구"},{"02":"대덕구"},{"03":"중구"}
+		]},
+		{"07":"경기","ITEM":[
+			{"01":"안양시만안구"},{"02":"의정부시"},{"03":"이천시"},{"04":"평택시"},{"05":"포천시"},{"06":"광명시"},{"07":"과천시"},{"08":"남양주시"},{"09":"동두천시"},{"10":"연천군"},{"11":"구리시"},{"12":"부천시오정구"},{"13":"용인시기흥구"},{"14":"광주시"},{"15":"수원시영통구"},{"16":"부천시원미구"},{"17":"성남시수정구"},{"18":"안산시상록구"},{"19":"양평군"},{"20":"여주군"},{"21":"가평군"},{"22":"고양시일산동구"},{"23":"고양시덕양구"},{"24":"수원시권선구"},{"25":"수원시장안구"},{"26":"안양시동안구"},{"27":"안산시단원구"},{"28":"오산시"},{"29":"용인시처인구"},{"30":"하남시"},{"31":"고양시일산서구"},{"32":"부천시소사구"},{"33":"수원시팔달구"},{"34":"김포시"},{"35":"군포시"},{"36":"성남시중원구"},{"37":"성남시분당구"},{"38":"시흥시"},{"39":"안성시"},{"40":"양주시"},{"41":"용인시수지구"},{"42":"의왕시"},{"43":"파주시"}
+		]}
+	];
+
+
+	/*Sheet 기본 설정 */
+	function LoadPage() {
+		var cfg = {SearchMode:smLazyLoad,Page:50};
+		var headers = [
+			{Text:"상태|삭제|시도|시군구|지역등급|담당자|전화번호|비상전화번호", Align:"Center"}
+		];
+		var info = {Sort:1,ColMove:1,ColResize:1,HeaderCheck:0};
+		var cols = [
+			{Type:"Status",Width:60,Align:"Center",SaveName:"sStatus"},
+			{Type:"DelCheck",Width:60},
+			{Type:"Combo",Width:100,SaveName:"SIDO"},
+			{Type:"Combo",Width:100,SaveName:"SIGUNGU"},
+			{Type:"Int",Width:60,SaveName:"GRADE"},
+			{Type:"Text",Width:100,SaveName:"DAMDANG",Align:"Center"},
+			{Type:"Text",Width:100,SaveName:"TELNO",Format:"PhoneNo"},
+			{Type:"Text",Width:100,SaveName:"EMTELNO",Format:"PhoneNo"},
+		];
+		mySheet.SetConfig(cfg);
+		mySheet.InitHeaders(headers,info);
+		mySheet.InitColumns(cols);
+		
+		/*
+		//시트의 특정 컬럼을 관계형 콤보로 설정한다.
+		param List: 
+			sheet:시트 객체
+			comboCols : 관계 컬럼명  (구분자 "|" 로 연결한 colindex나 Savename)  ex)  "1|3|4", "1stComboCol|2ndComboCol"
+			data: 전체 콤보 데이터  json 형식
+			    ex)    {"code":"text",ITEM: [  
+			    									{"code1":"text1"}
+			    									,{"code2","text2",ITEM:[
+			    																	{"code3":"text3}]
+			    									 }
+			    								 ]
+			    		  }
+		*/
+		var param = {};
+		param.sheet = mySheet;
+		param.comboCols = "SIDO|SIGUNGU";
+		param.data = combodata;
+		setMultiCombo(param);
+		
+		
+//		//첫번째 콤보 컬럼에 대해서 아이템을 설정
+//		var ctext="",ccode="";
+//		for(var i in combodata){
+//			var key = Object.keys (combodata[i])[0];
+//			ctext += "|"+ key;
+//			ccode += "|"+combodata[i][key];
+//		}
+//		mySheet.SetColProperty(0,"SIDO",{"ComboText":ctext,"ComboCode":ccode});
+//
+//		//컬럼 너비 조정
+//		mySheet.FitColWidth();
+		doAction('search');
+		
+	}
+
+
+
+
+
+	function setMultiCombo(param){
+		var s = param.sheet;
+		var cols = [];
+		var d = 	param.data;
+		
+		
+		//파라미터 체크..
+		
+		//시트 객체 확인
+		if(!s || !s .IBSheetVersion){
+			alert("파라미터에 sheet 객체가 없거나 잘못된 ibsheet 객체 입니다.");
+			return;	
+		}
+		
+		//comboCols 확인
+		if(param.comboCols && typeof param.comboCols == "string"){
+			var tcols = (param.comboCols).split("|");
+			for(var i=0;i<tcols.length;i++){
+				if(	isNaN(tcols[i])){
+					cols.push(tcols[i]);
+				}else{
+					var saveName = ColSaveName(0,tcols[i]);
+					if(saveName==-1){
+						alert("[setMultiCombo]  comboCols 파라미터 값 중 없거나 존재하지 않는 컬럼이 있습니다.");
+						return;
+					}else{
+						cols.push(  saveName );
+					}
+				}
+			}
+		}else{
+			alert("[setMultiCombo]  comboCols 파라미터 값이 없거나 존재하지 않습니다.");
+			return;		
+		}
+		//컬럼 유형 확인
+		for(var i=0;i<cols.length;i++){
+			if( s.GetCellProperty(0, cols[i], "Type") != "Combo" && s.GetCellProperty(0, cols[i], "Type") != "ComboEdit"){
+				alert("[setMultiCombo]  comboCols 파라미터에서 지정한 컬럼이 Combo나 ComboEdit 타입이 아닙니다.");
+				return;		
+			}
+		}
+		
+		//data 확인
+		if(!d ||typeof d != "object" ){
+			alert("파라미터에 data 객체가 없거나  object(json) 객체가 아닙니다..");
+			return;	
+		}
+		
+		try{
+			           
+			 var dummyLoadData=null;
+			
+			 //OnLoadData 를 dummyLoadData에 담는다.
+			 if(typeof(window[s.id+"_OnLoadData"])!="undefined"){   
+			           if(typeof window[s.id+"_OnLoadData"] == "function"){
+			              dummyLoadData = window[s.id+"_OnLoadData"];
+			           } 
+			 }
+			 
+			//OnLoadData 오버라이드
+			 window[s.id+"_OnLoadData"] = function(dd){
+			 	
+			 	
+//			 	//넘어온 스트링을 객체로 변환.
+//				var list = new Function("return " + dd.replace(/^[^\<\{]*\{/, '{').replace(/\}[^\}]*$/, '}'));
+//				list = list();
+//				
+//				var li = list.Data();
+//				
+				
+//			 	for(var i=0;i<li.length;i++){
+//			 		for(var col=cols.length;col>0;col--){
+//			 			alert(li[cols[col]]);
+//			 		}	
+//			 	}
+			 	
+			 	
+			 
+				if(dummyLoadData){
+					dummyLoadData(dd); //기존에 정의한 OnLoadData구문을 동작시킨다.
+				}
+//				return dd;
+			}  
+
+
+
+
+
+		}catch(e){
+			alert(e);	
+		}
+		
+		
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+	/*Sheet 각종 처리*/
+	function doAction(sAction) {
+		switch(sAction) {
+			case "search": //데이터 조회
+				mySheet.DoSearch("./data/combo_data.json");
+				break;
+			case "insert":  //신규 행 추가
+				mySheet.DataInsert();
+				break;
+			case "save":  //저장
+				alert(mySheet.GetSaveString());
+				break;
+			case "reload": //조회 데이터 제거
+				mySheet.RemoveAll();
+				break;
+		}
+	}
+	
+	function mySheet_OnLoadData(Data){
+		
+	}
+	
+	
+//	function setSecondCombo(){
+//		//현재 선택된 행
+//		var srow = mySheet.GetSelectRow();
+//		
+//		var sido = mySheet.GetCellText(srow,"SIDO");
+//		var sigungu = mySheet.GetCellText(srow,"SIGUNGU");
+//		var status = mySheet.GetCellValue(srow,"sStatus");
+//		
+//		var ctext="",ccode="";
+//		//시도를 기준으로 시군구 콤보에 아이템을 넣는다.
+//		for(var i in combodata){
+//			var key = Object.keys (combodata[i])[0];
+//			if(key == sido){
+//				var itemArr =  combodata[i]["ITEM"] ;	
+//				for(var x in itemArr){
+//					var skey = Object.keys ( itemArr[x])[0];
+//					ctext += "|"+skey;
+//					ccode +="|"+	itemArr[x][skey];
+//				}
+//			}
+//		}
+//		mySheet.CellComboItem(srow,"SIGUNGU",{"ComboText":ctext,"ComboCode":ccode});
+//
+//		//원래 있던 데이터를 넣는다.
+//		if(sigungu!="") mySheet.SetCellText(srow,"SIGUNGU",sigungu);
+//
+//		//상태를 기존 상태로 돌린다.
+//		if(status=="R"){
+//			mySheet.SetCellValue(srow,"sStatus","R");
+//		}
+//		
+//		
+//	}
+//	function mySheet_OnChange(row,col,value){
+//		
+//		if(mySheet.ColSaveName(0,col)=="SIDO"){
+//			setSecondCombo();
+//		}
+//	}
+//
+//	function mySheet_OnSelectCell(row,col,nrow,ncol){
+//		if(row!=nrow){
+//			setSecondCombo();
+//		}
+//	}
+
+</script>
+
+<body onLoad="LoadPage()">
+        <div class="page_title">
+            <span><a class="closeDepth" href="#">closeDepth</a></span>
+            <span class="title">행열기능 > <b>대분류/중분류 콤보기능</b></span>
+        </div>
+                
+        <div class="main_content">
+            <div class="exp_product">
+                앞에 컬럼 콤보 내용에 따라 뒤에 콤보의 선택가능한 아이템이 변경되는 예제를 확인해 본다.
+            </div>
+        
+            <div class="ib_function float_right">
+                <a href="javascript:doAction('reload')" class="f1_btn_gray lightgray">초기화</a>
+                <a href="javascript:doAction('insert')" class="f1_btn_gray lightgray">추가</a>
+                <a href="javascript:doAction('search')" class="f1_btn_white gray">조회</a>
+                <a href="javascript:doAction('save')" class="f1_btn_white gray">저장</a>
+            </div>
+
+			<div class="clear hidden"></div>  
+            <!--
+            <div class="ib_function2 border_sheet">
+
+           </div>
+		-->
+			<p class="subtit_sheet">조회리스트</p>
+            <div class="ib_product">
+				<script type="text/javascript"> createIBSheet("mySheet", "100%", "100%"); </script>
+            </div>
+        </div>
+        <!--main_content-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+

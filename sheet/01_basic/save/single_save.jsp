@@ -1,0 +1,49 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="./biz/single_save.js"></script>
+		<title>IBSheet7-Product</title>
+	</head>
+	<body>
+		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div id="contents" class="workarea">
+			<div class="container">
+				<header class="wrap-mainheader">
+					<h4>기본기능 > 데이터저장 > <b>단일저장</b></h4>
+				</header>
+				<div class="wrap-maincontents">
+					<div class="content-annina">
+						<div class="entry-content">
+							<blockquote>저장 메서드 호출후 돌아오는 결과에 따른 IBSheet의 동작을 확인한다.</blockquote>
+						 </div>
+						<header class="area-subtitle"> 
+							<div class="fl">
+								<h5 class="title-a">조회결과</h5>
+							</div>
+							<div class="btn" style="float:right;">
+								<button class="btn-strong" onclick="doAction('reload')">초기화</button>
+								<button class="btn-strong" onclick="doAction('insert')">추가</button>
+								<button class="btn-strong" onclick="doAction('search')">조회</button>
+								<button class="btn-strong" onclick="doAction('save')">저장(성공)</button>
+								<button class="btn-strong" onclick="doAction('save_err')">저장(실패)</button>
+							</div>
+						</header>
+						<div class="clear hidden"></div>
+						<div class="area-panel"  style="height: calc(100% - 145px);">
+							<div class="panel-ch">
+								<div style="height:100%;">
+									<script type="text/javascript">createIBSheet("mySheet", "100%", "100%"); </script>
+								</div>
+							</div>
+						</div>
+					</div
+				</div><br/>
+			</div>
+			<%@ include file="/sheet/common/layout/footer_dataview.jsp" %>
+		</div>
+	</body>
+</html>

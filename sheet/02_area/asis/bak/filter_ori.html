@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<script type="text/javascript" src="../js/common.js"></script>
+<script language="javascript" src="../sheet/ibsheetinfo.js"></script>
+<script language="javascript" src="../sheet/ibsheet.js"></script>
+<title>IBSheet7-Product</title>
+</head>
+
+<script language="javascript">
+	//시트 높이 계산용
+	var pageheightoffset = 170;
+
+	/*Sheet 기본 설정 */
+	function LoadPage() {
+		//아이비시트 초기화
+		var initSheet = {};
+		initSheet.Cfg = {SearchMode:smLazyLoad,Page:30};
+		initSheet.Cols = [
+			{Header:"NO",Type:"Seq",Width:40 ,	SaveName:"SEQ",Align:"Center"   },
+			{Header:"차량명",Type:"Text",Width:165,	SaveName:"NAME"  },
+			{Header:"특징",Type:"Text",Width:155,SaveName:"SUBJECT"},
+			{Header:"연식",Type:"Int",Width:60,SaveName:"YEAR",Format:"####년",Align:"Center"},
+			{Header:"가격",Type:"Int",Width:70,SaveName:"PRICE",Format:"#,###만원",Align:"Center"},
+			{Header:"사용거리",Type:"Int",Width:70,	SaveName:"DISTANCE",Format:"#,##0Km",Align:"Center"},
+			{Header:"사고유무",Type:"Combo",Width:50,	SaveName:"ACCIDENT",ComboText:"무사고|사고",ComboCode:"0|1",Align:"Center"},
+			{Header:"판매자",Type:"Text",Width:55,	SaveName:"DEALER"	,Align:"Center"},
+			{Header:"등록일자",Type:"Date",Width:50,SaveName:"CDATE" ,Format:"Md",Align:"Center"},
+			{Header:"조회수",Type:"Int",Width:50,SaveName:"COUNT"}
+		];
+		IBS_InitSheet(mySheet, initSheet);
+ 		
+ 		//Filter 헤더 추가
+		mySheet.ShowFilterRow();  
+		
+		//건수 표시줄 제거
+		mySheet.SetCountPosition(0);
+		
+	}
+
+	/*Sheet 각종 처리*/
+	function doAction(sAction) {
+		switch(sAction) {
+		case "search": //조회
+			mySheet.DoSearch("./data/filter_data.json");
+			break;
+		case "reload": //조회 데이터 삭제
+			mySheet.RemoveAll();
+			break;
+		}
+	}
+
+</script>
+
+<body onload="LoadPage()">
+        <div class="page_title">
+            <span><a class="closeDepth" href="#">closeDepth</a></span>
+            <span class="title">헤더(Header)기능 > <b>필터(Filter)기능</b></span>
+        </div>
+                
+        <div class="main_content">
+            <div class="exp_product">
+                헤더 아래 필터행을 통해, 각 컬럼별로 필터링 된 데이터를 확인한다. 
+            </div>
+        
+            <div class="ib_function float_right">
+                <a href="javascript:doAction('reload')" class="f1_btn_gray lightgray">초기화</a>
+                <a href="javascript:doAction('search')" class="f1_btn_white gray">조회</a>
+            </div>
+            
+            <div class="clear hidden"></div>  
+
+			<p class="subtit_sheet">조회리스트</p>
+            <div class="ib_product">
+				<script type="text/javascript"> createIBSheet("mySheet", "100%", "100%"); </script>
+            </div>
+        </div>
+        <!--main_content-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+<html lang="ko-KR">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<!--[if lt IE 9]>
+		<script type='text/javascript' src='https://velopert.com/wp-content/themes/annina/js/html5shiv.min.js?ver=3.7.2'></script>
+		<![endif]-->
+		
+		<script type="text/javascript" src="../../js/common.js"></script>
+		
+		
+	</head>
+	<body class="post-template-default single single-post postid-3612 single-format-standard">
+	<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+	
+	<div id="contents" class="workarea">
+		<!-- Wrap : 메인 헤더 (S) -->
+		<header class="wrap-mainheader">
+			<h4>이벤트 > 기본 > <b>이벤트 사용 방법</b></h4>
+		</header>
+		<!-- Wrap : 메인 헤더 (E) -->
+		<div class="wrap-maincontents">
+			<div class="content-annina" style="box-shadow: 0 0px 0px;">
+				<div class="entry-content">
+					<blockquote><p>아이비시트에서는 사용자 동작별, 영역별, 기능별, 시점별로 다양한 이벤트를 제공하고있습니다.</p></blockquote>
+					
+					<h2>1. 사용방법</h2>
+					<p>생성된 시트객체의 변수명이 "mySheet"이고, OnClick이벤트를 선언하고자 한다면.</p>
+					<p>mySheet_OnClick과 같은 형태로 function객체를 만들어주시면 됩니다.</p>
+<pre>
+<code class="language-javascript">
+// 클릭 이벤트 추가
+function mySheet_OnClick(Row, Col, Value, CellX, CellY, CellW, CellH) {
+	//특정 열을 클릭했을 때 다른 페이지로 이동하도록 처리
+	if( mySheet.ColSaveName(Col) == "LINK_BUFF"){
+		location.href = "link.jsp?key=" + mySheet.GetCellValue(Row,"KFELD");
+	}
+}
+</code>
+</pre>
+				<h2>2. 기타</h2>
+				<p>※ 시트 객체가 생성되기 전에 function객체로 정의해야 합니다. 시트객체가 만들어진 이후에 동적으로 function객체를 추가할 경우에는 동작하지 않습니다. </p><br/>
+				<p>※ 이미 생성된 function객체는 재정의(Overriding)할 수 있습니다.</p><br/>
+				</div>
+			</div>
+		</div>
+		<%@ include file="/sheet/common/layout/footer.jsp" %>
+	</div>
+		
+		<script type="text/javascript">
+		(function($, window) {
+			var init_fn_flag = false;
+			var init_fn = (function() {
+				if (init_fn_flag)
+					return;
+				init_fn_flag = true;
+				 hljs.configure({"tabReplace":"    "});
+				$('pre code').each(function(i, block) {
+					hljs.highlightBlock(block);
+				});
+			});
+			$(document).ready(init_fn);
+			$(window).on("load", init_fn);
+		})(jQuery, window);
+		</script>
+	</body>
+</html>
