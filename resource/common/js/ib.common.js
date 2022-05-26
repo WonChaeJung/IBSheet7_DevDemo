@@ -1470,7 +1470,13 @@ var ib = ib || {};
                  * @param      {object}
                  */
                 makePageIndex: function(sheetid) {
-        			var current_page = document.getElementById(sheetid+"_current_page").value;
+
+        			var current_page = document.getElementById(sheetid+"_current_page");
+                    
+                    if(current_page != null && current_page != undefined){
+                        current_page = current_page.value;
+                    }
+
         			if(isNaN(current_page)){
         				current_page = 0;
         			}else{
