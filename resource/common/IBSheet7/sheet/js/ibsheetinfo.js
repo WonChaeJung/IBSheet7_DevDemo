@@ -77,6 +77,9 @@ function createIBSheet3(obj, sheetid, width, height, locale) {
 
 function eventOverride(id){
 
+    // GitGub 에서 Post 지원 안하는것 같음 405떨어짐..
+    window[id].SearchMethod = "Get";
+
 	//OnSearchEnd  오버라이드
     try{
         var dummySearchEnd=null;
@@ -658,7 +661,7 @@ function IBS_InitSheet(sheet, info) {
     sheet.InitHeaders(cInfo.Headers, cInfo.HeaderMode);
     sheet.InitColumns(cInfo.Cols, dataRows);
     
-    
+  
     
 }
 
