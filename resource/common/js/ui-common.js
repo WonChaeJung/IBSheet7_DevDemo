@@ -1472,7 +1472,7 @@ $(document).ready(function(){
 							Grids[0].Reset();
 							// sourceview 에서 sheet Reset하면 SearchMethod가 날아감
 							if(Grids[0].SearchMethod == '' || Grids[0].SearchMethod == undefined){
-								Grids[0].SearchMethod == 'GET';
+								Grids[0].SearchMethod = 'GET';
 							}
 						}
 						
