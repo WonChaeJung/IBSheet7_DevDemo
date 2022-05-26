@@ -1574,7 +1574,7 @@ $(document).ready(function(){
 			editor.setTheme("ace/theme/worker-xml");
 		 */
 		
-		editor.setTheme("ace/theme/javascript");
+		editor.setTheme("ace/theme/worker-javascript");
 		
 		// editor.setTheme("ace/theme/worker-javascript");
 		// editor.setTheme("ace/theme/textmate");
