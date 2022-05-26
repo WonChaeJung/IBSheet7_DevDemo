@@ -101,11 +101,11 @@
 			/* IB Sheet 7 Event */
 			function mySheet_OnSearchEnd() { //조회 후 call back 이벤트
 				console.log("OnSearchEnd");
-				makePageIndex(1,"mySheet");
+				ib.comm.makePageIndex(1,"mySheet");
 			}
 			
 			function mySheet_OnSort(Col,SortArrow){ //헤더 클릭시 소팅후 call back 이벤트
 				var nowPage = mySheet.GetCurrentPage();
-				makePageIndex(nowPage,"mySheet");	
+				ib.comm.makePageIndex(nowPage,"mySheet");	
 			}
 			
