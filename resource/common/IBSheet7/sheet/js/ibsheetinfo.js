@@ -661,8 +661,11 @@ function IBS_InitSheet(sheet, info) {
     sheet.InitHeaders(cInfo.Headers, cInfo.HeaderMode);
     sheet.InitColumns(cInfo.Cols, dataRows);
     
-  
-    
+
+    if(sheet.SearchMethod == ''){
+        sheet.SearchMethod == 'GET';
+    }
+      
 }
 
 /*------------------------------------------------------------------------------

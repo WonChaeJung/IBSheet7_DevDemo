@@ -1467,6 +1467,11 @@ $(document).ready(function(){
 						$().ibModal({ modalID:strId, show: false });
 						// console.log(window["_"+strId+"Editor"].getValue());
 						eval("window['LoadPage'] = window['_'+strId+'Editor'].getValue()");
+
+						if(Grids[0] != undefined){
+							Grids[0].Reset();
+						}
+						
 						eval(LoadPage);
 						eval(LoadPage());
 					}
@@ -1482,7 +1487,10 @@ $(document).ready(function(){
 					onClick: function () {
 						$().ibModal({ modalID:strId, show: false });
 						eval("window['jsonData'] = " + window["_"+strId+"Editor"].getValue());
-						mySheet.LoadSearchData(window["jsonData"]);
+						if(Grids[0] != undefined){
+							Grids[0].LoadSearchData(window["jsonData"]);
+						}
+
 					}
 				}
 				break;
