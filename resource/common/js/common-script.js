@@ -7,7 +7,9 @@ document.write(`<link rel="stylesheet" type="text/css" href="${basePath}/resourc
 document.write(`<link rel="stylesheet" type="text/css" href="${basePath}/resource/common/jquery/jquery-ui/jquery-ui.min.css" />`);
 document.write(`<link rel="stylesheet" type="text/css" href="${basePath}/resource/common/IBSheet7/tab/css/font-awesome.min.css" />`);
 document.write(`<link rel="stylesheet" type="text/css" href="${basePath}/resource/common/IBSheet7/tab/css/ibtab-style.css" />`);
-document.write(`<link rel="stylesheet" type="text/css" href="${basePath}/resource/common/css/font-awesome/font-awesome.min.css" />`);
+document.write(`<link rel="stylesheet" type="text/css" href="${basePath}/favicon.ico" />`);
+
+document.write(`<link rel="shortcut icon" href="${basePath}/resource/common/css/font-awesome/font-awesome.min.css" />`);
 document.write(`<script src="${basePath}/resource/common/jquery/js/jquery.1.12.4.js"></script>`);
 document.write(`<script src="${basePath}/resource/common/jquery/jquery-ui/jquery-ui.min.js"></script>`);
 document.write(`<script src="${basePath}/resource/common/jquery/js/jquery.blockUI.js"></script>`);
