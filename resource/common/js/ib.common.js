@@ -1472,9 +1472,11 @@ var ib = ib || {};
                 makePageIndex: function(sheetid) {
 
         			var current_page = document.getElementById(sheetid+"_current_page");
-                    
+
                     if(current_page != null && current_page != undefined){
                         current_page = current_page.value;
+                    }else{
+                        return false;
                     }
 
         			if(isNaN(current_page)){
