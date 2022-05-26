@@ -1576,7 +1576,7 @@ $(document).ready(function(){
 		// editor.setTheme("ace/theme/worker-javascript");
 		// editor.setTheme("ace/theme/textmate");
 		// editor.setTheme("ace/theme/chrome"); //*
-		editor.setTheme("ace/theme/twilight");
+		editor.setTheme("ace/theme/github");
 		editor.session.setMode("ace/mode/javascript");
 		
 		if(strId == "_CodeView"){
