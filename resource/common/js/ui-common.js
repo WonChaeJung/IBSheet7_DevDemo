@@ -1476,7 +1476,8 @@ $(document).ready(function(){
 							}
 						}
 						
-						eval(LoadPage).call(null);
+						eval(LoadPage);
+						eval(LoadPage());
 						
 					}
 				}
