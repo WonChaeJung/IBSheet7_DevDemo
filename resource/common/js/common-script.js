@@ -244,8 +244,8 @@ window.addEventListener('load', function() {
                                         leftMenu.comm.add(5,  1, '라이선스설명',						`fn_movePage("${basePath}/sheet/01_basic/intro", "license_desc")`, `${basePath}/sheet/01_basic/intro/license_desc.html`);
                                         leftMenu.comm.add(6,  2, '페이징조회',							`fn_movePage("${basePath}/sheet/01_basic/search", "client_paging")` ,`${basePath}/sheet/01_basic/search/client_paging.html`);
                                         leftMenu.comm.add(7,  2, '레이지로드(default)',					`fn_movePage("${basePath}/sheet/01_basic/search", "lazyload")` ,`${basePath}/sheet/01_basic/search/lazyload.html`);
-                                        leftMenu.comm.add(8,  2, '서버페이징방식',						`fn_movePage("${basePath}/sheet/01_basic/search", "server_paging")` ,`${basePath}/sheet/01_basic/search/server_paging.html`);
-                                        leftMenu.comm.add(9,  2, '서버페이징방식2',						`fn_movePage("${basePath}/sheet/01_basic/search", "server_paging2")` ,`${basePath}/sheet/01_basic/search/server_paging2.html`);
+                                        // leftMenu.comm.add(8,  2, '서버페이징방식',						`fn_movePage("${basePath}/sheet/01_basic/search", "server_paging")` ,`${basePath}/sheet/01_basic/search/server_paging.html`);
+                                        // leftMenu.comm.add(9,  2, '서버페이징방식2',						`fn_movePage("${basePath}/sheet/01_basic/search", "server_paging2")` ,`${basePath}/sheet/01_basic/search/server_paging2.html`);
                                         leftMenu.comm.add(10, 2, '기타(스크롤)',						`fn_movePage("${basePath}/sheet/01_basic/search", "etc")` ,`${basePath}/sheet/01_basic/search/etc.html`);
                                         leftMenu.comm.add(11, 3, '트랜잭션관리',						`fn_movePage("${basePath}/sheet/01_basic/save", "transaction")` ,`${basePath}/sheet/01_basic/save/transaction.html`);
                                         leftMenu.comm.add(12, 3, '단일저장',							`fn_movePage("${basePath}/sheet/01_basic/save", "single_save")` ,`${basePath}/sheet/01_basic/save/single_save.html`);
