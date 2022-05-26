@@ -352,6 +352,33 @@ window.addEventListener('load', function() {
                         }
                         leftMenu.comm.insertItem(group);
                     }
+
+
+                    // sidebar scroll
+                    (function(){
+                        isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+                        //if (isWindows && !$('body').hasClass('sidebar-mini')){
+                            // $('.sidebar .sidebar-wrapper').perfectScrollbar();
+                            // $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar({wheelPropagation: 1});
+                            // $('html').addClass('perfect-scrollbar-on');
+                        //} else {
+                            // $('html').addClass('perfect-scrollbar-off');
+                        //}
+                    })();
+
+                    // source view
+                    
+                    $("#footerCodeView").click(function(){
+                        initModal("CodeView");
+                        initEdit("_CodeView");
+                    })
+                    
+                    $("#footerDataView").click(function(){
+                        initModal("DataView");
+                        initEdit("_DataView");
+                    })
+                
+
                 }
             };
             xhttp.open('GET', includePath, true);
