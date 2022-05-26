@@ -367,7 +367,6 @@ window.addEventListener('load', function() {
                     })();
 
                     // source view
-                    
                     $("#footerCodeView").click(function(){
                         initModal("CodeView");
                         initEdit("_CodeView");
@@ -377,8 +376,8 @@ window.addEventListener('load', function() {
                         initModal("DataView");
                         initEdit("_DataView");
                     })
-                
 
+                    $("p.copyright").prepend(new Date().getFullYear());
                 }
             };
             xhttp.open('GET', includePath, true);
