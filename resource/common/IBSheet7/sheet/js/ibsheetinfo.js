@@ -660,12 +660,6 @@ function IBS_InitSheet(sheet, info) {
     sheet.SetConfig(cInfo.Cfg);
     sheet.InitHeaders(cInfo.Headers, cInfo.HeaderMode);
     sheet.InitColumns(cInfo.Cols, dataRows);
-    
-
-    // sourceview 에서 sheet Reset하면 SearchMethod가 날아감
-    if(sheet.SearchMethod == '' || sheet.SearchMethod == undefined){
-        sheet.SearchMethod == 'GET';
-    }
       
 }
 

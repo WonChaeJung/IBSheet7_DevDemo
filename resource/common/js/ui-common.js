@@ -1470,10 +1470,14 @@ $(document).ready(function(){
 
 						if(Grids[0] != undefined){
 							Grids[0].Reset();
+							// sourceview 에서 sheet Reset하면 SearchMethod가 날아감
+							if(Grids[0].SearchMethod == '' || Grids[0].SearchMethod == undefined){
+								Grids[0].SearchMethod == 'GET';
+							}
 						}
 						
-						eval(LoadPage);
-						eval(LoadPage());
+						eval(LoadPage).call(null);
+						
 					}
 				}
 				break;
