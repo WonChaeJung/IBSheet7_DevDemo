@@ -1,3 +1,29 @@
+// sidebar scroll
+(function(){
+	isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+	//if (isWindows && !$('body').hasClass('sidebar-mini')){
+		// $('.sidebar .sidebar-wrapper').perfectScrollbar();
+		// $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar({wheelPropagation: 1});
+		// $('html').addClass('perfect-scrollbar-on');
+	//} else {
+		// $('html').addClass('perfect-scrollbar-off');
+	//}
+})();
+
+// source view
+$(document).ready(function(){
+	$("#footerCodeView").click(function(){
+		initModal("CodeView");
+		initEdit("_CodeView");
+	})
+	
+	$("#footerDataView").click(function(){
+		initModal("DataView");
+		initEdit("_DataView");
+	})
+})
+
+
 // Global Functions(전역 함수)
 
 //popup position 조정
