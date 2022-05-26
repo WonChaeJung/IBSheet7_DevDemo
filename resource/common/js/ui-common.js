@@ -1551,7 +1551,7 @@ $(document).ready(function(){
 			editor.setTheme("ace/theme/mono_industrial");
 			editor.setTheme("ace/theme/monokai");
 			editor.setTheme("ace/theme/pastel_on_dark");
-			editor.setTheme("ace/theme/solarized_dark");
+			editor.setTheme("ace/theme/solarized_dark");Fsety
 			editor.setTheme("ace/theme/solarized_light");
 			editor.setTheme("ace/theme/sqlserver");
 			editor.setTheme("ace/theme/terminal");
@@ -1574,12 +1574,12 @@ $(document).ready(function(){
 			editor.setTheme("ace/theme/worker-xml");
 		 */
 		
-		editor.setTheme("ace/theme/worker-javascript");
+		editor.setTheme("ace/theme/javascript");
 		
 		// editor.setTheme("ace/theme/worker-javascript");
 		// editor.setTheme("ace/theme/textmate");
 		// editor.setTheme("ace/theme/chrome"); //*
-		
+		editor.setTheme("ace/theme/twilight");
 		editor.session.setMode("ace/mode/javascript");
 		
 		if(strId == "_CodeView"){
