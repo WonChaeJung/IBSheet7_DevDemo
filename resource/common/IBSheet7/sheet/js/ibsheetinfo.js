@@ -97,13 +97,6 @@ function eventOverride(id){
             }
         }
 
-        var oldfnRenderSheet = window[id].RenderSheet;
-        console.log(id);
-        window[id].RenderSheet = function(){
-            oldfnRenderSheet();
-            window[id].SearchMethod = "Get";
-        }
-
     }catch(e){}
     
     //OnSaveEnd 오버라이드
@@ -669,6 +662,14 @@ function IBS_InitSheet(sheet, info) {
     sheet.InitHeaders(cInfo.Headers, cInfo.HeaderMode);
     sheet.InitColumns(cInfo.Cols, dataRows);
       
+
+
+    var oldfnRenderSheet = sheet.RenderSheet;
+    sheet.RenderSheet = function(){
+        oldfnRenderSheet();
+        sheet.SearchMethod = "Get";
+    }
+
 }
 
 /*------------------------------------------------------------------------------
