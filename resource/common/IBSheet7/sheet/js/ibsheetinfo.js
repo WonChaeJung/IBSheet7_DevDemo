@@ -98,6 +98,7 @@ function eventOverride(id){
         }
 
         var oldfnRenderSheet = window[id].RenderSheet;
+        console.log(id);
         window[id].RenderSheet = function(){
             oldfnRenderSheet();
             window[id].SearchMethod = "Get";
