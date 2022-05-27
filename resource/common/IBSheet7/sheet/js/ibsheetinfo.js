@@ -121,7 +121,7 @@ function eventOverride(id){
     var oldfnReset = window[id].Reset;
     window[id].Reset = function(){
         oldfnReset();
-        window[id].SearchMethod = "Get";
+        this.SearchMethod = "Get";
     }
 
 
