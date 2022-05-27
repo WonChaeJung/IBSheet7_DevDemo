@@ -129,7 +129,7 @@ window.addEventListener('load', function() {
                                     var menu_li = document.querySelectorAll('#navigation')[0].querySelectorAll('li');
                                     
                                     for( var i=0; i < menu_li.length; i++){
-                                        console.log(menu_li[i].classList.length, menu_li[i].classList[0], menu_li[i].classList[1]);
+                                        // console.log(menu_li[i].classList.length, menu_li[i].classList[0], menu_li[i].classList[1]);
                                         //ch on 위치 찾아가기
                                         //console.log(menu_li[i].classList.length );
                                         if(menu_li[i].classList.length == 1){
@@ -217,7 +217,7 @@ window.addEventListener('load', function() {
                                         
                                         var classTag = "";
                                         
-                                        console.log(forwardUrl.substr(0, forwardUrl.lastIndexOf(".html")+5), url);
+                                        // console.log(forwardUrl.substr(0, forwardUrl.lastIndexOf(".html")+5), url);
 
                                         if(forwardUrl.substr(0, forwardUrl.lastIndexOf(".html")+5) == url && url != ""){
                                             classTag = "on";
