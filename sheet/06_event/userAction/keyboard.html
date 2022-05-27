@@ -1,14 +1,13 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="/IBSheet7_DevDemo/resource/common/js/common-script.js"></script>
 		<script type="text/javascript" src="./biz/keyboard.js"></script>
 	</head>
 	<body>
-		<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
+		<div data-include-path="/IBSheet7_DevDemo/sheet/common/layout/leftMenu.html"></div>
 		<div id="contents" class="workarea">
 			<dizzzv class="container">
 				<!-- Wrap : 메인 헤더 (S) -->
@@ -69,7 +68,7 @@
 						</div>
 					</div>
 				</div>
-				<%@ include file="/sheet/common/layout/footer.jsp" %>
+				<div data-include-path="/IBSheet7_DevDemo/sheet/common/layout/footer.html"></div>
 			</div>
 		</div>
 		

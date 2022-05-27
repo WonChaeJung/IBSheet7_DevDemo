@@ -1,22 +1,17 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="/sheet/common/layout/common-doctype-taglib.jspf"%>
+﻿<!DOCTYPE html>
 <html lang="ko-KR">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<%@ include file="/sheet/common/layout/common-script.jsp"%>
+		<script type="text/javascript" src="/IBSheet7_DevDemo/resource/common/js/common-script.js"></script>
 		<!--[if lt IE 9]>
 		<script type='text/javascript' src='https://velopert.com/wp-content/themes/annina/js/html5shiv.min.js?ver=3.7.2'></script>
 		<![endif]-->
-		
-		<script type="text/javascript" src="../../js/common.js"></script>
-		
-		
+		<script type="text/javascript" src="../../js/common.js"></script>	
 	</head>
 	<body class="post-template-default single single-post postid-3612 single-format-standard">
-	<%@ include file="/sheet/common/layout/leftMenu.jsp" %>
-	
+	<div data-include-path="/IBSheet7_DevDemo/sheet/common/layout/leftMenu.html"></div>
 	<div id="contents" class="workarea">
 		<!-- Wrap : 메인 헤더 (S) -->
 		<header class="wrap-mainheader">
@@ -48,7 +43,7 @@ function mySheet_OnClick(Row, Col, Value, CellX, CellY, CellW, CellH) {
 				</div>
 			</div>
 		</div>
-		<%@ include file="/sheet/common/layout/footer.jsp" %>
+		<div data-include-path="/IBSheet7_DevDemo/sheet/common/layout/footer.html"></div>
 	</div>
 		
 		<script type="text/javascript">
