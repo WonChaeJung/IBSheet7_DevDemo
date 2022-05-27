@@ -59,8 +59,9 @@
 					return;
 				}
 				alert("[Save Query String]\nparam1:\n"+param1+"\nparam2:\n"+param2);
-				var rtnData = mySheet.GetSaveData("./biz/save.jsp",param1+param2);
-				
+				// var rtnData = mySheet.GetSaveData("./biz/save.jsp",param1+param2);
+				var rtnData = mySheet.GetSaveData("./biz/saveSuccess.txt",param1+param2);
+								
 				//각시트에 저장 결과 반영
 				mySheet.LoadSaveData(rtnData);
 				mySheet2.LoadSaveData(rtnData);
