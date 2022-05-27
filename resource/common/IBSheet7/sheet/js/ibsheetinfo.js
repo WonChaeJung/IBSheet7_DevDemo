@@ -96,6 +96,13 @@ function eventOverride(id){
                 dummySearchEnd(code,msg,StCode, StMsg); //화면에서 정의한 OnSearchEnd구문을 동작시킨다.
             }
         }
+
+        var oldfnRenderSheet = window[id].RenderSheet;
+        window[id].RenderSheet = function(){
+            oldfnRenderSheet();
+            window[id].SearchMethod = "Get";
+        }
+
     }catch(e){}
     
     //OnSaveEnd 오버라이드
