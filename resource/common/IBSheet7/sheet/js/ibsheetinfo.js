@@ -117,6 +117,13 @@ function eventOverride(id){
         }
     }catch(e){}
 
+    
+    var oldfnReset = sheet.Reset;
+    sheet.Reset = function(){
+        oldfnReset();
+        sheet.SearchMethod = "Get";
+    }
+
 
 
 }
@@ -661,14 +668,6 @@ function IBS_InitSheet(sheet, info) {
     sheet.SetConfig(cInfo.Cfg);
     sheet.InitHeaders(cInfo.Headers, cInfo.HeaderMode);
     sheet.InitColumns(cInfo.Cols, dataRows);
-      
-
-
-    var oldfnRenderSheet = sheet.RenderSheet;
-    sheet.RenderSheet = function(){
-        oldfnRenderSheet();
-        sheet.SearchMethod = "Get";
-    }
 
 }
 
