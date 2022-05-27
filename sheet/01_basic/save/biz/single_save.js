@@ -52,7 +52,7 @@ function doAction(sAction) {
 			mySheet.DoSave("./biz/saveSuccess.txt");
 			break;
 		case "save_err":
-			mySheet.DoSave("./biz/saveErr.jsp");
+			mySheet.DoSave("./biz/saveError.txt");
 			break;
 		case "insert":
 			mySheet.DataInsert();
