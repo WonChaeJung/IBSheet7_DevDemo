@@ -118,8 +118,9 @@ function eventOverride(id){
     }catch(e){}
 
     
-    var oldfnReset = window[id].Reset;
-    window[id].Reset = function(){
+    // var oldfnReset = window[id].Reset;
+    var oldfnReset = mySheet.Reset;
+    mySheet.Reset = function(){
         oldfnReset();
         mySheet.SearchMethod = "Get";
     }
