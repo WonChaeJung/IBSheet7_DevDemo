@@ -49,7 +49,7 @@ function doAction(sAction) {
 			break;
 		case "save":
 			//mySheet.DoSave("save.jsp", {Quest : 0});
-			mySheet.DoSave("./biz/saveSuccess");
+			mySheet.DoSave("./biz/saveSuccess.txt");
 			break;
 		case "save_err":
 			mySheet.DoSave("./biz/saveErr.jsp");
