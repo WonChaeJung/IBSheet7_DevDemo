@@ -117,15 +117,14 @@ function eventOverride(id){
         }
     }catch(e){}
 
-    
-    // var oldfnReset = window[id].Reset;
-    var oldfnReset = mySheet.Reset;
-    mySheet.Reset = function(){
-        oldfnReset();
+    var oldfnReset = window[id].Reset;
+
+    window[id].Reset = function(){
+        if(window[id].MainTag != undefined){
+            oldfnReset();
+        }
         mySheet.SearchMethod = "Get";
     }
-
-
 
 }
 
