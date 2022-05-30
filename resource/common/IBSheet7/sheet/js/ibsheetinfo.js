@@ -121,8 +121,6 @@ function eventOverride(id){
 
     window[id].Reset = function(){
         if(window[id].MainTag["id"] != undefined){
-            console.log(id);
-            console.log(window[id].MainTag["id"]);
             window[id].oldfnReset();
         }
         mySheet.SearchMethod = "Get";
