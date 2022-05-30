@@ -109,7 +109,7 @@ $(document).ready(function(){
 		//대분류 컬럼 변경시 중분류 컬럼의 값을 변경한다.
 		if(mySheet.ColSaveName(col)=="combo_1st"){
 			// var info = mySheet.GetSearchData("./biz/ComboFilter_data.jsp", "combo_1st="+mySheet.GetCellValue(row,"combo_1st"));
-			var info = getComboDatamySheet.GetCellValue(row,"combo_1st"));
+			var info = getComboData(mySheet.GetCellValue(row,"combo_1st"));
 			//IE9이상에서 정상 동작하고 구 브라우져인 경우에는 json.org 에서 배포하는 json2.js 파일을 링크걸어야 합니다.
 			var j = JSON.parse(info);
 			mySheet.CellComboItem(row,"combo_2nd",j);
