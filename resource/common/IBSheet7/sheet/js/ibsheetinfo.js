@@ -116,19 +116,6 @@ function eventOverride(id){
             }
         }
     }catch(e){}
-
-    window[id]['oldfnReset'] = window[id].Reset;
-
-    window[id].Reset = function(){
-        if(window[id].MainTag["id"] != undefined){
-            window[id].oldfnReset();
-        }
-        window[id].SearchMethod = "Get";
-    }
-
-    console.log('##### ');
-    console.log(window[id].Reset);
-    
 }
 
 
@@ -672,6 +659,22 @@ function IBS_InitSheet(sheet, info) {
     sheet.InitHeaders(cInfo.Headers, cInfo.HeaderMode);
     sheet.InitColumns(cInfo.Cols, dataRows);
 
+    /*
+    window[id]['oldfnReset'] = window[id].Reset;
+
+    window[id].Reset = function(){
+        if(window[id].MainTag["id"] != undefined){
+            window[id].oldfnReset();
+        }
+        window[id].SearchMethod = "Get";
+    }
+
+    console.log('##### ');
+    console.log(window[id].Reset);
+    */
+
+    sheet.SearchMethod = 'Get';
+    
 }
 
 /*------------------------------------------------------------------------------
