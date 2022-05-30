@@ -126,6 +126,9 @@ function eventOverride(id){
         window[id].SearchMethod = "Get";
     }
 
+    console.log('##### ');
+    console.log(window[id].Reset);
+    
 }
 
 
