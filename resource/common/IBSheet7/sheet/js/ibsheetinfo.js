@@ -123,7 +123,7 @@ function eventOverride(id){
         if(window[id].MainTag["id"] != undefined){
             window[id].oldfnReset();
         }
-        mySheet.SearchMethod = "Get";
+        window[id].SearchMethod = "Get";
     }
 
 }
