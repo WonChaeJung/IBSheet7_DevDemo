@@ -117,13 +117,13 @@ function eventOverride(id){
         }
     }catch(e){}
 
-    var oldfnReset = window[id].Reset;
+    window[id]['oldfnReset'] = window[id].Reset;
 
     window[id].Reset = function(){
         if(window[id].MainTag["id"] != undefined){
             console.log(id);
             console.log(window[id].MainTag["id"]);
-            oldfnReset();
+            window[id].oldfnReset();
         }
         mySheet.SearchMethod = "Get";
     }
