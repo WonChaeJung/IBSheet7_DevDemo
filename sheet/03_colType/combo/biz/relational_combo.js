@@ -55,36 +55,28 @@ $(document).ready(function(){
 		doAction("search");
 	
 	}
-
-	function errTest1(){
-		try{
-			// 에러 발생
-			throw new Error("Error1");
-		}catch(e){
-			// 예외에 대한 처리
-			alert(e.message);
+	
+	function getComboData(key){
+		switch (key) {
+			case '':
+				json = "{\"ComboText\":\"\",\"ComboCode\":\"\"}";
+				break;
+			case 'AA':
+				json = "{\"ComboText\":\"사자|코끼리|하마|염소\",\"ComboCode\":\"01|02|03|04\"}";
+				break;
+			case 'BB':
+				json = "{\"ComboText\":\"나무|풀|꽃|버섯\",\"ComboCode\":\"01|02|03|04\"}";
+				break;
+			case 'BB':
+				json = "{\"ComboText\":\"나무|풀|꽃|버섯\",\"ComboCode\":\"01|02|03|04\"}";
+				break;
+			default:
+				json = "{\"ComboText\":\"사과|수박|배|앵두\",\"ComboCode\":\"01|02|03|04\"}";
+				break;
 		}
+		return json;
 	}
-	
-	function errTest2(bType){
-		return new Promise(function(resolve, reject) {
-			if(bType){
-				resolve("complate")
-			}else{
-				throw new Error("Error2");
-			}
-		})
-	}
-	
-	function promiseTest(args){
-		errTest2(args).then(function(a){
-			console.log(a);
-		}, function(a){
-			console.log(a);
-		})
-	}
-	
-	
+
 	//행을 선택시 잽싸게 중분류에 들어갈 값을 가져다 세팅한다.
 	function mySheet_OnSelectCell(or,oc,nr,nc){
 
@@ -96,7 +88,8 @@ $(document).ready(function(){
 					//중분류의 code 값을 확인
 					var status = mySheet.GetCellValue(nr,"sStatus");
 					var v = mySheet.GetCellText(nr,"combo_2nd");
-					var info = mySheet.GetSearchData("./biz/ComboFilter_data.jsp","combo_1st="+mySheet.GetCellValue(nr,"combo_1st"));
+					// var info = mySheet.GetSearchData("./biz/ComboFilter_data.jsp", "combo_1st="+mySheet.GetCellValue(nr,"combo_1st"));
+					var info = getComboData(mySheet.GetCellValue(nr, "combo_1st"));
 					var j = JSON.parse(info);
 					mySheet.CellComboItem(nr,"combo_2nd",j);
 					
@@ -115,8 +108,8 @@ $(document).ready(function(){
 	function mySheet_OnChange(row,col,value){
 		//대분류 컬럼 변경시 중분류 컬럼의 값을 변경한다.
 		if(mySheet.ColSaveName(col)=="combo_1st"){
-			var info = mySheet.GetSearchData("./biz/ComboFilter_data.jsp", "combo_1st="+mySheet.GetCellValue(row,"combo_1st"));
-			
+			// var info = mySheet.GetSearchData("./biz/ComboFilter_data.jsp", "combo_1st="+mySheet.GetCellValue(row,"combo_1st"));
+			var info = getComboDatamySheet.GetCellValue(row,"combo_1st"));
 			//IE9이상에서 정상 동작하고 구 브라우져인 경우에는 json.org 에서 배포하는 json2.js 파일을 링크걸어야 합니다.
 			var j = JSON.parse(info);
 			mySheet.CellComboItem(row,"combo_2nd",j);
@@ -143,47 +136,6 @@ $(document).ready(function(){
 				mySheet.Down2Excel(param);
 				break;
 		}
-	}
-	
-	//Popup,PopupEdit 컬럼에 팝업 버튼 클릭시 호출 이벤트
-	function mySheet_OnPopupClick(Row,Col){
-		var v = mySheet.GetCellText(Row,"ISO");
-		document.getElementById("popupFrame").src="./popup.jsp?searchCondition="+encodeURIComponent(v);
-		//DIV 형태의 팝업창을 띄운다.
-		showAndHide(1);
-	}
-	
-	
-	//DIV 형태의 팝업창 
-	function showAndHide(flag){
-		if(flag){
-			//block이 있는지 확인
-			if($("#block").length==0){
-				//block 생성하기
-				$("<div/>", {
-				    id: "block",
-				   css:{position:"absolute",top:0,left:0,width:"100%",height:"100%","background-color":"#777777", opacity: "0.4",    filter: "alpha(opacity=40)"}
-				}).appendTo(document.body);
-			}else{ $("#block").show();}
-			
-			
-			//팝업이 나타날 위치 계산하기
-			//시트 안에서 해당 열의 left 값
-			var pleft =  ($(window).width()/2)-200;
-			//시트 안에서 해당 행의 top 값
-			var ptop =  ($(window).height()/2)-100;
-			$("#popupDiv").css("top",ptop).css("left",pleft);
-			$("#popupDiv").show();
-		}else{
-			//감춘다.
-			$("#block").hide();
-			$("#popupDiv").hide();
-		}
-	}
-	//DIV팝업으로 부터 받은 내용을 시트에 반영한다.
-	function setData(rowData){
-		mySheet.SetRowData(  mySheet.GetSelectRow(),  rowData);
-		
 	}
 
 function doAction(sAction) {

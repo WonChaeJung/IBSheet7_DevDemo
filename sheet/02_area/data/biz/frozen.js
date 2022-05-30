@@ -45,6 +45,9 @@ function LoadPage() {
 
 function doAction(sAction) {
 	switch(sAction) {
+		case "reload" : {
+			LoadPage();
+		}
 		case "search" : {
 			mySheet.DoSearch("./data/getdata_data.js");
 			break;

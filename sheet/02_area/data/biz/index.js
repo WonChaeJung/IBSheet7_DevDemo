@@ -51,7 +51,6 @@ function LoadPage(strId) {
 		objSht.SetCountPosition(4);
 		objSht.SetPagingPosition(1);
 		objSht.FitColWidth();
-		objSht.ShowGroupRow();
 		objSht.ShowFilterRow();
 	}
 	
